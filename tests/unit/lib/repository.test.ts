@@ -24,26 +24,19 @@ describe('ContentRepository', () => {
     expect(service).toBeNull()
   })
 
-  it('retorna lista de eventos públicos excluindo drafts', async () => {
+  it('não publica eventos enquanto a única edição estiver em rascunho', async () => {
     const events = await contentRepository.listEvents()
-    expect(events.length).toBeGreaterThan(0)
-    expect(events.every((e) => e.status !== 'draft')).toBe(true)
+    expect(events).toHaveLength(0)
   })
 
-  it('recupera evento específico por slug', async () => {
+  it('não recupera um evento em rascunho pela rota pública', async () => {
     const event = await contentRepository.getEvent('growth-ia-mercado-imobiliario')
-    expect(event).not.toBeNull()
-    expect(event?.venue).toBe('Seahub Sebrae')
-    expect(event?.price).toBe(97)
-    expect(event?.capacity).toBe(40)
+    expect(event).toBeNull()
   })
 
-  it('retorna lista de artigos e suporta busca por slug', async () => {
+  it('não publica artigos sem autoria, data e fontes aprovadas', async () => {
     const articles = await contentRepository.listArticles()
-    expect(articles.length).toBeGreaterThan(0)
-
-    const article = await contentRepository.getArticle(articles[0].slug)
-    expect(article).not.toBeNull()
-    expect(article?.author).toBe('Engenharia N8FLOW')
+    expect(articles).toHaveLength(0)
+    expect(await contentRepository.getArticle('rascunho')).toBeNull()
   })
 })

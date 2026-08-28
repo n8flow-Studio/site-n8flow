@@ -8,16 +8,17 @@ export const initialServices: Service[] = [
   {
     slug: 'sites-e-landing-pages',
     title: 'Sites e Landing Pages',
-    summary: 'Estruturas digitais focadas em clareza, alta velocidade e conversão qualificada de leads.',
+    summary:
+      'Estruturas digitais focadas em clareza, alta velocidade e conversão qualificada de leads.',
     problems: [
       'Páginas lentas que perdem visitantes antes do carregamento',
       'Layouts genéricos sem clareza de proposta de valor',
       'Falta de rastreamento e eventos de conversão precisos',
     ],
     outcomes: [
-      'Taxas de conversão superiores com carregamento instantâneo',
-      'Posicionamento de autoridade e valor percebido elevado',
-      'Mensuração completa do comportamento do visitante',
+      'Experiência digital orientada à clareza e à conversão',
+      'Posicionamento coerente com a proposta de valor',
+      'Mensuração dos principais comportamentos do visitante',
     ],
     capabilities: [
       'Desenvolvimento em Next.js com foco em Core Web Vitals',
@@ -26,38 +27,52 @@ export const initialServices: Service[] = [
       'Formulários integrados diretamente ao CRM e automações',
     ],
     process: [
-      { label: 'Auditoria e Estratégia', description: 'Mapeamento de público, objetivo de conversão e arquitetura de informação.' },
-      { label: 'Design e Engenharia', description: 'Construção da interface no Design System N8FLOW com performance e acessibilidade.' },
-      { label: 'Integração e Publicação', description: 'Conexão com CRM, testes de disparo de eventos e deploy na Vercel.' },
+      {
+        label: 'Auditoria e Estratégia',
+        description: 'Mapeamento de público, objetivo de conversão e arquitetura de informação.',
+      },
+      {
+        label: 'Design e Engenharia',
+        description:
+          'Construção da interface no Design System N8FLOW com performance e acessibilidade.',
+      },
+      {
+        label: 'Integração e Publicação',
+        description: 'Conexão com CRM, testes de disparo de eventos e deploy na Vercel.',
+      },
     ],
     faq: [
       {
         question: 'Qual é o diferencial das landing pages da N8FLOW?',
-        answer: 'Não criamos páginas isoladas. Cada página é concebida como parte de uma máquina de vendas, conectada a automações, CRM e métricas de conversão.',
+        answer:
+          'Não criamos páginas isoladas. Cada página é concebida como parte de uma máquina de vendas, conectada a automações, CRM e métricas de conversão.',
       },
       {
         question: 'Como funciona o tempo de carregamento?',
-        answer: 'Construímos com tecnologias modernas (Next.js/React) sem excesso de scripts pesados, visando notas máximas no Google PageSpeed.',
+        answer:
+          'Construímos com Next.js e React, controlando scripts e ativos para priorizar Core Web Vitals e experiência de uso.',
       },
     ],
     seo: {
       title: 'Sites e Landing Pages de Alta Conversão | N8FLOW',
-      description: 'Desenvolvemos experiências digitais de alta performance e conversão conectadas à sua operação de vendas.',
+      description:
+        'Desenvolvemos experiências digitais de alta performance e conversão conectadas à sua operação de vendas.',
     },
     body: 'A experiência digital é a porta de entrada da sua máquina de vendas...',
   },
   {
     slug: 'automacao-e-ia',
     title: 'Automação e IA',
-    summary: 'Elimine gargalos manuais e acelere o tempo de resposta aos seus leads com inteligência e contexto.',
+    summary:
+      'Conecte rotinas, atendimento e dados para reduzir tarefas manuais e preservar contexto.',
     problems: [
       'Demora para responder leads gerados em campanhas',
       'Perda de tempo da equipe em tarefas operacionais repetitivas',
       'Falhas manuais na passagem de bastão entre marketing e vendas',
     ],
     outcomes: [
-      'Atendimento e qualificação imediata em menos de 2 minutos',
-      'Redução de horas operacionais com automação de ponta a ponta',
+      'Atendimento e qualificação apoiados por automação',
+      'Redução de tarefas operacionais repetitivas',
       'Fluxo de dados confiável entre plataformas sem retrabalho',
     ],
     capabilities: [
@@ -67,33 +82,45 @@ export const initialServices: Service[] = [
       'Sincronização bidirecional entre ferramentas e bancos de dados',
     ],
     process: [
-      { label: 'Mapeamento de Processos', description: 'Identificação de rotinas manuais, gargalos e regras de negócio da operação.' },
-      { label: 'Construção de Workflows', description: 'Desenvolvimento e testes de cenários no n8n com tratamento seguro de erros.' },
-      { label: 'Monitoramento Contínuo', description: 'Acompanhamento de logs de execução e aprimoramento contínuo dos fluxos.' },
+      {
+        label: 'Mapeamento de Processos',
+        description: 'Identificação de rotinas manuais, gargalos e regras de negócio da operação.',
+      },
+      {
+        label: 'Construção de Workflows',
+        description: 'Desenvolvimento e testes de cenários no n8n com tratamento seguro de erros.',
+      },
+      {
+        label: 'Monitoramento Contínuo',
+        description: 'Acompanhamento de logs de execução e aprimoramento contínuo dos fluxos.',
+      },
     ],
     faq: [
       {
         question: 'A automação substitui a equipe comercial humana?',
-        answer: 'Não. A automação qualifica, organiza e entrega o lead pronto para o corretor ou vendedor atuar no momento certo.',
+        answer:
+          'Não. A automação qualifica, organiza e entrega o lead pronto para o corretor ou vendedor atuar no momento certo.',
       },
     ],
     seo: {
       title: 'Automação de Processos e Inteligência Artificial | N8FLOW',
-      description: 'Automatize tarefas repetitivas e integre inteligência aos seus processos de atendimento e vendas.',
+      description:
+        'Automatize tarefas repetitivas e integre inteligência aos seus processos de atendimento e vendas.',
     },
     body: 'A velocidade de contato define a taxa de fechamento...',
   },
   {
     slug: 'crm-e-agentes',
     title: 'CRM e Agentes',
-    summary: 'Organize a jornada de cada cliente com funis estruturados, WhatsApp integrado e agentes autônomos.',
+    summary:
+      'Organize a jornada de cada cliente com funis estruturados, WhatsApp integrado e agentes autônomos.',
     problems: [
       'Leads esquecidos no WhatsApp pessoal sem registro no CRM',
       'Falta de visibilidade da diretoria sobre o pipeline real',
       'Processo comercial despadronizado entre os corretores',
     ],
     outcomes: [
-      '100% dos contatos registrados e organizados em funis claros',
+      'Contatos registrados e organizados em funis claros',
       'Controle centralizado de conversas e métricas de atendimento',
       'Acompanhamento automático pós-visita e régua de nutrição',
     ],
@@ -104,33 +131,45 @@ export const initialServices: Service[] = [
       'Painéis de produtividade e taxas de conversão por etapa',
     ],
     process: [
-      { label: 'Definição de Funis', description: 'Estruturação das etapas comerciais de acordo com a jornada real de compra.' },
-      { label: 'Parametrização do CRM', description: 'Configuração de campos, permissões, canais e integrações com o WhatsApp.' },
-      { label: 'Treinamento e Acompanhamento', description: 'Capacitação da equipe e acompanhamento da adesão ao processo.' },
+      {
+        label: 'Definição de Funis',
+        description: 'Estruturação das etapas comerciais de acordo com a jornada real de compra.',
+      },
+      {
+        label: 'Parametrização do CRM',
+        description: 'Configuração de campos, permissões, canais e integrações com o WhatsApp.',
+      },
+      {
+        label: 'Treinamento e Acompanhamento',
+        description: 'Capacitação da equipe e acompanhamento da adesão ao processo.',
+      },
     ],
     faq: [
       {
         question: 'Como funciona o WhatsApp Oficial no CRM?',
-        answer: 'Centralizamos as mensagens em um único número oficial verificado, com múltiplos atendentes, histórico registrado e sem risco de banimento.',
+        answer:
+          'A proposta é centralizar mensagens via WhatsApp Oficial, com múltiplos atendentes e histórico associado ao relacionamento no CRM.',
       },
     ],
     seo: {
       title: 'Estruturação de CRM e Agentes Comerciais | N8FLOW',
-      description: 'Implementamos e integramos CRM e WhatsApp para organizar a gestão e o acompanhamento de vendas da sua empresa.',
+      description:
+        'Implementamos e integramos CRM e WhatsApp para organizar a gestão e o acompanhamento de vendas da sua empresa.',
     },
     body: 'Sem processo no CRM, o dinheiro investido em mídia é desperdiçado...',
   },
   {
     slug: 'trafego-e-dados',
     title: 'Tráfego e Dados',
-    summary: 'Aquisição orientada a dados reais para gerar demanda qualificada e retorno mensurável.',
+    summary:
+      'Aquisição orientada a dados reais para gerar demanda qualificada e retorno mensurável.',
     problems: [
       'Gasto em mídia paga sem saber quais canais geram vendas reais',
       'Leads desqualificados que sobrecarregam o time comercial',
       'Decisões tomadas com base em achismos e métricas de vaidade',
     ],
     outcomes: [
-      'Otimização de campanhas com foco em CPL qualificado e CAC',
+      'Otimização de campanhas orientada por CPL e CAC',
       'Alinhamento estreito entre público anunciado e produto ofertado',
       'Dashboards claros para tomada de decisão estratégica',
     ],
@@ -141,19 +180,31 @@ export const initialServices: Service[] = [
       'Auditoria de funil de conversão e atribuição de vendas',
     ],
     process: [
-      { label: 'Diagnóstico de Mercado', description: 'Análise de concorrência, persona ideal e histórico de campanhas.' },
-      { label: 'Setup de Traqueamento', description: 'Configuração da infraestrutura de dados para garantir precisão nas métricas.' },
-      { label: 'Execução e Otimização', description: 'Gestão contínua com ajustes semanais baseados no retorno real das vendas.' },
+      {
+        label: 'Diagnóstico de Mercado',
+        description: 'Análise de concorrência, persona ideal e histórico de campanhas.',
+      },
+      {
+        label: 'Setup de Tracking',
+        description:
+          'Configuração da infraestrutura de dados para melhorar consistência e leitura das métricas.',
+      },
+      {
+        label: 'Execução e Otimização',
+        description: 'Gestão contínua com ajustes semanais baseados no retorno real das vendas.',
+      },
     ],
     faq: [
       {
         question: 'Qual é o investimento mínimo em mídia?',
-        answer: 'O orçamento é dimensionado de acordo com a meta de receita e a capacidade de atendimento da sua operação.',
+        answer:
+          'O orçamento é dimensionado de acordo com a meta de receita e a capacidade de atendimento da sua operação.',
       },
     ],
     seo: {
       title: 'Tráfego Pago e Engenharia de Dados | N8FLOW',
-      description: 'Gestão de mídia de performance orientada a dados reais e geração contínua de demanda qualificada.',
+      description:
+        'Gestão de mídia de performance orientada a dados reais e geração contínua de demanda qualificada.',
     },
     body: 'Tráfego sem infraestrutura de conversão é apenas custo...',
   },
@@ -169,7 +220,8 @@ export const initialEvents: Event[] = [
     title: 'Growth, IA e Automação para o Mercado Imobiliário',
     summary:
       'Imersão presencial prática para corretores, imobiliárias e gestores que querem estruturar sua máquina de vendas e acelerar o atendimento com IA.',
-    status: 'open',
+    // Data e disponibilidade ainda não foram confirmadas; rascunhos não são publicados.
+    status: 'draft',
     startsAt: 'Próxima edição presencial (Vagas Limitadas)',
     venue: 'Seahub Sebrae',
     address: 'Av. Lima e Silva, 76 – Lagoa Nova, Natal/RN',
@@ -179,7 +231,8 @@ export const initialEvents: Event[] = [
     timezone: 'America/Sao_Paulo',
     seo: {
       title: 'Imersão Growth e IA para Mercado Imobiliário | N8FLOW',
-      description: 'Aprenda a conectar automação, IA, CRM e captação de clientes no mercado imobiliário em encontro presencial exclusivo no Seahub Sebrae.',
+      description:
+        'Aprenda a conectar automação, IA, CRM e captação de clientes no mercado imobiliário em encontro presencial exclusivo no Seahub Sebrae.',
     },
     body: `
 ### Sobre o Encontro Presencial
@@ -202,7 +255,8 @@ export const initialArticles: Article[] = [
   {
     slug: 'por-que-ferramentas-isoladas-nao-resolvem-sua-operacao',
     title: 'Por que contratar mais ferramentas não resolve uma operação desconectada',
-    description: 'Entenda por que assinar múltiplos softwares sem uma arquitetura unificada de dados e processos apenas aumenta o custo e a complexidade.',
+    description:
+      'Entenda por que assinar múltiplos softwares sem uma arquitetura unificada de dados e processos apenas aumenta o custo e a complexidade.',
     publishedAt: '2026-08-20',
     author: 'Engenharia N8FLOW',
     category: 'Engenharia de Growth',
@@ -211,7 +265,8 @@ export const initialArticles: Article[] = [
     relatedServices: ['sites-e-landing-pages', 'automacao-e-ia'],
     seo: {
       title: 'Por que mais ferramentas não resolvem sua operação | N8FLOW',
-      description: 'O erro comum de empilhar softwares sem integração e como estruturar uma máquina de vendas eficiente.',
+      description:
+        'O erro comum de empilhar softwares sem integração e como estruturar uma máquina de vendas eficiente.',
     },
     body: `
 Muitas empresas acreditam que para vender mais basta assinar um novo CRM, contratar uma ferramenta de automação e investir mais em anúncios.
@@ -227,7 +282,8 @@ O segredo de operações que escalam não está na quantidade de ferramentas, ma
   {
     slug: 'como-ia-e-automacao-reduzem-tempo-de-primeiro-contato',
     title: 'O impacto de responder leads em menos de 2 minutos com IA',
-    description: 'Estudos e dados práticos sobre como a velocidade e o contexto no primeiro contato multiplicam as chances de fechamento no mercado imobiliário.',
+    description:
+      'Estudos e dados práticos sobre como a velocidade e o contexto no primeiro contato multiplicam as chances de fechamento no mercado imobiliário.',
     publishedAt: '2026-08-22',
     author: 'Engenharia N8FLOW',
     category: 'Automação & IA',
@@ -236,7 +292,8 @@ O segredo de operações que escalam não está na quantidade de ferramentas, ma
     relatedServices: ['automacao-e-ia', 'crm-e-agentes'],
     seo: {
       title: 'Como a IA no primeiro contato multiplica conversões | N8FLOW',
-      description: 'Descubra como o atendimento automatizado inteligente reduz atrito e qualifica leads instantaneamente.',
+      description:
+        'Descubra como o atendimento automatizado inteligente reduz atrito e qualifica leads instantaneamente.',
     },
     body: `
 No mercado imobiliário e em vendas de alto ticket, o lead que entra em contato está pesquisando ativamente. Cada minuto de espera reduz drasticamente a chance de agendamento de visita.

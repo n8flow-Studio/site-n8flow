@@ -19,12 +19,7 @@ import type {
   Service,
   ServiceSummary,
 } from '@/types/content'
-import {
-  initialServices,
-  initialEvents,
-  initialArticles,
-  initialCases,
-} from './data'
+import { initialServices, initialEvents, initialCases } from './data'
 
 export interface ContentRepository {
   // Eventos
@@ -65,27 +60,13 @@ export class MemoryContentRepository implements ContentRepository {
     return event ?? null
   }
 
-  async listArticles(filter?: ArticleFilter): Promise<ArticleSummary[]> {
-    let articles = initialArticles
-
-    if (filter?.category) {
-      articles = articles.filter((a) => a.category.toLowerCase() === filter.category?.toLowerCase())
-    }
-
-    if (filter?.tag) {
-      articles = articles.filter((a) => a.tags.map((t) => t.toLowerCase()).includes(filter.tag?.toLowerCase() || ''))
-    }
-
-    if (filter?.limit) {
-      articles = articles.slice(0, filter.limit)
-    }
-
-    return articles.map(({ seo: _, body: __, ...summary }) => summary)
+  async listArticles(_filter?: ArticleFilter): Promise<ArticleSummary[]> {
+    // Autoria, data e fontes dos artigos iniciais ainda não foram aprovadas.
+    return []
   }
 
-  async getArticle(slug: string): Promise<Article | null> {
-    const article = initialArticles.find((a) => a.slug === slug)
-    return article ?? null
+  async getArticle(_slug: string): Promise<Article | null> {
+    return null
   }
 
   async listCases(): Promise<CaseSummary[]> {
@@ -98,7 +79,9 @@ export class MemoryContentRepository implements ContentRepository {
   }
 
   async listServices(): Promise<ServiceSummary[]> {
-    return initialServices.map(({ capabilities: _, process: __, faq: ___, seo: ____, body: _____, ...summary }) => summary)
+    return initialServices.map(
+      ({ capabilities: _, process: __, faq: ___, seo: ____, body: _____, ...summary }) => summary,
+    )
   }
 
   async getService(slug: string): Promise<Service | null> {
