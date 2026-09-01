@@ -7,8 +7,8 @@ import { siteConfig } from '@/config/site'
  * Footer — navegação, posicionamento e dados legais.
  *
  * Estrutura confirmada (UX §6.3, DS §4.18):
- * Resumo de posicionamento | Navegação | Soluções | Eventos | Comunidade |
- * Conteúdo | Contato | Redes sociais | Dados empresariais | Legais
+ * Resumo de posicionamento | Navegação | Soluções | Método | Cases |
+ * Conteúdo | Contato | Dados empresariais | Legais
  *
  * Dados PENDENTES (não inventar):
  * - e-mail, telefone, redes sociais → slots não publicados
@@ -46,11 +46,11 @@ export function Footer() {
               />
             </Link>
             <p className="mb-2 font-semibold text-[var(--text-inverse)]">
-              Engenharia de Growth e Tecnologia
+              Assessoria de Growth Marketing B2B
             </p>
             <p className="max-w-xs text-sm leading-relaxed text-[var(--neutral-300)]">
-              Integramos estratégia, dados, automação, IA, CRM e vendas para estruturar operações
-              conectadas e orientadas a crescimento.
+              Conectamos estratégia, aquisição, conversão, relacionamento e dados para estruturar
+              operações de Growth orientadas a crescimento.
             </p>
 
             {/* Redes sociais — PENDENTE (não publicar sem canais confirmados) */}
@@ -62,10 +62,11 @@ export function Footer() {
             <p className="mb-4 text-sm font-semibold text-[var(--text-inverse)]">Soluções</p>
             <ul className="space-y-2 text-sm" role="list">
               {[
-                { label: 'Sites e Landing Pages', href: '/servicos/sites-e-landing-pages' },
-                { label: 'Automação e IA', href: '/servicos/automacao-e-ia' },
-                { label: 'CRM e Agentes', href: '/servicos/crm-e-agentes' },
-                { label: 'Tráfego e Dados', href: '/servicos/trafego-e-dados' },
+                { label: 'Estratégia e Gestão', href: '/servicos/estrategia-e-gestao-de-growth' },
+                { label: 'Aquisição e Mídia', href: '/servicos/aquisicao-e-midia' },
+                { label: 'Conversão e Experiência', href: '/servicos/conversao-e-experiencia' },
+                { label: 'CRM e Relacionamento', href: '/servicos/crm-e-relacionamento' },
+                { label: 'Dados, Automação e IA', href: '/servicos/dados-automacao-e-ia' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -85,8 +86,7 @@ export function Footer() {
             <p className="mb-4 text-sm font-semibold text-[var(--text-inverse)]">N8FLOW</p>
             <ul className="space-y-2 text-sm" role="list">
               {[
-                { label: 'Eventos', href: '/eventos' },
-                { label: 'Comunidade', href: '/comunidade' },
+                { label: 'Método', href: '/metodo' },
                 { label: 'Cases', href: '/cases' },
                 { label: 'Conteúdos', href: '/blog' },
                 { label: 'Sobre', href: '/sobre' },

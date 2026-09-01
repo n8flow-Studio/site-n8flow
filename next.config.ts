@@ -3,6 +3,33 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
   reactCompiler: true,
 
+  async redirects() {
+    return [
+      { source: '/comunidade', destination: '/servicos', permanent: true },
+      { source: '/eventos/:path*', destination: '/servicos', permanent: true },
+      {
+        source: '/servicos/sites-e-landing-pages',
+        destination: '/servicos/conversao-e-experiencia',
+        permanent: true,
+      },
+      {
+        source: '/servicos/automacao-e-ia',
+        destination: '/servicos/dados-automacao-e-ia',
+        permanent: true,
+      },
+      {
+        source: '/servicos/crm-e-agentes',
+        destination: '/servicos/crm-e-relacionamento',
+        permanent: true,
+      },
+      {
+        source: '/servicos/trafego-e-dados',
+        destination: '/servicos/aquisicao-e-midia',
+        permanent: true,
+      },
+    ]
+  },
+
   // Cabeçalhos de segurança básicos (expandir em Fase 4 com CSP por allowlist real)
   async headers() {
     return [

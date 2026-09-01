@@ -20,7 +20,7 @@ const defaultOgImage = '/brand/og-default.png'
 
 /**
  * Constrói o objeto Metadata do Next.js para cada página.
- * Usa título e descrição da Copy v1.0 como base.
+ * Usa título e descrição da estratégia editorial vigente como base.
  * Usa a imagem social oficial como fallback quando a página não possui imagem própria.
  */
 export function buildMetadata({
@@ -78,11 +78,11 @@ export function buildMetadata({
 
 /**
  * Metadata padrão da Home.
- * Copy v1.0 — sujeita a revisão.
+ * Posicionamento aprovado no ADR-0007.
  */
 export const homeMetadata = buildMetadata({
-  title: 'N8FLOW — Engenharia de Growth e Tecnologia',
+  title: 'N8FLOW — Assessoria de Growth Marketing B2B',
   description:
-    'Integramos estratégia, dados, automação, IA, CRM e vendas para estruturar operações conectadas e orientadas a crescimento.',
+    'Assessoria de Growth Marketing para conectar estratégia, aquisição, conversão, dados e vendas em uma operação orientada a crescimento.',
   pathname: '/',
 })

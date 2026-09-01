@@ -8,7 +8,7 @@ import { MobileNav } from '@/components/layout/mobile-nav'
  * Header — navegação principal.
  *
  * Estrutura confirmada (UX §6.1, DS §4.16):
- * Logo | Soluções | Comunidade | Eventos | Cases | Conteúdos | CTA
+ * Logo | Soluções | Método | Cases | Conteúdos | Sobre | CTA
  */
 export function Header() {
   return (
@@ -56,10 +56,10 @@ export function Header() {
           {/* CTA header & Mobile Nav */}
           <div className="flex items-center gap-3">
             <Link
-              href="/servicos"
+              href="/contato"
               className="hidden border border-[var(--text-primary)] bg-[var(--text-primary)] px-4 py-2 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] md:inline-flex"
             >
-              Conhecer soluções
+              Solicitar diagnóstico
             </Link>
 
             {/* Menu mobile */}

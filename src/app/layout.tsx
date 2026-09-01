@@ -31,10 +31,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     template: '%s | N8FLOW',
-    default: 'N8FLOW — Engenharia de Growth e Tecnologia',
+    default: 'N8FLOW — Assessoria de Growth Marketing B2B',
   },
   description:
-    'Integramos estratégia, dados, automação, IA, CRM e vendas para estruturar operações conectadas e orientadas a crescimento.',
+    'Assessoria de Growth Marketing para conectar estratégia, aquisição, conversão, dados e vendas em uma operação orientada a crescimento.',
   metadataBase: new URL('https://n8flow.com.br'),
   alternates: {
     canonical: 'https://n8flow.com.br',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
         url: '/brand/og-default.png',
         width: 1200,
         height: 630,
-        alt: 'N8FLOW — Engenharia de Growth e Tecnologia',
+        alt: 'N8FLOW — Assessoria de Growth Marketing B2B',
       },
     ],
   },

@@ -43,19 +43,14 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
   return (
     <>
       <Container className="pt-8">
-        <Breadcrumb
-          items={[
-            { label: 'Conteúdos', href: '/blog' },
-            { label: article.title },
-          ]}
-        />
+        <Breadcrumb items={[{ label: 'Conteúdos', href: '/blog' }, { label: article.title }]} />
       </Container>
 
       {/* Cabeçalho do Artigo */}
       <article className="pt-6 pb-16">
         <Container>
           <div className="mx-auto max-w-3xl">
-            <div className="flex flex-wrap items-center gap-3 mb-6">
+            <div className="mb-6 flex flex-wrap items-center gap-3">
               <Badge variant="brand" size="md">
                 {article.category}
               </Badge>
@@ -71,22 +66,22 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
               </span>
             </div>
 
-            <h1 className="font-display text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl md:text-5xl leading-tight">
+            <h1 className="font-display text-3xl leading-tight font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl md:text-5xl">
               {article.title}
             </h1>
 
-            <p className="mt-6 text-lg leading-relaxed text-[var(--text-secondary)] border-b border-[var(--border-subtle)] pb-8">
+            <p className="mt-6 border-b border-[var(--border-subtle)] pb-8 text-lg leading-relaxed text-[var(--text-secondary)]">
               {article.description}
             </p>
 
             {/* Corpo do Artigo */}
-            <div className="mt-8 space-y-6 text-base leading-relaxed text-[var(--text-secondary)] prose prose-invert max-w-none">
+            <div className="prose prose-invert mt-8 max-w-none space-y-6 text-base leading-relaxed text-[var(--text-secondary)]">
               {article.body.split('\n\n').map((paragraph, idx) => {
                 if (paragraph.startsWith('### ')) {
                   return (
                     <h2
                       key={idx}
-                      className="mt-8 font-display text-2xl font-bold text-[var(--text-primary)]"
+                      className="font-display mt-8 text-2xl font-bold text-[var(--text-primary)]"
                     >
                       {paragraph.replace('### ', '')}
                     </h2>
@@ -95,7 +90,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                 if (paragraph.startsWith('- ')) {
                   const items = paragraph.split('\n').map((i) => i.replace('- ', ''))
                   return (
-                    <ul key={idx} className="list-disc pl-5 space-y-2 text-sm sm:text-base">
+                    <ul key={idx} className="list-disc space-y-2 pl-5 text-sm sm:text-base">
                       {items.map((it, i) => (
                         <li key={i}>{it}</li>
                       ))}
@@ -107,10 +102,12 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
             </div>
 
             {/* Tags e Autor */}
-            <div className="mt-12 border-t border-[var(--border-subtle)] pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="mt-12 flex flex-col gap-4 border-t border-[var(--border-subtle)] pt-6 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center gap-2 text-xs text-[var(--text-muted)]">
                 <User className="h-4 w-4" />
-                <span>Por <strong className="text-[var(--text-secondary)]">{article.author}</strong></span>
+                <span>
+                  Por <strong className="text-[var(--text-secondary)]">{article.author}</strong>
+                </span>
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {article.tags.map((tag, idx) => (
@@ -130,10 +127,10 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
       {/* CTA Final */}
       <CtaSection
         title="Gostou do conteúdo? Dê o próximo passo."
-        description="Participe do nosso próximo evento presencial ou solicite um diagnóstico da sua operação."
+        description="Conheça nossa atuação ou solicite um diagnóstico da sua operação."
         primaryAction={{
-          label: 'Ver próximos eventos',
-          href: '/eventos',
+          label: 'Solicitar diagnóstico',
+          href: '/contato',
         }}
         secondaryAction={{
           label: 'Voltar ao Blog',

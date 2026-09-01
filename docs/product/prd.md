@@ -11,6 +11,30 @@
 
 ---
 
+## Atualização estratégica aprovada — 2026-09-01
+
+O [ADR-0007](../decisions/ADR-0007-assessoria-b2b-multissetorial.md) substitui as
+premissas deste documento relacionadas a público imobiliário, Comunidade como
+recorrência, Eventos como entrada principal e ao funil Educação → Comunidade →
+Assessoria.
+
+A direção vigente é:
+
+- Assessoria de Growth Marketing B2B multissetorial;
+- diagnóstico comercial como conversão principal;
+- público qualificado por maturidade operacional, não por setor;
+- estratégia, aquisição, conversão, CRM, dados, automação e IA como capacidades
+  integradas;
+- Comunidade e Eventos suspensos como pilares públicos;
+- método: Diagnosticar → Priorizar → Implementar → Medir → Otimizar;
+- cases, métricas, preços e promessas publicados somente com comprovação e
+  aprovação.
+
+As especificações históricas abaixo permanecem como registro da versão 1.0, mas
+não devem orientar novas implementações quando conflitarem com o ADR-0007.
+
+---
+
 # 1. Visão do Produto
 
 O site institucional da **N8FLOW TECNOLOGIA** será uma plataforma digital de posicionamento, aquisição e conversão de leads.
@@ -521,8 +545,6 @@ Campos mínimos definidos no documento:
 - WhatsApp;
 - CRECI.
 
-
-
 Campos complementares recomendados para tracking:
 
 - origem;
@@ -597,8 +619,6 @@ O documento especifica tags como:
 Lead_Evento_DataX
 Confirmado_Evento_DataX
 ```
-
-
 
 ---
 
@@ -2174,26 +2194,26 @@ O site somente será considerado pronto quando:
 
 As seguintes decisões deverão ser tomadas antes da implementação final:
 
-| Tema | Status |
-|---|---|
-| Identidade visual | A definir |
-| Logo final | A definir |
-| Paleta | A definir |
-| Tipografia | A definir |
-| Tom de voz | A definir |
-| Data do primeiro evento | A definir |
-| Local do evento | A definir |
-| Gateway de pagamento | A definir |
-| CRM | A definir |
-| WhatsApp API | A definir |
-| CMS | A definir |
-| Error tracking | A definir |
-| Domínio definitivo | A definir |
-| Dados empresariais | A definir |
+| Tema                          | Status    |
+| ----------------------------- | --------- |
+| Identidade visual             | A definir |
+| Logo final                    | A definir |
+| Paleta                        | A definir |
+| Tipografia                    | A definir |
+| Tom de voz                    | A definir |
+| Data do primeiro evento       | A definir |
+| Local do evento               | A definir |
+| Gateway de pagamento          | A definir |
+| CRM                           | A definir |
+| WhatsApp API                  | A definir |
+| CMS                           | A definir |
+| Error tracking                | A definir |
+| Domínio definitivo            | A definir |
+| Dados empresariais            | A definir |
 | Política de preços definitiva | A definir |
-| Copy final | A definir |
-| Cases | A definir |
-| Depoimentos | A definir |
+| Copy final                    | A definir |
+| Cases                         | A definir |
+| Depoimentos                   | A definir |
 
 ---
 

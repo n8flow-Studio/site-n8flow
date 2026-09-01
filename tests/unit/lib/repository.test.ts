@@ -2,21 +2,24 @@ import { describe, it, expect } from 'vitest'
 import { contentRepository } from '@/lib/content/repository'
 
 describe('ContentRepository', () => {
-  it('retorna a lista de 4 serviços principais', async () => {
+  it('retorna as 5 frentes de atuação da assessoria', async () => {
     const services = await contentRepository.listServices()
-    expect(services).toHaveLength(4)
-    expect(services.map((s) => s.slug)).toContain('sites-e-landing-pages')
-    expect(services.map((s) => s.slug)).toContain('automacao-e-ia')
-    expect(services.map((s) => s.slug)).toContain('crm-e-agentes')
-    expect(services.map((s) => s.slug)).toContain('trafego-e-dados')
+    expect(services).toHaveLength(5)
+    expect(services.map((s) => s.slug)).toEqual([
+      'estrategia-e-gestao-de-growth',
+      'aquisicao-e-midia',
+      'conversao-e-experiencia',
+      'crm-e-relacionamento',
+      'dados-automacao-e-ia',
+    ])
   })
 
-  it('recupera um serviço específico por slug com capabilities e faq', async () => {
-    const service = await contentRepository.getService('automacao-e-ia')
+  it('recupera uma frente específica por slug com capacidades e processo', async () => {
+    const service = await contentRepository.getService('dados-automacao-e-ia')
     expect(service).not.toBeNull()
-    expect(service?.title).toBe('Automação e IA')
+    expect(service?.title).toBe('Dados, Automação e IA')
     expect(service?.capabilities.length).toBeGreaterThan(0)
-    expect(service?.faq).toBeDefined()
+    expect(service?.process).toHaveLength(3)
   })
 
   it('retorna null para slug de serviço inexistente', async () => {
@@ -24,12 +27,12 @@ describe('ContentRepository', () => {
     expect(service).toBeNull()
   })
 
-  it('não publica eventos enquanto a única edição estiver em rascunho', async () => {
+  it('não publica eventos enquanto a oferta estiver suspensa', async () => {
     const events = await contentRepository.listEvents()
     expect(events).toHaveLength(0)
   })
 
-  it('não recupera um evento em rascunho pela rota pública', async () => {
+  it('não recupera eventos pela rota pública enquanto suspensos', async () => {
     const event = await contentRepository.getEvent('growth-ia-mercado-imobiliario')
     expect(event).toBeNull()
   })

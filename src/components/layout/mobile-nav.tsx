@@ -88,18 +88,18 @@ export function MobileNav() {
 
             <div className="mt-4 flex flex-col gap-3 border-t border-[var(--border-subtle)] pt-6">
               <Link
-                href="/servicos"
+                href="/contato"
                 onClick={() => setIsOpen(false)}
                 className="flex h-12 w-full items-center justify-center border border-[var(--text-primary)] bg-[var(--text-primary)] px-6 font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)]"
               >
-                Conhecer soluções
+                Solicitar diagnóstico
               </Link>
               <Link
                 href="/servicos"
                 onClick={() => setIsOpen(false)}
                 className="flex h-12 w-full items-center justify-center rounded-[var(--radius-md)] border border-[var(--border-default)] px-6 font-semibold text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-elevated)]"
               >
-                Solicitar diagnóstico
+                Conhecer nossa atuação
               </Link>
             </div>
           </nav>

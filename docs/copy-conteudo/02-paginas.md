@@ -4,11 +4,11 @@ Todo texto é Proposta v1.0, salvo fatos marcados como confirmados.
 
 ## Home
 
-H1: Construa uma máquina de vendas conectada ao seu negócio.
+H1: Growth não é uma campanha. É uma operação.
 
-Lead: A N8FLOW integra estratégia, dados, automação, IA, CRM e processos comerciais para transformar ações isoladas em uma operação orientada a crescimento.
+Lead: A N8FLOW atua como Assessoria de Growth Marketing B2B para conectar estratégia, aquisição, conversão, dados e vendas em um sistema orientado a crescimento.
 
-CTA primário: Participar do próximo evento. Secundário: Conhecer as soluções.
+CTA primário: Solicitar diagnóstico. Secundário: Conhecer nossa atuação.
 
 Problema — H2: Mais ferramentas não resolvem uma operação desconectada.
 
@@ -18,58 +18,45 @@ Tese — H2: Growth acontece quando estratégia, tecnologia e vendas operam junt
 
 Método:
 
-- Educação: conhecimento aplicável para avançar com clareza.
-- Comunidade: acompanhamento, relacionamento e evolução contínua.
-- Assessoria e tecnologia: diagnóstico, implementação e integração.
+- Diagnosticar: compreender contexto, objetivos, canais e gargalos.
+- Priorizar: definir hipóteses e iniciativas pelo impacto esperado e capacidade operacional.
+- Implementar: executar as frentes aprovadas de forma integrada.
+- Medir: acompanhar indicadores relacionados ao objetivo comercial.
+- Otimizar: aprender com os dados e ajustar continuamente.
 
-Soluções — H2: Soluções conectadas ao resultado da operação.
+Soluções — H2: Frentes conectadas ao resultado da operação.
 
-- Sites e landing pages para comunicar, captar e converter.
-- Automação e IA para reduzir tarefas manuais e acelerar atendimento.
-- CRM e agentes para organizar relacionamento e acompanhamento.
-- Tráfego e dados para orientar aquisição e decisões.
+- Estratégia e gestão de Growth.
+- Aquisição e geração de demanda.
+- Conversão e experiência digital.
+- CRM, relacionamento e retenção.
+- Dados, automação e inteligência.
 
-Evento — H2: Comece pelo próximo evento N8FLOW. Dados vêm de {{event}}. CTA: Quero participar.
+Comunidade e Eventos estão suspensos como ofertas públicas e não aparecem na Home.
 
 Cases são condicionais e devem ser omitidos sem prova real.
 
-## Eventos
+## Eventos — suspenso
 
-Hub — H1: Aprenda a conectar Growth, tecnologia e vendas.
+Não publicar hub, detalhe, dados históricos, preço ou CTA até existir nova estratégia aprovada.
 
-Lead: Encontros presenciais para profissionais do mercado imobiliário que querem aplicar IA, CRM, aquisição, automação e Growth com mais clareza e processo.
+## Comunidade — suspensa
 
-Detalhe: H1 {{event.title}}; lead {{event.summary}}; data, horário, local, valor e status dinâmicos.
-
-Para quem é: corretores e profissionais do mercado imobiliário que querem melhorar presença digital, captação, atendimento e organização comercial.
-
-Base confirmada: Seahub Sebrae, Av. Lima e Silva, 76 – Lagoa Nova; capacidade de 40 pessoas; ticket-base R$ 97. Data, agenda e palestrantes permanecem pendentes.
-
-CTAs: aberto — Quero participar; esgotado — Evento esgotado; encerrado — Evento encerrado ou ação pós-evento real.
-
-## Comunidade
-
-H1: Evolua com acompanhamento, troca e aplicação contínua.
-
-Lead: A Comunidade N8FLOW conecta profissionais que querem transformar aprendizado em rotina, com conhecimento, networking e suporte prático.
-
-H2: Um ambiente para aprender, aplicar e evoluir. CTA: Quero fazer parte.
-
-Itens previstos: networking, estratégias contínuas, templates, suporte prático, aulas e encontros online. O PRD registra ticket-base de R$ 597/mês. Confirmar oferta, frequência, plataforma, cobrança, renovação e cancelamento antes de publicar. Depoimentos são condicionais.
+Não publicar oferta, preço, benefícios ou CTA. Retorno exige decisão empresarial e nova especificação.
 
 ## Serviços
 
-H1: Estruture uma operação de Growth conectada de ponta a ponta.
+H1: Assessoria para transformar iniciativas de marketing em uma operação de Growth.
 
-Lead: A N8FLOW combina estratégia, experiência digital, automação, CRM, IA, tráfego e dados para integrar aquisição, atendimento e processo comercial.
+Lead: Estratégia e execução coordenadas para conectar aquisição, conversão, relacionamento, dados e vendas conforme o momento da sua empresa.
 
 CTA: Solicitar diagnóstico.
 
-H2: Uma máquina de vendas é um sistema, não uma ferramenta.
+H2: Crescimento exige sistema, prioridade e acompanhamento.
 
-Blocos: Experiências digitais preparadas para conversão; Automação conectada ao processo real; Relacionamento estruturado ao longo da jornada; Aquisição orientada por mensuração.
+Blocos: Estratégia e gestão; Aquisição e mídia; Conversão e experiência; CRM e relacionamento; Dados, automação e inteligência.
 
-Auditoria, setup e acompanhamento são confirmados. Processo detalhado adicional exige validação operacional.
+Diagnóstico, priorização, implementação, mensuração e otimização são a estrutura aprovada do método. Escopo, cadência, equipe, prazo e condições comerciais permanecem dependentes de diagnóstico e proposta.
 
 ## Sobre
 
@@ -85,9 +72,8 @@ Origem, história, equipe, missão, visão e valores formais permanecem pendente
 
 H1: Vamos entender o próximo passo da sua operação.
 
-Lead: Use este canal para assuntos institucionais ou comerciais que não se encaixem diretamente em evento, comunidade ou diagnóstico.
+Lead: Use este canal para solicitar um diagnóstico comercial ou tratar de assuntos institucionais e parcerias.
 
 CTA: Enviar mensagem.
 
 Confirmados: N8FLOW TECNOLOGIA CONSULTORIA EM TI LTDA; CNPJ 68.352.519/0001-72; n8flow.com.br. E-mail, telefone, sede, horário e redes permanecem pendentes. O local do evento não é sede empresarial.
-

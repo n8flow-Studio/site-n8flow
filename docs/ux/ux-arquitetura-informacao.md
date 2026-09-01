@@ -7,6 +7,24 @@
 Documento de especificação para orientar arquitetura de informação, jornadas, UX, navegação, hierarquia de conteúdo, CTAs e comportamento responsivo do site institucional da N8FLOW.
 Base estratégica: PRD do Site Institucional N8FLOW + conceito de negócio fornecido. Decisões posteriores do projeto foram incorporadas quando já definidas pelo usuário.
 
+## Atualização de UX aprovada — 2026-09-01
+
+O [ADR-0007](../decisions/ADR-0007-assessoria-b2b-multissetorial.md) substitui as
+jornadas centradas em corretor, Comunidade e Evento. A experiência vigente atende
+empresas de diferentes setores com operação comercial ativa.
+
+- Conversão global: solicitar diagnóstico.
+- Navegação: Soluções, Método, Cases, Conteúdos, Sobre e CTA de diagnóstico.
+- Jornada: aquisição/indicação/conteúdo → entendimento → método/capacidade → prova
+  real → diagnóstico.
+- Home: Hero → Problema → Tese → Método → Frentes de atuação → Aderência → Prova
+  real, quando existir → Conteúdo, quando existir → Diagnóstico.
+- Comunidade e Eventos: suspensos e removidos da descoberta pública.
+- Critério de público: maturidade e necessidade operacional, sem limitação setorial.
+
+Seções posteriores que atribuem prioridade a Evento, Comunidade ou mercado
+imobiliário são históricas e não prevalecem sobre esta atualização.
+
 # 1. Objetivo do documento
 
 Definir como o visitante encontra, entende, navega e converte dentro do ecossistema digital da N8FLOW. O documento antecede o Design System e a implementação visual, servindo como contrato funcional de UX.

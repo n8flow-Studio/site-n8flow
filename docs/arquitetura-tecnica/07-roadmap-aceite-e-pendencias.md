@@ -19,7 +19,7 @@ Scaffold, lockfile, aliases, env validation, tokens, testes, CI, preview, header
 
 ### Fase 1 — experiência pública
 
-Layout, navegação, Home, serviços, eventos, comunidade, blog, cases, sobre/contato; conteúdo provisório explicitamente marcado apenas em preview.
+Layout, navegação, Home, serviços, método, blog, cases, sobre/contato; conteúdo provisório explicitamente marcado apenas em preview. Comunidade e Eventos estão suspensos pelo ADR-0007.
 
 ### Fase 2 — conversão
 
@@ -53,18 +53,18 @@ Copy real, assets, conteúdo, privacidade/termos, SEO, analytics/consentimento, 
 
 ## 7.4 Pendências bloqueadoras por etapa
 
-| Pendência | Bloqueia fundação | Bloqueia integração | Bloqueia go-live |
-|---|:---:|:---:|:---:|
-| arquivos finais da logo | não | não | sim |
-| copy/conteúdo aprovado | não | não | sim |
-| contrato/credencial n8n e Bolten | não | sim | sim |
-| gateway e regras comerciais | não | pagamento | sim, se checkout no lançamento |
-| oferta da comunidade | não | assinatura | sim, se publicada |
-| campos finais do diagnóstico | não | formulário real | sim |
-| contatos e redes | não | não | sim para publicação correspondente |
-| privacidade, termos e consentimento | não | produção | sim |
-| IDs/consentimento de analytics | não | analytics | sim |
-| owner de incidentes/alertas | não | não | sim |
+| Pendência                              | Bloqueia fundação | Bloqueia integração |          Bloqueia go-live          |
+| -------------------------------------- | :---------------: | :-----------------: | :--------------------------------: |
+| arquivos finais da logo                |        não        |         não         |                sim                 |
+| copy/conteúdo aprovado                 |        não        |         não         |                sim                 |
+| contrato/credencial n8n e Bolten       |        não        |         sim         |                sim                 |
+| gateway e regras comerciais            |        não        |      pagamento      |   sim, se checkout no lançamento   |
+| eventual retorno de comunidade/eventos |        não        |   nova integração   |         sim, se publicados         |
+| campos finais do diagnóstico           |        não        |   formulário real   |                sim                 |
+| contatos e redes                       |        não        |         não         | sim para publicação correspondente |
+| privacidade, termos e consentimento    |        não        |      produção       |                sim                 |
+| IDs/consentimento de analytics         |        não        |      analytics      |                sim                 |
+| owner de incidentes/alertas            |        não        |         não         |                sim                 |
 
 ## 7.5 ADRs iniciais
 
@@ -86,4 +86,3 @@ Criar quando a decisão ocorrer:
 - [ ] criar `.env.example`, CI e proteção contra segredos;
 - [ ] transformar tokens do Design System em `tokens.css`;
 - [ ] registrar qualquer desvio por ADR.
-

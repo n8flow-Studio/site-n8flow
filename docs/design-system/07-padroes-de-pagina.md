@@ -4,17 +4,17 @@ As ordens abaixo são **confirmadas pela UX/IA**, com composição visual recome
 
 ## Home
 
-Header → Hero → Problema → Tese N8FLOW → Método (Educação, Comunidade, Assessoria) → Soluções → Próximo evento → Cases/prova, quando existirem → Conteúdo → CTA final → Footer.
+Header → Hero → Problema → Tese N8FLOW → Método (Diagnosticar, Priorizar, Implementar, Medir e Otimizar) → Frentes de atuação → Aderência → Cases/prova, quando existirem → Conteúdo, quando existir → Diagnóstico → Footer.
 
-CTA primário: “Participar do próximo evento” enquanto houver evento aberto. Secundário: soluções. Hero em duas colunas no desktop e uma no mobile.
+CTA primário: “Solicitar diagnóstico”. Secundário: conhecer a atuação. Hero em duas colunas no desktop e uma no mobile.
 
 ## Eventos
 
 Hero curto → evento em destaque → próximos → anteriores, quando existirem → CTA. EventCard adapta estado. Página individual: Hero transacional → público → aprendizados → problemas → agenda → palestrantes, se confirmados → local → vagas → FAQ → formulário/checkout → CTA final.
 
-## Comunidade
+## Comunidade e Eventos
 
-Hero → problema do profissional isolado → definição → benefícios → inclusões → funcionamento → público → depoimentos reais → preço vigente → FAQ → assinatura. Oferta e regras continuam pendentes; Pricing não deve inferi-las.
+Ofertas suspensas pelo ADR-0007. Não aparecem em navegação, sitemap, Home ou CTAs. Retorno futuro depende de decisão empresarial, conteúdo, operação e revisão de UX/SEO.
 
 ## Serviços
 
@@ -43,4 +43,3 @@ Sobre: origem/visão confirmadas → posicionamento → princípios → competê
 ## SEO visual/estrutural
 
 Hierarquia de headings não segue tamanho visual. Breadcrumb em páginas profundas. Imagens recebem dimensões. CTA contextual não deve prejudicar leitura. Organization, Event, Article, BreadcrumbList e outros schemas só quando semanticamente verdadeiros e com dados publicados.
-

@@ -1,15 +1,15 @@
 const nodes = [
-  { id: '01', label: 'Aquisição', position: 'left-0 top-0', accent: 'green' },
-  { id: '02', label: 'Atendimento', position: 'right-0 top-[18%]', accent: 'violet' },
-  { id: '03', label: 'CRM', position: 'left-[8%] bottom-[18%]', accent: 'violet' },
-  { id: '04', label: 'Dados', position: 'right-[6%] bottom-0', accent: 'green' },
+  { id: '01', label: 'Estratégia', position: 'left-0 top-0', accent: 'green' },
+  { id: '02', label: 'Aquisição', position: 'right-0 top-[18%]', accent: 'violet' },
+  { id: '03', label: 'Conversão', position: 'left-[8%] bottom-[18%]', accent: 'violet' },
+  { id: '04', label: 'Relacionamento', position: 'right-[6%] bottom-0', accent: 'green' },
 ] as const
 
 export function GrowthSystem() {
   return (
     <div
       className="relative min-h-[360px] border-y border-[var(--border-strong)] py-8 sm:min-h-[430px] lg:min-h-[520px]"
-      aria-label="Arquitetura conceitual conectando aquisição, atendimento, CRM, dados e vendas"
+      aria-label="Arquitetura conceitual conectando estratégia, aquisição, conversão, relacionamento e dados"
     >
       <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/2 h-full w-px bg-[var(--border-default)]" />
@@ -21,10 +21,10 @@ export function GrowthSystem() {
       <div className="absolute top-1/2 left-1/2 z-10 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center border border-[var(--text-primary)] bg-[var(--bg-canvas)] sm:h-40 sm:w-40">
         <div className="text-center">
           <span className="block font-mono text-[10px] tracking-[0.22em] text-[var(--text-muted)] uppercase">
-            Sistema
+            Operação
           </span>
           <strong className="font-display mt-2 block text-xl font-semibold sm:text-2xl">
-            Vendas
+            Growth
           </strong>
           <span className="mx-auto mt-2 block h-1 w-8 bg-[var(--green-400)]" />
         </div>
@@ -46,7 +46,7 @@ export function GrowthSystem() {
       ))}
 
       <p className="absolute bottom-[42%] left-1/2 z-20 -translate-x-1/2 translate-y-20 bg-[var(--bg-canvas)] px-3 font-mono text-[9px] tracking-[0.18em] text-[var(--text-muted)] uppercase sm:translate-y-24">
-        processos conectados
+        dados e aprendizado
       </p>
     </div>
   )
