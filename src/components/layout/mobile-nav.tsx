@@ -1,23 +1,42 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { siteConfig } from '@/config/site'
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const dialogRef = useRef<HTMLDivElement>(null)
 
   // Fecha ao pressionar Escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setIsOpen(false)
+        toggleRef.current?.focus()
+      }
+
+      if (e.key === 'Tab' && dialogRef.current) {
+        const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled])',
+        )
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault()
+          last?.focus()
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault()
+          first?.focus()
+        }
       }
     }
     if (isOpen) {
       document.body.style.overflow = 'hidden'
       window.addEventListener('keydown', handleKeyDown)
+      requestAnimationFrame(() => dialogRef.current?.querySelector<HTMLElement>('a[href]')?.focus())
     } else {
       document.body.style.overflow = ''
     }
@@ -31,12 +50,13 @@ export function MobileNav() {
     <div className="md:hidden">
       {/* Botão de Toggle */}
       <button
+        ref={toggleRef}
         type="button"
         aria-label={isOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
         aria-expanded={isOpen}
         aria-controls="mobile-navigation-drawer"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex h-10 w-10 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-primary)] transition-colors hover:border-[var(--border-default)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
+        className="flex h-11 w-11 items-center justify-center border border-[var(--border-default)] bg-transparent text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-elevated)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
       >
         {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </button>
@@ -44,11 +64,12 @@ export function MobileNav() {
       {/* Backdrop & Drawer */}
       {isOpen && (
         <div
+          ref={dialogRef}
           id="mobile-navigation-drawer"
           role="dialog"
           aria-modal="true"
           aria-label="Menu principal"
-          className="fixed inset-0 top-16 z-[var(--z-overlay)] flex flex-col bg-[var(--bg-canvas)]/95 px-6 py-8 backdrop-blur-xl animate-in fade-in duration-200"
+          className="fixed inset-0 top-16 z-[var(--z-overlay)] flex flex-col bg-[var(--bg-canvas)] px-6 py-8"
         >
           <nav className="flex flex-col gap-6" aria-label="Navegação mobile">
             <ul className="flex flex-col gap-3" role="list">
@@ -67,18 +88,18 @@ export function MobileNav() {
 
             <div className="mt-4 flex flex-col gap-3 border-t border-[var(--border-subtle)] pt-6">
               <Link
-                href="/eventos"
+                href="/contato"
                 onClick={() => setIsOpen(false)}
-                className="flex h-12 w-full items-center justify-center rounded-[var(--radius-md)] bg-[var(--action-primary)] px-6 font-semibold text-[var(--text-inverse)] shadow-[var(--shadow-sm)] transition-colors hover:bg-[var(--action-primary-hover)]"
+                className="flex h-12 w-full items-center justify-center border border-[var(--text-primary)] bg-[var(--text-primary)] px-6 font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)]"
               >
-                Próximo evento
+                Solicitar diagnóstico
               </Link>
               <Link
                 href="/servicos"
                 onClick={() => setIsOpen(false)}
                 className="flex h-12 w-full items-center justify-center rounded-[var(--radius-md)] border border-[var(--border-default)] px-6 font-semibold text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-elevated)]"
               >
-                Solicitar diagnóstico
+                Conhecer nossa atuação
               </Link>
             </div>
           </nav>

@@ -18,38 +18,23 @@ export const siteConfig = {
   url: 'https://n8flow.com.br',
   domain: 'n8flow.com.br',
 
-  // Posicionamento confirmado (PRD §2.1, Copy §1)
-  tagline: 'Engenharia de Growth e Tecnologia',
+  // Posicionamento confirmado (ADR-0007, Copy §1)
+  tagline: 'Assessoria de Growth Marketing B2B',
   description:
-    'Integramos estratégia, dados, automação, IA, CRM e vendas para estruturar operações conectadas e orientadas a crescimento.',
-
-  // Evento — dados base confirmados (UX §35, Copy §2)
-  event: {
-    venue: 'Seahub Sebrae',
-    address: 'Av. Lima e Silva, 76 – Lagoa Nova',
-    capacity: 40,
-    basePrice: 97, // BRL
-    currency: 'BRL',
-  },
-
-  // Comunidade — ticket-base confirmado; oferta e regras PENDENTES
-  community: {
-    basePrice: 597, // BRL/mês — confirmar oferta antes de publicar
-    currency: 'BRL',
-  },
+    'Assessoria de Growth Marketing para conectar estratégia, aquisição, conversão, dados e vendas em uma operação orientada a crescimento.',
 
   // Dados PENDENTES — não preencher sem fonte confirmada
   // email: undefined,
   // phone: undefined,
   // social: undefined,
 
-  // Navegação principal (UX §6.1)
+  // Navegação principal (ADR-0007)
   navigation: [
     { label: 'Soluções', href: '/servicos' },
-    { label: 'Comunidade', href: '/comunidade' },
-    { label: 'Eventos', href: '/eventos' },
+    { label: 'Método', href: '/metodo' },
     { label: 'Cases', href: '/cases' },
     { label: 'Conteúdos', href: '/blog' },
+    { label: 'Sobre', href: '/sobre' },
   ],
 
   // Links legais — só publicar com documentos jurídicos válidos (PENDENTE)

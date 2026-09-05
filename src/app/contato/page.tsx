@@ -17,26 +17,26 @@ export default function ContactPage() {
   return (
     <>
       <Hero
-        eyebrow="Canal Oficial"
-        title="Vamos entender o próximo passo da sua operação."
-        description="Use este canal para assuntos institucionais ou comerciais que não se encaixem diretamente em evento, comunidade ou diagnóstico."
+        eyebrow="Diagnóstico comercial"
+        title="Vamos entender o contexto da sua operação."
+        description="Compartilhe informações iniciais sobre a empresa e o desafio atual. Escopo, formato e condições comerciais só são definidos depois dessa avaliação."
         variant="editorial"
       />
 
       <Section className="border-t border-[var(--border-subtle)] bg-[var(--bg-subtle)]">
-        <div className="grid gap-12 lg:grid-cols-12 max-w-5xl mx-auto">
+        <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-12">
           {/* Formulário de Contato */}
           <div className="lg:col-span-7">
             <Card variant="surface" padding="lg">
-              <h2 className="font-display text-2xl font-bold text-[var(--text-primary)] mb-6">
-                Envie sua mensagem
+              <h2 className="font-display mb-6 text-2xl font-bold text-[var(--text-primary)]">
+                Solicitar diagnóstico
               </h2>
 
               <form className="space-y-4">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] mb-1.5"
+                    className="mb-1.5 block text-xs font-semibold tracking-wider text-[var(--text-secondary)] uppercase"
                   >
                     Nome completo *
                   </label>
@@ -46,14 +46,31 @@ export default function ContactPage() {
                     name="name"
                     required
                     placeholder="Seu nome"
-                    className="w-full h-11 px-4 rounded-[var(--radius-md)] bg-[var(--bg-elevated)] border border-[var(--border-default)] text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
+                    className="h-11 w-full rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="company"
+                    className="mb-1.5 block text-xs font-semibold tracking-wider text-[var(--text-secondary)] uppercase"
+                  >
+                    Empresa *
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    required
+                    placeholder="Nome da empresa"
+                    className="h-11 w-full rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] mb-1.5"
+                    className="mb-1.5 block text-xs font-semibold tracking-wider text-[var(--text-secondary)] uppercase"
                   >
                     E-mail profissional *
                   </label>
@@ -63,14 +80,14 @@ export default function ContactPage() {
                     name="email"
                     required
                     placeholder="voce@suaempresa.com.br"
-                    className="w-full h-11 px-4 rounded-[var(--radius-md)] bg-[var(--bg-elevated)] border border-[var(--border-default)] text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
+                    className="h-11 w-full rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] mb-1.5"
+                    className="mb-1.5 block text-xs font-semibold tracking-wider text-[var(--text-secondary)] uppercase"
                   >
                     WhatsApp / Telefone *
                   </label>
@@ -80,33 +97,32 @@ export default function ContactPage() {
                     name="phone"
                     required
                     placeholder="(00) 00000-0000"
-                    className="w-full h-11 px-4 rounded-[var(--radius-md)] bg-[var(--bg-elevated)] border border-[var(--border-default)] text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
+                    className="h-11 w-full rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="interest"
-                    className="block text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] mb-1.5"
+                    className="mb-1.5 block text-xs font-semibold tracking-wider text-[var(--text-secondary)] uppercase"
                   >
-                    Assunto de interesse
+                    Objetivo do contato
                   </label>
                   <select
                     id="interest"
                     name="interest"
-                    className="w-full h-11 px-4 rounded-[var(--radius-md)] bg-[var(--bg-elevated)] border border-[var(--border-default)] text-sm text-[var(--text-primary)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
+                    className="h-11 w-full rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 text-sm text-[var(--text-primary)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
                   >
-                    <option value="diagnostico">Solicitar Diagnóstico Comercial (B2B)</option>
-                    <option value="evento">Dúvidas sobre Eventos / Imersões</option>
-                    <option value="comunidade">Informações da Comunidade</option>
-                    <option value="parcerias">Parcerias e Outros Assuntos</option>
+                    <option value="diagnostico">Solicitar diagnóstico comercial</option>
+                    <option value="parcerias">Parcerias</option>
+                    <option value="institucional">Assunto institucional</option>
                   </select>
                 </div>
 
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] mb-1.5"
+                    className="mb-1.5 block text-xs font-semibold tracking-wider text-[var(--text-secondary)] uppercase"
                   >
                     Mensagem ou contexto da operação
                   </label>
@@ -115,30 +131,30 @@ export default function ContactPage() {
                     name="message"
                     rows={4}
                     placeholder="Conte resumidamente sobre o seu negócio e o desafio atual..."
-                    className="w-full p-4 rounded-[var(--radius-md)] bg-[var(--bg-elevated)] border border-[var(--border-default)] text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)] resize-y"
+                    className="w-full resize-y rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--bg-elevated)] p-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--action-primary)] font-semibold text-sm text-[var(--text-inverse)] shadow-[var(--shadow-md)] transition-all hover:bg-[var(--action-primary-hover)] hover:scale-[1.01]"
+                  className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--action-primary)] text-sm font-semibold text-[var(--text-inverse)] shadow-[var(--shadow-md)] transition-all hover:scale-[1.01] hover:bg-[var(--action-primary-hover)]"
                 >
                   <Send className="h-4 w-4" />
-                  <span>Enviar mensagem</span>
+                  <span>Enviar solicitação</span>
                 </button>
               </form>
             </Card>
           </div>
 
           {/* Dados Corporativos & Confirmações */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="space-y-6 lg:col-span-5">
             <Card variant="surface" padding="lg">
-              <h3 className="font-display text-lg font-bold text-[var(--text-primary)] mb-4 flex items-center gap-2">
+              <h3 className="font-display mb-4 flex items-center gap-2 text-lg font-bold text-[var(--text-primary)]">
                 <Building2 className="h-5 w-5 text-[var(--action-primary)]" />
                 Dados da Empresa
               </h3>
 
-              <div className="space-y-3 text-xs text-[var(--text-secondary)] leading-relaxed">
+              <div className="space-y-3 text-xs leading-relaxed text-[var(--text-secondary)]">
                 <div>
                   <span className="text-[var(--text-muted)]">Razão Social:</span>
                   <p className="font-medium text-[var(--text-primary)]">{siteConfig.legalName}</p>
@@ -155,12 +171,13 @@ export default function ContactPage() {
             </Card>
 
             <Card variant="featured" padding="lg">
-              <div className="flex items-center gap-2 mb-2 text-[var(--action-primary)] font-semibold text-sm">
+              <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-[var(--action-primary)]">
                 <ShieldCheck className="h-4 w-4" />
                 <span>Privacidade & Tratamento</span>
               </div>
-              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                Os dados enviados através deste canal são utilizados estritamente para qualificação e atendimento comercial da sua solicitação pela equipe N8FLOW.
+              <p className="text-xs leading-relaxed text-[var(--text-secondary)]">
+                Os dados enviados através deste canal são utilizados estritamente para qualificação
+                e atendimento comercial da sua solicitação pela equipe N8FLOW.
               </p>
             </Card>
           </div>

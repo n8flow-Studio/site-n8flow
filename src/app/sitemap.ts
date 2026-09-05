@@ -6,8 +6,8 @@ import { contentRepository } from '@/lib/content/repository'
  * sitemap.ts — inclui todas as rotas canônicas e publicadas.
  *
  * Filtros de segurança:
- * - Apenas eventos com status publicado/aberto (nunca drafts)
  * - Artigos e serviços ativos
+ * - Comunidade e Eventos suspensos pelo ADR-0007
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = siteConfig.url
@@ -16,9 +16,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Páginas estáticas principais
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${baseUrl}/eventos`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${baseUrl}/comunidade`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/servicos`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/metodo`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/cases`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: 'daily', priority: 0.7 },
     { url: `${baseUrl}/sobre`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
@@ -32,15 +31,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.8,
-  }))
-
-  // Rotas dinâmicas de Eventos (apenas públicos)
-  const events = await contentRepository.listEvents({ status: ['open', 'published', 'sold_out'] })
-  const eventRoutes: MetadataRoute.Sitemap = events.map((e) => ({
-    url: `${baseUrl}/eventos/${e.slug}`,
-    lastModified: now,
-    changeFrequency: 'weekly',
-    priority: 0.9,
   }))
 
   // Rotas dinâmicas de Artigos
@@ -61,5 +51,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
-  return [...staticRoutes, ...serviceRoutes, ...eventRoutes, ...articleRoutes, ...caseRoutes]
+  return [...staticRoutes, ...serviceRoutes, ...articleRoutes, ...caseRoutes]
 }

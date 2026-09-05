@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { Container } from '@/components/ui/container'
 import { siteConfig } from '@/config/site'
@@ -7,28 +8,35 @@ import { MobileNav } from '@/components/layout/mobile-nav'
  * Header — navegação principal.
  *
  * Estrutura confirmada (UX §6.1, DS §4.16):
- * Logo | Soluções | Comunidade | Eventos | Cases | Conteúdos | CTA
+ * Logo | Soluções | Método | Cases | Conteúdos | Sobre | CTA
  */
 export function Header() {
   return (
     <header
       className="sticky top-0 z-[var(--z-sticky)] border-b"
       style={{
-        background: 'rgba(9, 13, 18, 0.85)',
+        background: 'rgb(245 244 239 / 0.92)',
         borderColor: 'var(--border-subtle)',
         backdropFilter: 'blur(12px)',
       }}
     >
       <Container as="nav" aria-label="Navegação principal">
         <div className="flex h-16 items-center justify-between gap-6 md:h-20">
-          {/* Logo — identificador oficial da marca */}
+          {/* Logo oficial da marca */}
           <Link
             href="/"
             aria-label="N8FLOW — Página inicial"
-            className="flex items-center gap-1.5 font-display text-xl font-bold tracking-tight text-[var(--text-primary)]"
+            className="flex shrink-0 items-center"
           >
-            <span className="text-[var(--action-primary)]">N8</span>
-            <span>FLOW</span>
+            <Image
+              src="/brand/logo.png"
+              alt="N8FLOW"
+              width={1024}
+              height={783}
+              className="block"
+              style={{ width: '64px', height: 'auto' }}
+              preload
+            />
           </Link>
 
           {/* Navegação desktop */}
@@ -48,10 +56,10 @@ export function Header() {
           {/* CTA header & Mobile Nav */}
           <div className="flex items-center gap-3">
             <Link
-              href="/eventos"
-              className="hidden rounded-[var(--radius-md)] bg-[var(--action-primary)] px-4 py-2 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--action-primary-hover)] md:inline-flex"
+              href="/contato"
+              className="hidden border border-[var(--text-primary)] bg-[var(--text-primary)] px-4 py-2 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] md:inline-flex"
             >
-              Próximo evento
+              Solicitar diagnóstico
             </Link>
 
             {/* Menu mobile */}

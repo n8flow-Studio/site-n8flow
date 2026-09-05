@@ -30,7 +30,7 @@
 - nós, linhas e caminhos direcionais;
 - gráficos abstratos e fluxos de dados;
 - recortes geométricos e assimetria controlada;
-- brilho verde ou roxo apenas em focos estratégicos.
+- verde ou roxo apenas em focos estratégicos, preferencialmente como linha, marcador ou superfície curta.
 
 Evitar estética de “agência tradicional”, imagens genéricas de apertos de mão, excesso de neon, circuitos literais, robôs humanoides e dashboards fictícios apresentados como resultados reais.
 
@@ -38,34 +38,34 @@ Evitar estética de “agência tradicional”, imagens genéricas de apertos de
 
 **Recomendada DS; requer validação visual antes de congelar.**
 
-| Papel | Família | Pesos | Uso |
-|---|---|---|---|
-| Display | Space Grotesk | 500, 600, 700 | hero, H1–H3, números de destaque |
-| Interface/corpo | Inter | 400, 500, 600, 700 | texto, labels, botões, tabelas |
+| Papel           | Família       | Pesos              | Uso                              |
+| --------------- | ------------- | ------------------ | -------------------------------- |
+| Display         | Space Grotesk | 500, 600, 700      | hero, H1–H3, números de destaque |
+| Interface/corpo | Inter         | 400, 500, 600, 700 | texto, labels, botões, tabelas   |
 
 Fallbacks:
 
 ```css
---font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
---font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+--font-display: 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;
+--font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 ```
 
 Carregar via `next/font/google`, com `display: swap`, subsets necessários e variáveis CSS. Não usar mais de quatro pesos por família.
 
 ### Escala responsiva
 
-| Token | Mobile | Desktop | Line-height | Uso |
-|---|---:|---:|---:|---|
-| `display-xl` | 44 px | 72 px | 1.00–1.05 | hero principal |
-| `display-lg` | 38 px | 60 px | 1.05 | landing hero |
-| `h1` | 36 px | 52 px | 1.08 | título de página |
-| `h2` | 30 px | 40 px | 1.15 | seção |
-| `h3` | 24 px | 30 px | 1.20 | grupo/card |
-| `h4` | 20 px | 24 px | 1.25 | subtítulo |
-| `body-lg` | 18 px | 20 px | 1.60 | lead |
-| `body` | 16 px | 16 px | 1.60 | padrão |
-| `body-sm` | 14 px | 14 px | 1.50 | apoio |
-| `caption` | 12 px | 12 px | 1.45 | metadado |
+| Token        | Mobile | Desktop | Line-height | Uso              |
+| ------------ | -----: | ------: | ----------: | ---------------- |
+| `display-xl` |  44 px |   72 px |   1.00–1.05 | hero principal   |
+| `display-lg` |  38 px |   60 px |        1.05 | landing hero     |
+| `h1`         |  36 px |   52 px |        1.08 | título de página |
+| `h2`         |  30 px |   40 px |        1.15 | seção            |
+| `h3`         |  24 px |   30 px |        1.20 | grupo/card       |
+| `h4`         |  20 px |   24 px |        1.25 | subtítulo        |
+| `body-lg`    |  18 px |   20 px |        1.60 | lead             |
+| `body`       |  16 px |   16 px |        1.60 | padrão           |
+| `body-sm`    |  14 px |   14 px |        1.50 | apoio            |
+| `caption`    |  12 px |   12 px |        1.45 | metadado         |
 
 Display deve usar `letter-spacing: -0.03em` a `-0.02em`; títulos, `-0.02em`; corpo, normal; labels em caixa alta somente quando curtas, com `0.08em`. Linhas de texto corrido devem ficar entre 45 e 75 caracteres.
 
@@ -94,16 +94,15 @@ Até a entrega do manual oficial:
 - Ilustrações podem representar fluxos e sistemas, nunca resultados empresariais não comprovados.
 - Usar `next/image`, dimensões explícitas, `sizes`, formatos modernos e lazy loading fora do primeiro viewport.
 - Alt text descreve função/contexto; imagem decorativa usa `alt=""`.
-- Tratamento recomendado: contraste frio, sombras profundas, acentos verde/roxo e overlays que preservem legibilidade.
+- Tratamento recomendado: contraste editorial, fundos claros, acentos verde/roxo e enquadramentos que preservem legibilidade.
 
 ## 1.7 Motion
 
-| Token | Duração | Uso |
-|---|---:|---|
-| `instant` | 80 ms | pressão/feedback imediato |
-| `fast` | 150 ms | hover, tooltip, foco visual |
-| `normal` | 240 ms | accordion, toast, menu |
-| `slow` | 400 ms | entrada de seção/hero |
+| Token     | Duração | Uso                         |
+| --------- | ------: | --------------------------- |
+| `instant` |   80 ms | pressão/feedback imediato   |
+| `fast`    |  150 ms | hover, tooltip, foco visual |
+| `normal`  |  240 ms | accordion, toast, menu      |
+| `slow`    |  400 ms | entrada de seção/hero       |
 
 Easing: `standard: cubic-bezier(.2,.8,.2,1)`; `enter: cubic-bezier(0,0,.2,1)`; `exit: cubic-bezier(.4,0,1,1)`. Animações de entrada: opacidade + deslocamento máximo de 16 px, uma vez, sem bloquear interação. Em `prefers-reduced-motion: reduce`, eliminar deslocamento, parallax, autoplay e smooth scroll; manter apenas feedback instantâneo de estado.
-

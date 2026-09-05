@@ -47,21 +47,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   return (
     <>
       <Container className="pt-8">
-        <Breadcrumb
-          items={[
-            { label: 'Soluções', href: '/servicos' },
-            { label: service.title },
-          ]}
-        />
+        <Breadcrumb items={[{ label: 'Soluções', href: '/servicos' }, { label: service.title }]} />
       </Container>
 
       {/* Hero do Serviço */}
       <Hero
-        eyebrow="Solução Especializada"
+        eyebrow="Frente de atuação"
         title={service.title}
         description={service.summary}
         primaryAction={{
-          label: 'Solicitar diagnóstico desta solução',
+          label: 'Solicitar diagnóstico',
           href: '/contato',
         }}
         variant="b2b"
@@ -72,14 +67,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Problemas */}
           <Card variant="surface" padding="lg">
-            <div className="flex items-center gap-2 mb-4 text-[var(--status-error)] font-display text-lg font-bold">
+            <div className="font-display mb-4 flex items-center gap-2 text-lg font-bold text-[var(--status-error)]">
               <AlertTriangle className="h-5 w-5" />
-              <span>Gargalos e Dores Comuns</span>
+              <span>Gargalos relacionados</span>
             </div>
             <ul className="space-y-3 text-sm text-[var(--text-secondary)]">
               {service.problems.map((p, idx) => (
                 <li key={idx} className="flex items-start gap-2.5">
-                  <span className="text-[var(--status-error)] font-bold mt-0.5">✕</span>
+                  <span className="mt-0.5 font-bold text-[var(--status-error)]">✕</span>
                   <span>{p}</span>
                 </li>
               ))}
@@ -88,14 +83,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
           {/* Resultados */}
           <Card variant="featured" padding="lg">
-            <div className="flex items-center gap-2 mb-4 text-[var(--action-primary)] font-display text-lg font-bold">
+            <div className="font-display mb-4 flex items-center gap-2 text-lg font-bold text-[var(--action-primary)]">
               <CheckCircle2 className="h-5 w-5" />
-              <span>Resultados Esperados</span>
+              <span>Efeitos buscados</span>
             </div>
             <ul className="space-y-3 text-sm text-[var(--text-secondary)]">
               {service.outcomes.map((o, idx) => (
                 <li key={idx} className="flex items-start gap-2.5">
-                  <span className="text-[var(--action-primary)] font-bold mt-0.5">✓</span>
+                  <span className="mt-0.5 font-bold text-[var(--action-primary)]">✓</span>
                   <span>{o}</span>
                 </li>
               ))}
@@ -106,12 +101,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       {/* Capacidades Técnicas */}
       <Section>
-        <div className="mx-auto max-w-3xl text-center mb-12">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
           <Badge variant="brand" size="md" className="mb-3">
-            O Que Está Incluído
+            Capacidades aplicáveis
           </Badge>
           <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
-            Capacidades técnicas e entregáveis.
+            Recursos combinados a partir do diagnóstico.
           </h2>
         </div>
 
@@ -121,7 +116,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[rgb(0_245_160/0.1)] text-[var(--action-primary)]">
                 <Layers className="h-4 w-4" />
               </div>
-              <span className="text-sm font-medium text-[var(--text-primary)] mt-1.5">{cap}</span>
+              <span className="mt-1.5 text-sm font-medium text-[var(--text-primary)]">{cap}</span>
             </Card>
           ))}
         </div>
@@ -130,7 +125,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       {/* Processo da Solução */}
       {service.process && service.process.length > 0 && (
         <Section className="border-t border-[var(--border-subtle)] bg-[var(--bg-subtle)]">
-          <div className="mx-auto max-w-3xl text-center mb-12">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
             <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
               Etapas de implementação
             </h2>
@@ -141,7 +136,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 <span className="font-display text-2xl font-bold text-[var(--action-primary)] opacity-50">
                   0{idx + 1}
                 </span>
-                <h3 className="mt-2 font-display text-lg font-bold text-[var(--text-primary)]">
+                <h3 className="font-display mt-2 text-lg font-bold text-[var(--text-primary)]">
                   {step.label}
                 </h3>
                 <p className="mt-2 text-sm text-[var(--text-secondary)]">{step.description}</p>
@@ -165,8 +160,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       {/* CTA Final */}
       <CtaSection
-        title={`Pronto para implementar ${service.title.toLowerCase()}?`}
-        description="Converse com nossa equipe para desenharmos a estratégia personalizada para o seu modelo de negócio."
+        title="Qual frente merece prioridade na sua operação?"
+        description="O diagnóstico ajuda a compreender o contexto antes de definir escopo, canais ou ferramentas."
         primaryAction={{
           label: 'Solicitar diagnóstico',
           href: '/contato',

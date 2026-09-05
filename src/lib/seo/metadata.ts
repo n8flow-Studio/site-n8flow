@@ -16,10 +16,12 @@ interface BuildMetadataOptions {
   ogImage?: string
 }
 
+const defaultOgImage = '/brand/og-default.png'
+
 /**
  * Constrói o objeto Metadata do Next.js para cada página.
- * Usa título e descrição da Copy v1.0 como base.
- * OG image depende de assets oficiais — deixa undefined se não houver.
+ * Usa título e descrição da estratégia editorial vigente como base.
+ * Usa a imagem social oficial como fallback quando a página não possui imagem própria.
  */
 export function buildMetadata({
   title,
@@ -35,6 +37,7 @@ export function buildMetadata({
     : { template: `%s | ${siteConfig.name}`, default: siteConfig.tagline }
 
   const resolvedDescription = description ?? siteConfig.description
+  const resolvedOgImage = ogImage ?? defaultOgImage
 
   const openGraph: Metadata['openGraph'] = {
     type: 'website',
@@ -43,8 +46,14 @@ export function buildMetadata({
     siteName: siteConfig.name,
     title: title ?? siteConfig.tagline,
     description: resolvedDescription,
-    // ogImage é adicionado somente quando asset oficial estiver disponível
-    ...(ogImage ? { images: [{ url: ogImage, alt: title ?? siteConfig.tagline }] } : {}),
+    images: [
+      {
+        url: resolvedOgImage,
+        width: 1200,
+        height: 630,
+        alt: title ?? siteConfig.tagline,
+      },
+    ],
   }
 
   return {
@@ -59,7 +68,7 @@ export function buildMetadata({
       card: 'summary_large_image',
       title: title ?? siteConfig.tagline,
       description: resolvedDescription,
-      ...(ogImage ? { images: [ogImage] } : {}),
+      images: [resolvedOgImage],
     },
     robots: noIndex
       ? { index: false, follow: false }
@@ -69,11 +78,11 @@ export function buildMetadata({
 
 /**
  * Metadata padrão da Home.
- * Copy v1.0 — sujeita a revisão.
+ * Posicionamento aprovado no ADR-0007.
  */
 export const homeMetadata = buildMetadata({
-  title: 'N8FLOW — Engenharia de Growth e Tecnologia',
+  title: 'N8FLOW — Assessoria de Growth Marketing B2B',
   description:
-    'Integramos estratégia, dados, automação, IA, CRM e vendas para estruturar operações conectadas e orientadas a crescimento.',
+    'Assessoria de Growth Marketing para conectar estratégia, aquisição, conversão, dados e vendas em uma operação orientada a crescimento.',
   pathname: '/',
 })

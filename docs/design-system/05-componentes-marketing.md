@@ -10,11 +10,11 @@ Campos: `eyebrow?`, `title`, `description`, `primaryAction`, `secondaryAction?`,
 
 ## 5.3 CTA Section
 
-Título curto, apoio e uma ação primária; secundária opcional. Variantes `band`, `card`, `split`. Não repetir dois botões com mesma ênfase. CTA deve corresponder à página: evento, comunidade ou diagnóstico.
+Título curto, apoio e uma ação primária; secundária opcional. Variantes `band`, `card`, `split`. Não repetir dois botões com mesma ênfase. O CTA global vigente é diagnóstico comercial; ações alternativas só aparecem quando correspondem a conteúdo público aprovado.
 
 ## 5.4 ServiceCard
 
-Problema/resultado antes de tecnologia. Campos: `icon`, `title`, `description`, `capabilities?`, `href`, `ctaLabel`. Hover pode destacar fluxo/borda; card inteiro não deve conflitar com links internos.
+Problema/resultado antes de tecnologia. Campos: `icon`, `title`, `description`, `capabilities?`, `href`, `ctaLabel`. A taxonomia deve expressar impacto na operação — estratégia, aquisição, conversão, relacionamento e dados/automação — e não um catálogo de ferramentas. Hover pode destacar fluxo/borda; card inteiro não deve conflitar com links internos.
 
 ## 5.5 EventCard
 
@@ -47,4 +47,3 @@ Componente composto por Field, consentimento quando necessário, feedback e prot
 - error: ação de tentar novamente e canal alternativo somente se confirmado;
 - success: confirmar resultado e próximo passo;
 - conteúdo ausente: omitir módulo em vez de preencher com alegação fictícia.
-

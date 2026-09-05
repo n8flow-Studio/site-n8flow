@@ -19,19 +19,19 @@ Definir limites, padrões e critérios técnicos para que o site seja uma infrae
 
 ## Decisões executivas
 
-| Tema | Decisão | Status |
-|---|---|---|
-| Renderização | App Router; Server Components por padrão | Confirmada |
-| Hospedagem | Vercel | Confirmada |
-| Conteúdo inicial | MDX/arquivos versionados no Git atrás de uma camada de repositório | Decisão técnica v1.0 |
-| CMS headless | adiar até existir necessidade de edição sem deploy | Decisão técnica v1.0 |
-| API pública do site | Route Handlers server-side, apenas para casos necessários | Confirmada |
-| Orquestração | n8n recebe eventos do backend, nunca diretamente com segredo no navegador | Confirmada |
-| CRM/WhatsApp | integração operacional via Bolten/n8n | Confirmada |
-| Gateway | usar adapter; fornecedor ainda não congelado | Pendente |
-| Validação | schemas compartilhados + revalidação no servidor | Decisão técnica v1.0 |
-| Observabilidade | logs estruturados + Vercel; Sentry recomendado antes do go-live | Decisão técnica v1.0 |
-| Tema | dark-first; light somente se aprovado | Confirmada/pendente |
+| Tema                | Decisão                                                                   | Status                                         |
+| ------------------- | ------------------------------------------------------------------------- | ---------------------------------------------- |
+| Renderização        | App Router; Server Components por padrão                                  | Confirmada                                     |
+| Hospedagem          | Vercel                                                                    | Confirmada                                     |
+| Conteúdo inicial    | MDX/arquivos versionados no Git atrás de uma camada de repositório        | Decisão técnica v1.0                           |
+| CMS headless        | adiar até existir necessidade de edição sem deploy                        | Decisão técnica v1.0                           |
+| API pública do site | Route Handlers server-side, apenas para casos necessários                 | Confirmada                                     |
+| Orquestração        | n8n recebe eventos do backend, nunca diretamente com segredo no navegador | Confirmada                                     |
+| CRM/WhatsApp        | integração operacional via Bolten/n8n                                     | Confirmada                                     |
+| Gateway             | usar adapter; fornecedor ainda não congelado                              | Pendente                                       |
+| Validação           | schemas compartilhados + revalidação no servidor                          | Decisão técnica v1.0                           |
+| Observabilidade     | logs estruturados + Vercel; Sentry recomendado antes do go-live           | Decisão técnica v1.0                           |
+| Tema                | light-first                                                               | Confirmada por decisão explícita em 2026-08-28 |
 
 ## Mapa
 
@@ -54,4 +54,3 @@ Definir limites, padrões e critérios técnicos para que o site seja uma infrae
 ## Fontes e precedência
 
 Fontes: PRD e Especificação de UX/IA em `sources/`, mais o Design System v1.0. Em conflito: decisão explícita mais recente → Arquitetura/ADR → UX/IA → PRD → recomendação local.
-

@@ -60,40 +60,40 @@
 }
 
 /* --------------------------------------------------------------------------
-   Tokens semânticos — dark-first (CONFIRMADO)
+   Tokens semânticos — light-first (decisão explícita de 2026-08-28)
    -------------------------------------------------------------------------- */
 :root,
-[data-theme='dark'] {
-  color-scheme: dark;
+[data-theme='light'] {
+  color-scheme: light;
 
   /* Backgrounds */
-  --bg-canvas: var(--neutral-950);
-  --bg-subtle: var(--neutral-900);
-  --bg-surface: var(--neutral-850);
-  --bg-elevated: var(--neutral-800);
-  --bg-inverse: var(--neutral-50);
+  --bg-canvas: #f5f4ef;
+  --bg-subtle: #ecebe5;
+  --bg-surface: var(--neutral-0);
+  --bg-elevated: #e4e3dd;
+  --bg-inverse: var(--neutral-950);
 
   /* Texto */
-  --text-primary: var(--neutral-50);
-  --text-secondary: var(--neutral-300);
-  --text-muted: var(--neutral-400);
-  --text-inverse: var(--neutral-950);
-  --text-link: var(--green-300);
+  --text-primary: var(--neutral-950);
+  --text-secondary: var(--neutral-700);
+  --text-muted: var(--neutral-600);
+  --text-inverse: var(--neutral-50);
+  --text-link: var(--violet-700);
 
   /* Bordas */
-  --border-subtle: rgb(255 255 255 / 0.08);
-  --border-default: rgb(255 255 255 / 0.14);
-  --border-strong: rgb(255 255 255 / 0.24);
+  --border-subtle: rgb(9 13 18 / 0.1);
+  --border-default: rgb(9 13 18 / 0.18);
+  --border-strong: rgb(9 13 18 / 0.34);
 
   /* Ações */
-  --action-primary: var(--green-400);
-  --action-primary-hover: var(--green-300);
-  --action-primary-active: var(--green-500);
+  --action-primary: var(--green-500);
+  --action-primary-hover: var(--green-600);
+  --action-primary-active: var(--green-700);
   --action-secondary: var(--violet-500);
   --action-secondary-hover: var(--violet-400);
 
   /* Focus */
-  --focus-ring: var(--green-300);
+  --focus-ring: var(--violet-500);
   --focus-ring-offset: 2px;
 
   /* Status */
@@ -103,33 +103,32 @@
   --status-info: var(--blue-400);
 
   /* Seleção */
-  --selection-bg: rgb(0 245 160 / 0.28);
+  --selection-bg: rgb(0 245 160 / 0.34);
 }
 
 /* --------------------------------------------------------------------------
-   Tema claro — RECOMENDAÇÃO DS, não é requisito do MVP.
-   Implementar somente se aprovado explicitamente.
+   Tema escuro contextual — não é o tema principal.
    -------------------------------------------------------------------------- */
-[data-theme='light'] {
-  color-scheme: light;
+[data-theme='dark'] {
+  color-scheme: dark;
 
-  --bg-canvas: var(--neutral-50);
-  --bg-subtle: var(--neutral-100);
-  --bg-surface: var(--neutral-0);
-  --bg-elevated: var(--neutral-0);
-  --bg-inverse: var(--neutral-950);
+  --bg-canvas: var(--neutral-950);
+  --bg-subtle: var(--neutral-900);
+  --bg-surface: var(--neutral-850);
+  --bg-elevated: var(--neutral-800);
+  --bg-inverse: var(--neutral-50);
 
-  --text-primary: var(--neutral-950);
-  --text-secondary: var(--neutral-700);
-  --text-muted: var(--neutral-600);
-  --text-inverse: var(--neutral-50);
-  --text-link: var(--violet-700);
+  --text-primary: var(--neutral-50);
+  --text-secondary: var(--neutral-300);
+  --text-muted: var(--neutral-400);
+  --text-inverse: var(--neutral-950);
+  --text-link: var(--green-300);
 
-  --border-subtle: rgb(9 13 18 / 0.1);
-  --border-default: rgb(9 13 18 / 0.16);
-  --border-strong: rgb(9 13 18 / 0.28);
+  --border-subtle: rgb(255 255 255 / 0.08);
+  --border-default: rgb(255 255 255 / 0.14);
+  --border-strong: rgb(255 255 255 / 0.24);
 
-  --focus-ring: var(--violet-500);
+  --focus-ring: var(--green-300);
 }
 
 /* --------------------------------------------------------------------------
@@ -137,12 +136,9 @@
    -------------------------------------------------------------------------- */
 :root {
   --gradient-brand: linear-gradient(135deg, #00f5a0 0%, #6e44ff 100%);
-  --gradient-brand-soft: linear-gradient(
-    135deg,
-    rgb(0 245 160 / 0.16),
-    rgb(110 68 255 / 0.18)
-  );
-  --gradient-hero: radial-gradient(circle at 20% 10%, rgb(0 245 160 / 0.16), transparent 38%),
+  --gradient-brand-soft: linear-gradient(135deg, rgb(0 245 160 / 0.16), rgb(110 68 255 / 0.18));
+  --gradient-hero:
+    radial-gradient(circle at 20% 10%, rgb(0 245 160 / 0.16), transparent 38%),
     radial-gradient(circle at 80% 20%, rgb(110 68 255 / 0.22), transparent 42%);
   --gradient-fade: linear-gradient(180deg, transparent, var(--bg-canvas));
 }
@@ -151,11 +147,11 @@
    Sombras e glows — RECOMENDADOS DS
    -------------------------------------------------------------------------- */
 :root {
-  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.28);
-  --shadow-md: 0 8px 24px rgb(0 0 0 / 0.28);
-  --shadow-lg: 0 20px 60px rgb(0 0 0 / 0.38);
-  --glow-green: 0 0 32px rgb(0 245 160 / 0.18);
-  --glow-violet: 0 0 40px rgb(110 68 255 / 0.22);
+  --shadow-sm: 0 1px 2px rgb(9 13 18 / 0.08);
+  --shadow-md: 0 12px 32px rgb(9 13 18 / 0.1);
+  --shadow-lg: 0 28px 72px rgb(9 13 18 / 0.14);
+  --glow-green: 0 0 0 1px rgb(0 245 160 / 0.35);
+  --glow-violet: 0 0 0 1px rgb(110 68 255 / 0.3);
 }
 
 /* --------------------------------------------------------------------------

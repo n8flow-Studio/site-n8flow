@@ -31,22 +31,40 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     template: '%s | N8FLOW',
-    default: 'N8FLOW — Engenharia de Growth e Tecnologia',
+    default: 'N8FLOW — Assessoria de Growth Marketing B2B',
   },
   description:
-    'Integramos estratégia, dados, automação, IA, CRM e vendas para estruturar operações conectadas e orientadas a crescimento.',
+    'Assessoria de Growth Marketing para conectar estratégia, aquisição, conversão, dados e vendas em uma operação orientada a crescimento.',
   metadataBase: new URL('https://n8flow.com.br'),
   alternates: {
     canonical: 'https://n8flow.com.br',
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/brand/favicon.svg', type: 'image/svg+xml' },
+      { url: '/brand/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+    ],
+    apple: [{ url: '/brand/apple-touch-icon.png', type: 'image/png', sizes: '180x180' }],
+    shortcut: ['/favicon.ico'],
   },
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
     siteName: 'N8FLOW',
     url: 'https://n8flow.com.br',
+    images: [
+      {
+        url: '/brand/og-default.png',
+        width: 1200,
+        height: 630,
+        alt: 'N8FLOW — Assessoria de Growth Marketing B2B',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
+    images: ['/brand/og-default.png'],
   },
   // Schema.org Organization adicionado na Fase 4 com dados confirmados
 }
@@ -54,18 +72,10 @@ export const metadata: Metadata = {
 // ---------------------------------------------------------------------------
 // Layout global
 // ---------------------------------------------------------------------------
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="pt-BR"
-      data-theme="dark"
-      className={`${spaceGrotesk.variable} ${inter.variable}`}
-    >
-      <body className="bg-[var(--bg-canvas)] text-[var(--text-primary)] font-sans antialiased">
+    <html lang="pt-BR" data-theme="light" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+      <body className="bg-[var(--bg-canvas)] font-sans text-[var(--text-primary)] antialiased">
         {/* Skip link para acessibilidade — WCAG 2.2 AA (DS §6.3) */}
         <SkipLink />
         <Header />
