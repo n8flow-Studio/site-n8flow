@@ -9,8 +9,9 @@ import { contentRepository } from '@/lib/content/repository'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Eventos N8FLOW',
-  description: 'Eventos sobre Growth e tecnologia aplicada ao mercado imobiliário.',
+  description: 'Eventos sobre Growth Marketing e tecnologia aplicada. Datas e disponibilidade são publicadas somente após confirmação.',
   pathname: '/eventos',
+  noIndex: true,
 })
 
 export default async function EventsPage() {

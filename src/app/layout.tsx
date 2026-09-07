@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
+import { AttributionCapture } from '@/components/forms/attribution-capture'
 import { Space_Grotesk, Inter } from 'next/font/google'
 import { SkipLink } from '@/components/layout/skip-link'
 import { Header } from '@/components/layout/header'
@@ -78,6 +80,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-[var(--bg-canvas)] font-sans text-[var(--text-primary)] antialiased">
         {/* Skip link para acessibilidade — WCAG 2.2 AA (DS §6.3) */}
         <SkipLink />
+        <Suspense fallback={null}>
+          <AttributionCapture />
+        </Suspense>
         <Header />
         <main id="main-content" className="flex-1">
           {children}

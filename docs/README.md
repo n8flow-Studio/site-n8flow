@@ -1,5 +1,17 @@
 # Documentação — Site N8FLOW
 
+## Estado vigente — 2026-09-07
+
+Assessoria B2B multissetorial, light-first. Supabase para leads e CRM interno;
+Pedro e sócio com acesso global, futuros comerciais restritos por responsável.
+Bolten é oferta SaaS para clientes, sem integração ao site.
+
+- [Decisão aprovada](./decisions/ADR-0008-supabase-crm-interno.md).
+- [Arquitetura do CRM e pendências](./arquitetura-tecnica/08-crm-interno-e-acessos.md).
+- [Estado de implementação verificado](./status/2026-09-07-implementacao.md).
+
+Documentação de arquitetura-alvo não comprova funcionalidade implementada.
+
 ## Ordem obrigatória de leitura
 
 1. [PRD](./product/prd.md)

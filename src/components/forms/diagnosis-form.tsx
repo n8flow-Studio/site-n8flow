@@ -1,6 +1,7 @@
 'use client'
 
-import { useRef, useState, type FormEvent } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from 'react'
+import { z } from 'zod'
 import { CheckCircle2, RotateCcw, Send } from 'lucide-react'
 import type { ApiResponse } from '@/lib/api/response'
 import { track } from '@/lib/analytics/track'
@@ -10,9 +11,28 @@ import {
   type DiagnosisFieldErrors,
 } from '@/lib/validation/diagnosis'
 import { Button } from '@/components/ui/button'
+import { normalizeAttribution } from '@/lib/validation/attribution'
+import { ATTRIBUTION_KEY } from './attribution-capture'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 type DiagnosisResponse = ApiResponse<{ accepted: true }>
+const responseSchema = z.discriminatedUnion('ok', [
+  z.object({
+    ok: z.literal(true),
+    data: z.object({ accepted: z.literal(true) }),
+    requestId: z.string(),
+  }),
+  z.object({
+    ok: z.literal(false),
+    error: z.object({
+      code: z.string(),
+      message: z.string(),
+      fieldErrors: z.record(z.string(), z.array(z.string())).optional(),
+    }),
+    requestId: z.string(),
+  }),
+])
+const subscribe = () => () => {}
 
 const fieldClassName =
   'min-h-11 w-full rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)] aria-invalid:border-[var(--status-error)]'
@@ -24,31 +44,48 @@ function FieldError({ id, errors }: { id: string; errors?: string[] }) {
   if (!errors?.length) return null
 
   return (
-    <p id={id} className="mt-1.5 text-sm text-[var(--status-error)]">
+    <p id={id} className="mt-1.5 text-sm text-[var(--text-primary)]">
       {errors[0]}
     </p>
   )
 }
 
 function readAttribution() {
+  try {
+    const stored = sessionStorage.getItem(ATTRIBUTION_KEY)
+    if (stored) return normalizeAttribution(JSON.parse(stored))
+  } catch {
+    /* Optional attribution never blocks a lead. */
+  }
   const params = new URLSearchParams(window.location.search)
-  return {
+  return normalizeAttribution({
     utmSource: params.get('utm_source'),
     utmMedium: params.get('utm_medium'),
     utmCampaign: params.get('utm_campaign'),
     utmTerm: params.get('utm_term'),
     utmContent: params.get('utm_content'),
-    landingPage: `${window.location.pathname}${window.location.search}`,
-  }
+    landingPage: window.location.pathname,
+  })
 }
 
 export function DiagnosisForm() {
   const formRef = useRef<HTMLFormElement>(null)
+  const successRef = useRef<HTMLHeadingElement>(null)
+  const hydrated = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  )
   const [status, setStatus] = useState<Status>('idle')
   const [fieldErrors, setFieldErrors] = useState<DiagnosisFieldErrors>({})
   const [message, setMessage] = useState('')
   const [requestId, setRequestId] = useState('')
-  const idempotencyKey = useRef(crypto.randomUUID())
+  const submission = useRef<{ key: string; body: string } | null>(null)
+  const inFlight = useRef(false)
+  const [changedSubmission, setChangedSubmission] = useState(false)
+  useEffect(() => {
+    if (status === 'success') successRef.current?.focus()
+  }, [status])
 
   function focusFirstInvalidField(errors: DiagnosisFieldErrors) {
     const firstField = Object.keys(errors)[0]
@@ -61,7 +98,7 @@ export function DiagnosisForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    if (status === 'submitting') return
+    if (inFlight.current) return
 
     const form = new FormData(event.currentTarget)
     const body = {
@@ -85,6 +122,18 @@ export function DiagnosisForm() {
       return
     }
 
+    const serialized = JSON.stringify(validated.data)
+    if (submission.current && submission.current.body !== serialized) {
+      setChangedSubmission(true)
+      setMessage(
+        'O envio anterior pode ter sido recebido. Para enviar dados diferentes, inicie um novo envio.',
+      )
+      setStatus('error')
+      return
+    }
+    submission.current ??= { key: crypto.randomUUID(), body: serialized }
+    inFlight.current = true
+
     setStatus('submitting')
     setFieldErrors({})
     setMessage('')
@@ -95,11 +144,13 @@ export function DiagnosisForm() {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
-          'idempotency-key': idempotencyKey.current,
+          'idempotency-key': submission.current.key,
         },
-        body: JSON.stringify(validated.data),
+        body: submission.current.body,
+        signal: AbortSignal.timeout(20_000),
       })
-      const result = (await response.json()) as DiagnosisResponse
+      const result: DiagnosisResponse = responseSchema.parse(await response.json())
+      if (result.ok && !response.ok) throw new Error('Invalid response')
 
       if (!result.ok) {
         const errors = result.error.fieldErrors ?? {}
@@ -113,14 +164,20 @@ export function DiagnosisForm() {
 
       setRequestId(result.requestId)
       setStatus('success')
-      track({ name: 'submit_diagnosis', formId: 'diagnosis-contact' })
       formRef.current?.reset()
-      idempotencyKey.current = crypto.randomUUID()
+      submission.current = null
+      try {
+        track({ name: 'submit_diagnosis', formId: 'diagnosis-contact' })
+      } catch {
+        /* Telemetry must not reverse a confirmed receipt. */
+      }
     } catch {
       setMessage(
         'Não foi possível enviar agora. Seus dados foram mantidos para uma nova tentativa.',
       )
       setStatus('error')
+    } finally {
+      inFlight.current = false
     }
   }
 
@@ -129,7 +186,11 @@ export function DiagnosisForm() {
       <div className="space-y-5" role="status" aria-live="polite">
         <CheckCircle2 className="h-9 w-9 text-[var(--green-700)]" aria-hidden="true" />
         <div>
-          <h2 className="font-display text-2xl font-bold text-[var(--text-primary)]">
+          <h2
+            ref={successRef}
+            tabIndex={-1}
+            className="font-display text-2xl font-bold text-[var(--text-primary)]"
+          >
             Solicitação recebida
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
@@ -148,7 +209,21 @@ export function DiagnosisForm() {
   const errorFor = (field: keyof DiagnosisFieldErrors) => fieldErrors[field]
 
   return (
-    <form ref={formRef} className="space-y-4" noValidate onSubmit={handleSubmit}>
+    <form
+      ref={formRef}
+      method="post"
+      action="/api/leads/diagnostico"
+      className="space-y-4"
+      noValidate
+      onSubmit={handleSubmit}
+    >
+      <p className="text-xs text-[var(--text-secondary)]">Campos com * são obrigatórios.</p>
+      <noscript>
+        <p>
+          Ative o JavaScript para enviar este formulário. Nenhum dado será enviado sem sua
+          confirmação.
+        </p>
+      </noscript>
       <div>
         <label htmlFor="name" className={labelClassName}>
           Nome completo *
@@ -281,10 +356,24 @@ export function DiagnosisForm() {
         className="w-full"
         loading={status === 'submitting'}
         loadingText="Enviando solicitação..."
+        disabled={!hydrated}
       >
         <Send className="h-4 w-4" aria-hidden="true" />
         Enviar solicitação
       </Button>
+      {changedSubmission && (
+        <Button
+          type="button"
+          variant="outline"
+          onClick={() => {
+            submission.current = null
+            setChangedSubmission(false)
+            setMessage('Novo envio iniciado. Revise os dados antes de enviar.')
+          }}
+        >
+          Iniciar novo envio
+        </Button>
+      )}
     </form>
   )
 }

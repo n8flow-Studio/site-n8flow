@@ -6,10 +6,31 @@
 **Status:** Especificação inicial  
 **Produto:** Site Institucional N8FLOW TECNOLOGIA  
 **Stack-alvo:** Next.js + TypeScript + Tailwind CSS + Vercel  
-**Integrações principais:** n8n, CRM, Gateway de Pagamento, WhatsApp API, Analytics  
+**Persistência vigente:** Supabase/PostgreSQL e CRM interno (ADR-0008); demais integrações conforme escopo aprovado
+
 **Documento-base:** N8FLOW TECNOLOGIA — Documento de Estruturação e Conceito
 
 ---
+
+## Atualização operacional aprovada — 2026-09-07
+
+Conforme [ADR-0008](../decisions/ADR-0008-supabase-crm-interno.md), a captação
+será persistida no Supabase e acompanhada em CRM interno próprio. Pedro e sócio
+terão contas individuais de administradores e visão de todos os leads, mesmo
+quando atribuídos a outro responsável. Comercial futuro terá acesso apenas aos
+próprios leads. Não haverá cadastro público no painel.
+
+Bolten é oferta SaaS white-label para clientes, não CRM da N8FLOW nem integração
+do site. n8n e WhatsApp deixam de ser dependências de captação/lançamento.
+Sucesso do formulário depende de gravação confirmada. Supabase não substitui a
+fonte editorial Git/MDX. Provedor de autenticação, etapas do funil, regras de
+atribuição e detalhes de acompanhamento ainda dependem de definição.
+
+As seções históricas 18–19, 33, 35, 40–41, 58, 61, 67, 72, 81, 84–89 não
+prevalecem quando exigirem n8n/Bolten para leads ou excluírem o CRM interno do MVP.
+O aceite vigente exige persistência, autorização, privacidade, testes e operação
+conforme a [arquitetura do CRM](../arquitetura-tecnica/08-crm-interno-e-acessos.md).
+Esta atualização registra requisitos, não implementação concluída.
 
 ## Atualização estratégica aprovada — 2026-09-01
 

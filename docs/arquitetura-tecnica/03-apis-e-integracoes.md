@@ -1,5 +1,10 @@
 # 3. APIs e integrações
 
+**Atualização 2026-09-07:** ADR-0008 substitui n8n/Bolten por Supabase na captação.
+O contrato n8n da seção 3.3 é legado e não deve orientar nova integração. Eventos,
+pagamentos e WhatsApp não são requisitos desta entrega. Painel e autorização estão
+no [módulo 8](./08-crm-interno-e-acessos.md).
+
 ## 3.1 Endpoints planejados
 
 | Método | Rota                       | Finalidade                       | Auth pública           |
@@ -25,13 +30,15 @@ type ApiFailure = {
 ```text
 Receber → limitar tamanho → validar origem/antiabuso → parse seguro
 → validar schema → normalizar → gerar requestId/idempotencyKey
-→ encaminhar ao n8n → interpretar resposta → log sem PII
+→ persistir atomicamente no Supabase com idempotência → confirmar commit → log sem PII
 → responder ao usuário
 ```
 
-Não limpar dados válidos no cliente. Timeout e indisponibilidade retornam erro recuperável; não declarar lead criado se o n8n não confirmou aceite. Para resiliência superior, avaliar fila/outbox por ADR após definir SLA e volume.
+Não limpar dados válidos no cliente. Timeout e indisponibilidade retornam erro
+recuperável; não declarar lead criado sem gravação confirmada. Mesma chave com
+payload diferente deve falhar, e requisições concorrentes não devem duplicar leads.
 
-## 3.3 Contrato com n8n
+## 3.3 Contrato com n8n — histórico, fora da arquitetura vigente
 
 Envelope recomendado:
 
@@ -95,6 +102,11 @@ Eventos confirmados incluem `view_event`, `click_event_cta`, `start_event_regist
 
 ## 3.8 Estado de implementação do diagnóstico — 2026-09-06
 
+**Registro histórico:** em 2026-09-07 a rota passou a usar `server/leads`, com adapter
+Supabase, RPC transacional e ativação explícita. Sem configuração retorna falha;
+não há seleção automática de mock/n8n. Migração e integração real ainda não validadas.
+Ver [guia atual](../../supabase/README.md). A descrição abaixo refere-se ao commit anterior.
+
 O endpoint `POST /api/leads/diagnostico` implementa o envelope estável, validação
 Zod compartilhada, limite de corpo, verificação de origem, honeypot, rate limit e
 idempotência em memória. O adapter n8n utiliza HMAC-SHA256 sobre
@@ -105,8 +117,9 @@ idempotência em memória. O adapter n8n utiliza HMAC-SHA256 sobre
   mock que não persiste nem registra PII.
 - Em produção, a ausência de `N8N_WEBHOOK_URL` ou `N8N_WEBHOOK_SECRET` retorna
   indisponibilidade e nunca confirma o lead.
-- O Bolten permanece atrás do workflow n8n; não há chamada direta pelo site.
+- Não há adapter Bolten no site nem comprovação de workflow externo. O adapter n8n
+  existente deverá ser substituído pelo Supabase conforme ADR-0008.
 - Rate limit e idempotência atuais são best-effort por instância. Garantia
-  distribuída exige persistência operacional e ADR-0005 antes de volume real.
+  distribuída exige implementar a persistência aprovada no ADR-0008 antes de uso real.
 - Analytics possui contrato tipado e evento local sem provider. IDs,
   consentimento e carregamento de terceiros permanecem pendentes.

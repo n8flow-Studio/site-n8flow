@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { normalizeAttribution } from './attribution'
 
 const trimmedString = (label: string, max: number) =>
   z
@@ -25,10 +26,14 @@ export const diagnosisSchema = z
       .trim()
       .min(1, 'Informe seu WhatsApp ou telefone.')
       .max(24, 'O telefone deve ter no máximo 24 caracteres.')
-      .refine((value) => value.replace(/\D/g, '').length >= 10, {
-        message: 'Digite um WhatsApp válido com DDD.',
-      })
-      .transform((value) => value.replace(/\D/g, '')),
+      .refine(
+        (value) =>
+          /^[+\d\s().-]+$/.test(value) && /^\+?[1-9]\d{9,14}$/.test(value.replace(/[\s().-]/g, '')),
+        {
+          message: 'Digite um WhatsApp válido com DDD.',
+        },
+      )
+      .transform((value) => value.replace(/[\s().-]/g, '')),
     interest: diagnosisInterestSchema.default('diagnostico'),
     message: z
       .string()
@@ -36,24 +41,27 @@ export const diagnosisSchema = z
       .max(2000, 'A mensagem deve ter no máximo 2000 caracteres.')
       .default(''),
     website: z.string().max(200).default(''),
-    attribution: z
-      .object({
-        utmSource: z.string().trim().max(100).nullable().default(null),
-        utmMedium: z.string().trim().max(100).nullable().default(null),
-        utmCampaign: z.string().trim().max(160).nullable().default(null),
-        utmTerm: z.string().trim().max(160).nullable().default(null),
-        utmContent: z.string().trim().max(160).nullable().default(null),
-        landingPage: z.string().trim().max(500).default('/contato'),
-      })
-      .strict()
-      .default({
-        utmSource: null,
-        utmMedium: null,
-        utmCampaign: null,
-        utmTerm: null,
-        utmContent: null,
-        landingPage: '/contato',
-      }),
+    attribution: z.preprocess(
+      normalizeAttribution,
+      z
+        .object({
+          utmSource: z.string().trim().max(100).nullable().default(null),
+          utmMedium: z.string().trim().max(100).nullable().default(null),
+          utmCampaign: z.string().trim().max(160).nullable().default(null),
+          utmTerm: z.string().trim().max(160).nullable().default(null),
+          utmContent: z.string().trim().max(160).nullable().default(null),
+          landingPage: z.string().trim().max(500).default('/contato'),
+        })
+        .strict()
+        .default({
+          utmSource: null,
+          utmMedium: null,
+          utmCampaign: null,
+          utmTerm: null,
+          utmContent: null,
+          landingPage: '/contato',
+        }),
+    ),
   })
   .strict()
 

@@ -1,6 +1,24 @@
 # 3. Formulários, FAQs e CTAs
 
+## Direção vigente — 2026-09-07
+
+ADR-0007 prevalece sobre FAQs/CTAs históricos de nicho, Eventos e Comunidade abaixo.
+ADR-0008 define Supabase e CRM interno: confirmação significa gravação persistente,
+não envio ao Bolten, automação de WhatsApp ou promessa de resposta imediata.
+Bolten é oferta para clientes; não publicar benefícios, planos ou integração ao
+site sem copy aprovada. Textos legais precisam refletir os destinatários reais.
+
+No painel, labels e mensagens devem distinguir responsável pelo atendimento de
+permissão de acesso. Ambos os sócios veem todos os leads. Etapas comerciais,
+mensagens de login e detalhes de acompanhamento serão definidos antes da UI;
+não promover a proposta de funil a copy definitiva.
+
 ## Formulários
+
+Microcopy funcional adicionada na fase A (2026-09-07): legenda de obrigatórios,
+orientação para habilitar JavaScript e aviso de que uma tentativa anterior pode
+ter sido recebida antes de iniciar envio com dados diferentes. Sem promessa de
+prazo. Esses estados exigem validação de layout/negócio antes de go-live.
 
 Labels: Nome completo; E-mail; WhatsApp com DDD; CRECI; Empresa; Cargo; Cidade; Segmento; Qual é o principal desafio da sua operação?; Como podemos ajudar? Placeholder não substitui label. Campos de diagnóstico dependem de aprovação comercial.
 

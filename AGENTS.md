@@ -48,8 +48,11 @@ Quando conteúdo não existir: use placeholder claramente identificado apenas em
 - Domínio: `n8flow.com.br`.
 - Logo existente; não redesenhar.
 - Cores: `#00F5A0` e `#6E44FF`.
-- Engineering Growth, dark-first.
-- CRM Bolten White Label; WhatsApp Oficial via Bolten; n8n como orquestrador.
+- Engineering Growth, light-first (ADR-0006).
+- Supabase/PostgreSQL para leads e CRM interno próprio (ADR-0008).
+- Pedro e sócio são administradores com acesso a todos os leads; comercial futuro restrito por responsável.
+- Bolten White Label é oferta SaaS para clientes, sem integração ao site ou uso como CRM interno.
+- n8n/WhatsApp não são dependências da captação; autenticação do painel ainda exige decisão específica.
 - Hospedagem Vercel.
 - Conteúdo inicial Markdown/MDX no Git atrás de repository interface.
 - Gateway pendente e obrigatoriamente abstraído por adapter.

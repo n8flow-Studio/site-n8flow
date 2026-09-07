@@ -27,9 +27,10 @@ const buttonVariants = cva(
          */
         primary: [
           'bg-[var(--action-primary)]',
-          'text-[var(--text-inverse)]',
+          'text-[var(--neutral-950)]',
           'hover:bg-[var(--action-primary-hover)]',
           'active:bg-[var(--action-primary-active)]',
+          'active:text-white',
         ],
         /**
          * secondary — roxo; ação alternativa relevante (CONFIRMADO)
@@ -59,11 +60,7 @@ const buttonVariants = cva(
         /**
          * destructive — APENAS ação destrutiva, nunca CTA comercial (DS §4.2)
          */
-        destructive: [
-          'bg-[var(--status-error)]',
-          'text-white',
-          'hover:opacity-90',
-        ],
+        destructive: ['bg-[var(--status-error)]', 'text-white', 'hover:opacity-90'],
       },
       size: {
         sm: 'h-9 px-4 text-sm',
@@ -82,8 +79,7 @@ const buttonVariants = cva(
 // Props
 // ---------------------------------------------------------------------------
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   loading?: boolean
   loadingText?: string
   asChild?: boolean

@@ -1,5 +1,14 @@
 # 5. SEO, analytics e observabilidade
 
+## Atualização — operação de leads em 2026-09-07
+
+Pelo ADR-0008, monitorar gravação/latência/erros do Supabase e acesso ao CRM, não
+n8n/Bolten. Logs técnicos sem dados de contato ou notas. O painel não terá pixels
+de marketing/session replay por herança do site público. Retirar rotas privadas do
+sitemap, usar noindex e impedir cache público; robots não é controle de acesso.
+Provedor de analytics/error tracking permanece pendente. Eventos de pagamento e
+comunidade descritos abaixo são condicionais, fora do lançamento atual.
+
 ## 5.1 SEO técnico
 
 - Metadata API por página, title template e description real;
@@ -49,4 +58,3 @@ Alertas devem ser acionáveis: falha sustentada de formulário, aumento de 5xx, 
 ## 5.6 Saúde e diagnóstico
 
 Não criar health endpoint que revele segredos. Se necessário, expor apenas saúde sintética e proteger detalhes. Integrações externas são monitoradas por transações sintéticas ou métricas internas, sem efetuar cobrança real em produção.
-

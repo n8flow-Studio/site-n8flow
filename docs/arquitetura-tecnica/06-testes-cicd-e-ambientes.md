@@ -1,5 +1,21 @@
 # 6. Testes, CI/CD e ambientes
 
+## Prioridade vigente — ADR-0008
+
+Testar diagnóstico → persistência Supabase → consulta pelos dois administradores.
+Cobrir falha de gravação, concorrência, retry pós-timeout, conflito de chave/payload,
+submissão sem JavaScript e limites durante leitura. Testes de integração devem
+verificar constraints e RLS de banco real isolado, não apenas mocks do adapter.
+
+Testar acesso anônimo, conta sem perfil, revogação, adulteração de papel, acesso por
+ID e notas/contagens fora do escopo. Ambos os administradores devem ver todos os
+leads; perfis comerciais sintéticos devem acessar somente os próprios. Login e
+recuperação serão testados conforme provedor/método ainda a aprovar.
+
+Ambientes não produtivos usam dados sintéticos e banco separado. Migrações exigem
+plano de compatibilidade, backup e restauração. Jornadas de evento, pagamento e
+Bolten abaixo são históricas/condicionais, não critérios do lançamento atual.
+
 ## 6.1 Pirâmide de testes
 
 - **Unitários:** schemas, normalizadores, SEO, adapters e funções puras.
@@ -49,4 +65,3 @@ Rollback: redeploy da versão saudável anterior; integração/configuração in
 ## 6.6 Definition of Done
 
 Código, testes, documentação e observabilidade atualizados; estados e responsividade revisados; acessibilidade validada; conteúdo não inventado; secrets ausentes do diff; preview aprovado; critérios de aceite rastreáveis.
-

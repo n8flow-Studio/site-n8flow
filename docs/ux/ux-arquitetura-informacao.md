@@ -7,6 +7,26 @@
 Documento de especificação para orientar arquitetura de informação, jornadas, UX, navegação, hierarquia de conteúdo, CTAs e comportamento responsivo do site institucional da N8FLOW.
 Base estratégica: PRD do Site Institucional N8FLOW + conceito de negócio fornecido. Decisões posteriores do projeto foram incorporadas quando já definidas pelo usuário.
 
+## Atualização operacional — 2026-09-07
+
+O [ADR-0008](../decisions/ADR-0008-supabase-crm-interno.md) substitui as menções
+a Bolten/n8n como destino operacional dos leads nas seções 4.3, 32 e 35.
+Jornada vigente: diagnóstico → gravação no Supabase → confirmação → acompanhamento
+no CRM interno. Bolten é oferta para clientes, sem integração ao site.
+
+Painel restrito: somente Pedro e sócio nesta fase; ambos veem todos os leads.
+Responsável pelo lead não limita administradores. Futuros comerciais verão apenas
+os próprios leads. Login não possui cadastro público.
+
+Rotas propostas, ainda não implementadas: `/admin/login`, `/admin/leads` e
+`/admin/leads/[id]`. Não entram na navegação de marketing nem no sitemap. Listagem,
+busca/filtros, detalhe, notas e acompanhamento são proposta de interface a detalhar;
+etapas comerciais e regras de atribuição ainda não estão congeladas.
+
+Prever sessão expirada, acesso negado, carregamento, ausência de leads, busca sem
+resultado e erro recuperável. Não revelar existência de lead fora do escopo do
+usuário. Preservar teclado, foco, reflow mobile e a identidade light-first.
+
 ## Atualização de UX aprovada — 2026-09-01
 
 O [ADR-0007](../decisions/ADR-0007-assessoria-b2b-multissetorial.md) substitui as
