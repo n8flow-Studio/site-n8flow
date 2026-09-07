@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Building2, ShieldCheck, Send } from 'lucide-react'
+import { Building2, ShieldCheck } from 'lucide-react'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { Section } from '@/components/marketing/section'
 import { Hero } from '@/components/marketing/hero'
 import { Card } from '@/components/ui/card'
 import { siteConfig } from '@/config/site'
+import { DiagnosisForm } from '@/components/forms/diagnosis-form'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Contato Institucional e Comercial | N8FLOW',
@@ -32,117 +33,7 @@ export default function ContactPage() {
                 Solicitar diagnóstico
               </h2>
 
-              <form className="space-y-4">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="mb-1.5 block text-xs font-semibold tracking-wider text-[var(--text-secondary)] uppercase"
-                  >
-                    Nome completo *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    placeholder="Seu nome"
-                    className="h-11 w-full rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="company"
-                    className="mb-1.5 block text-xs font-semibold tracking-wider text-[var(--text-secondary)] uppercase"
-                  >
-                    Empresa *
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    required
-                    placeholder="Nome da empresa"
-                    className="h-11 w-full rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="mb-1.5 block text-xs font-semibold tracking-wider text-[var(--text-secondary)] uppercase"
-                  >
-                    E-mail profissional *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="voce@suaempresa.com.br"
-                    className="h-11 w-full rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="mb-1.5 block text-xs font-semibold tracking-wider text-[var(--text-secondary)] uppercase"
-                  >
-                    WhatsApp / Telefone *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    placeholder="(00) 00000-0000"
-                    className="h-11 w-full rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="interest"
-                    className="mb-1.5 block text-xs font-semibold tracking-wider text-[var(--text-secondary)] uppercase"
-                  >
-                    Objetivo do contato
-                  </label>
-                  <select
-                    id="interest"
-                    name="interest"
-                    className="h-11 w-full rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--bg-elevated)] px-4 text-sm text-[var(--text-primary)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
-                  >
-                    <option value="diagnostico">Solicitar diagnóstico comercial</option>
-                    <option value="parcerias">Parcerias</option>
-                    <option value="institucional">Assunto institucional</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="mb-1.5 block text-xs font-semibold tracking-wider text-[var(--text-secondary)] uppercase"
-                  >
-                    Mensagem ou contexto da operação
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    placeholder="Conte resumidamente sobre o seu negócio e o desafio atual..."
-                    className="w-full resize-y rounded-[var(--radius-md)] border border-[var(--border-default)] bg-[var(--bg-elevated)] p-4 text-sm text-[var(--text-primary)] placeholder-[var(--text-muted)] focus-visible:outline-2 focus-visible:outline-[var(--focus-ring)]"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--action-primary)] text-sm font-semibold text-[var(--text-inverse)] shadow-[var(--shadow-md)] transition-all hover:scale-[1.01] hover:bg-[var(--action-primary-hover)]"
-                >
-                  <Send className="h-4 w-4" />
-                  <span>Enviar solicitação</span>
-                </button>
-              </form>
+              <DiagnosisForm />
             </Card>
           </div>
 
@@ -176,8 +67,8 @@ export default function ContactPage() {
                 <span>Privacidade & Tratamento</span>
               </div>
               <p className="text-xs leading-relaxed text-[var(--text-secondary)]">
-                Os dados enviados através deste canal são utilizados estritamente para qualificação
-                e atendimento comercial da sua solicitação pela equipe N8FLOW.
+                Usamos as informações fornecidas para avaliar e responder à sua solicitação. Não
+                inclua senhas, credenciais ou outros dados sensíveis na mensagem.
               </p>
             </Card>
           </div>

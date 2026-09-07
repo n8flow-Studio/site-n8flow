@@ -4,6 +4,11 @@
 
 Labels: Nome completo; E-mail; WhatsApp com DDD; CRECI; Empresa; Cargo; Cidade; Segmento; Qual é o principal desafio da sua operação?; Como podemos ajudar? Placeholder não substitui label. Campos de diagnóstico dependem de aprovação comercial.
 
+Diagnóstico publicado em 2026-09-06: Nome completo, Empresa, E-mail profissional
+e WhatsApp/Telefone são obrigatórios; Objetivo do contato possui as opções
+Diagnóstico comercial, Parcerias e Assunto institucional; Mensagem/contexto é
+opcional. Expansões de qualificação continuam dependentes de aprovação comercial.
+
 Validação:
 
 - obrigatório: Informe {{fieldLabel}}.
@@ -55,4 +60,3 @@ Permanecem pendentes: cancelamento, reembolso, certificado, estacionamento, aces
 Home: Participar do próximo evento. Evento: Quero participar. Comunidade: Quero fazer parte. Serviços: Solicitar diagnóstico. Contato: Enviar mensagem. Conteúdo: Ler artigo. Cases: Ver case. Secundários: Conhecer as soluções; Ver eventos; Ver conteúdos; Tentar novamente. Checkout: Continuar para pagamento.
 
 Falar pelo WhatsApp somente com canal público confirmado. Não usar “Saiba mais” como CTA primário quando houver ação concreta.
-

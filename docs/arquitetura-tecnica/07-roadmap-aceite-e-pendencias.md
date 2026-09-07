@@ -25,6 +25,12 @@ Layout, navegação, Home, serviços, método, blog, cases, sobre/contato; conte
 
 Formulários, validação, antiabuso, n8n sandbox, Bolten, estados de falha e analytics tipado.
 
+**Implementado parcialmente em 2026-09-06:** formulário de diagnóstico, validação
+cliente/servidor, endpoint, honeypot, controles best-effort de rate limit e
+idempotência, adapter mock, adapter n8n configurável, estados de interface e
+contrato tipado de analytics. A ativação do sandbox n8n/Bolten depende de contrato,
+credenciais e teste operacional; analytics externo depende de IDs e consentimento.
+
 ### Fase 3 — pagamento
 
 ADR do gateway, adapter concreto, checkout, assinatura/webhook, idempotência e testes de sandbox.
