@@ -43,7 +43,12 @@ Todo frontmatter passa por schema no build. Falta de campo obrigatório deve fal
 
 ## 2.4 Persistência operacional
 
-O repositório de conteúdo não é banco de leads nem fonte de verdade de pagamento. Leads pertencem ao fluxo n8n/Bolten; pagamentos, ao gateway. Se idempotência, auditoria ou fila exigirem persistência adicional, escolher armazenamento por ADR após medir requisitos.
+O repositório de conteúdo não é banco de leads. Pelo ADR-0008, Supabase/PostgreSQL
+é a fonte de verdade operacional dos leads do CRM interno, atrás de repository e
+adapter server-side. Idempotência precisa de gravação atômica e persistente, não
+Map por instância. Modelo lógico, acesso por responsável e pendências estão no
+[módulo 8](./08-crm-interno-e-acessos.md). Não há sincronização com Bolten.
+Conteúdo editorial permanece no Git conforme ADR-0001; não migrar para Supabase.
 
 ## 2.5 Cache e renderização
 
@@ -58,4 +63,3 @@ Não cachear falhas como sucesso. Conteúdo temporal de evento deve considerar `
 ## 2.6 Assets
 
 Assets editoriais ficam em diretório previsível ou CDN do CMS futuro. Imagens requerem dimensões, alt e autoria/licença quando aplicável. Usar otimização do framework, `sizes` e preload somente para imagem LCP. SVG não confiável não deve ser injetado como HTML.
-

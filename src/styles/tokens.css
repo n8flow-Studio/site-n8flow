@@ -1,0 +1,258 @@
+/* ==========================================================================
+   N8FLOW — tokens.css
+   Fonte de verdade visual. Baseado em docs/design-system/02-tokens-e-temas.md
+   Status das decisões conforme o Design System v1.0:
+     - Confirmadas: sustentadas pelo PRD, UX/IA ou decisão explícita.
+     - Recomendadas DS: propostas deste DS; validação visual pendente.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Paleta primitiva
+   green-400 e violet-500 são CONFIRMADOS. Os demais tons são RECOMENDADOS DS.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Verde de marca */
+  --green-50: #eafff7;
+  --green-100: #c8ffea;
+  --green-200: #91ffd5;
+  --green-300: #4dffc0;
+  --green-400: #00f5a0; /* CONFIRMADO — cor de marca */
+  --green-500: #00cc85;
+  --green-600: #00a66d;
+  --green-700: #087f57;
+  --green-800: #0c6447;
+  --green-900: #0b523c;
+
+  /* Roxo de marca */
+  --violet-50: #f4f1ff;
+  --violet-100: #e9e2ff;
+  --violet-200: #d4c7ff;
+  --violet-300: #b69aff;
+  --violet-400: #916cff;
+  --violet-500: #6e44ff; /* CONFIRMADO — cor de marca */
+  --violet-600: #5b2ee8;
+  --violet-700: #4a23c2;
+  --violet-800: #3e219c;
+  --violet-900: #351f7d;
+
+  /* Neutros frios */
+  --neutral-0: #ffffff;
+  --neutral-50: #f7f8fa;
+  --neutral-100: #eef0f4;
+  --neutral-200: #d9dde5;
+  --neutral-300: #b8bfcc;
+  --neutral-400: #929baa;
+  --neutral-500: #707a89;
+  --neutral-600: #535d6b;
+  --neutral-700: #3c4552;
+  --neutral-800: #252c36;
+  --neutral-850: #1a2029;
+  --neutral-900: #11161d;
+  --neutral-950: #090d12;
+  --neutral-1000: #05070a;
+
+  /* Status */
+  --red-400: #ff647c;
+  --red-500: #ef4762;
+  --amber-400: #ffbd4a;
+  --blue-400: #4db7ff;
+  --cyan-400: #26d9e8;
+}
+
+/* --------------------------------------------------------------------------
+   Tokens semânticos — light-first (decisão explícita de 2026-08-28)
+   -------------------------------------------------------------------------- */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  /* Backgrounds */
+  --bg-canvas: #f5f4ef;
+  --bg-subtle: #ecebe5;
+  --bg-surface: var(--neutral-0);
+  --bg-elevated: #e4e3dd;
+  --bg-inverse: var(--neutral-950);
+
+  /* Texto */
+  --text-primary: var(--neutral-950);
+  --text-secondary: var(--neutral-700);
+  --text-muted: var(--neutral-600);
+  --text-inverse: var(--neutral-50);
+  --text-link: var(--violet-700);
+
+  /* Bordas */
+  --border-subtle: rgb(9 13 18 / 0.1);
+  --border-default: rgb(9 13 18 / 0.18);
+  --border-strong: rgb(9 13 18 / 0.34);
+
+  /* Ações */
+  --action-primary: var(--green-500);
+  --action-primary-hover: var(--green-600);
+  --action-primary-active: var(--green-700);
+  --action-secondary: var(--violet-500);
+  --action-secondary-hover: var(--violet-400);
+
+  /* Focus */
+  --focus-ring: var(--violet-500);
+  --focus-ring-offset: 2px;
+
+  /* Status */
+  --status-success: var(--green-400);
+  --status-warning: var(--amber-400);
+  --status-error: var(--red-400);
+  --status-info: var(--blue-400);
+
+  /* Seleção */
+  --selection-bg: rgb(0 245 160 / 0.34);
+}
+
+/* --------------------------------------------------------------------------
+   Tema escuro contextual — não é o tema principal.
+   -------------------------------------------------------------------------- */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg-canvas: var(--neutral-950);
+  --bg-subtle: var(--neutral-900);
+  --bg-surface: var(--neutral-850);
+  --bg-elevated: var(--neutral-800);
+  --bg-inverse: var(--neutral-50);
+
+  --text-primary: var(--neutral-50);
+  --text-secondary: var(--neutral-300);
+  --text-muted: var(--neutral-400);
+  --text-inverse: var(--neutral-950);
+  --text-link: var(--green-300);
+
+  --border-subtle: rgb(255 255 255 / 0.08);
+  --border-default: rgb(255 255 255 / 0.14);
+  --border-strong: rgb(255 255 255 / 0.24);
+
+  --focus-ring: var(--green-300);
+}
+
+/* --------------------------------------------------------------------------
+   Gradientes — RECOMENDADOS DS
+   -------------------------------------------------------------------------- */
+:root {
+  --gradient-brand: linear-gradient(135deg, #00f5a0 0%, #6e44ff 100%);
+  --gradient-brand-soft: linear-gradient(135deg, rgb(0 245 160 / 0.16), rgb(110 68 255 / 0.18));
+  --gradient-hero:
+    radial-gradient(circle at 20% 10%, rgb(0 245 160 / 0.16), transparent 38%),
+    radial-gradient(circle at 80% 20%, rgb(110 68 255 / 0.22), transparent 42%);
+  --gradient-fade: linear-gradient(180deg, transparent, var(--bg-canvas));
+}
+
+/* --------------------------------------------------------------------------
+   Sombras e glows — RECOMENDADOS DS
+   -------------------------------------------------------------------------- */
+:root {
+  --shadow-sm: 0 1px 2px rgb(9 13 18 / 0.08);
+  --shadow-md: 0 12px 32px rgb(9 13 18 / 0.1);
+  --shadow-lg: 0 28px 72px rgb(9 13 18 / 0.14);
+  --glow-green: 0 0 0 1px rgb(0 245 160 / 0.35);
+  --glow-violet: 0 0 0 1px rgb(110 68 255 / 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   Motion — RECOMENDADOS DS
+   prefers-reduced-motion respeita WCAG 2.2 AA (CONFIRMADO)
+   -------------------------------------------------------------------------- */
+:root {
+  --duration-instant: 80ms;
+  --duration-fast: 150ms;
+  --duration-normal: 240ms;
+  --duration-slow: 400ms;
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+    --duration-slow: 0ms;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Tipografia — RECOMENDADA DS; validação visual pendente.
+   Variáveis são definidas no layout.tsx via next/font.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Escala responsiva em px (ver DS §1.3) — usada como referência; Tailwind aplica via classes */
+  --text-display-xl-mobile: 44px;
+  --text-display-xl-desktop: 72px;
+  --text-display-lg-mobile: 38px;
+  --text-display-lg-desktop: 60px;
+  --text-h1-mobile: 36px;
+  --text-h1-desktop: 52px;
+  --text-h2-mobile: 30px;
+  --text-h2-desktop: 40px;
+  --text-h3-mobile: 24px;
+  --text-h3-desktop: 30px;
+  --text-h4-mobile: 20px;
+  --text-h4-desktop: 24px;
+  --text-body-lg: 18px;
+  --text-body: 16px;
+  --text-body-sm: 14px;
+  --text-caption: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   Espaçamento base 4px — RECOMENDADO DS
+   -------------------------------------------------------------------------- */
+:root {
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-30: 120px;
+  --space-40: 160px;
+}
+
+/* --------------------------------------------------------------------------
+   Sizing de controles — RECOMENDADO DS
+   -------------------------------------------------------------------------- */
+:root {
+  --control-sm: 36px;
+  --control-md: 44px;
+  --control-lg: 52px;
+  --touch-target: 44px; /* mínimo recomendado WCAG */
+}
+
+/* --------------------------------------------------------------------------
+   Radius — RECOMENDADO DS
+   -------------------------------------------------------------------------- */
+:root {
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+}
+
+/* --------------------------------------------------------------------------
+   Z-index — RECOMENDADO DS
+   -------------------------------------------------------------------------- */
+:root {
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 20;
+  --z-dropdown: 30;
+  --z-overlay: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+  --z-tooltip: 70;
+}

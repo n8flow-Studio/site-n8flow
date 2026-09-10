@@ -6,8 +6,53 @@
 **Status:** Especificação inicial  
 **Produto:** Site Institucional N8FLOW TECNOLOGIA  
 **Stack-alvo:** Next.js + TypeScript + Tailwind CSS + Vercel  
-**Integrações principais:** n8n, CRM, Gateway de Pagamento, WhatsApp API, Analytics  
+**Persistência vigente:** Supabase/PostgreSQL e CRM interno (ADR-0008); demais integrações conforme escopo aprovado
+
 **Documento-base:** N8FLOW TECNOLOGIA — Documento de Estruturação e Conceito
+
+---
+
+## Atualização operacional aprovada — 2026-09-07
+
+Conforme [ADR-0008](../decisions/ADR-0008-supabase-crm-interno.md), a captação
+será persistida no Supabase e acompanhada em CRM interno próprio. Pedro e sócio
+terão contas individuais de administradores e visão de todos os leads, mesmo
+quando atribuídos a outro responsável. Comercial futuro terá acesso apenas aos
+próprios leads. Não haverá cadastro público no painel.
+
+Bolten é oferta SaaS white-label para clientes, não CRM da N8FLOW nem integração
+do site. n8n e WhatsApp deixam de ser dependências de captação/lançamento.
+Sucesso do formulário depende de gravação confirmada. Supabase não substitui a
+fonte editorial Git/MDX. Provedor de autenticação, etapas do funil, regras de
+atribuição e detalhes de acompanhamento ainda dependem de definição.
+
+As seções históricas 18–19, 33, 35, 40–41, 58, 61, 67, 72, 81, 84–89 não
+prevalecem quando exigirem n8n/Bolten para leads ou excluírem o CRM interno do MVP.
+O aceite vigente exige persistência, autorização, privacidade, testes e operação
+conforme a [arquitetura do CRM](../arquitetura-tecnica/08-crm-interno-e-acessos.md).
+Esta atualização registra requisitos, não implementação concluída.
+
+## Atualização estratégica aprovada — 2026-09-01
+
+O [ADR-0007](../decisions/ADR-0007-assessoria-b2b-multissetorial.md) substitui as
+premissas deste documento relacionadas a público imobiliário, Comunidade como
+recorrência, Eventos como entrada principal e ao funil Educação → Comunidade →
+Assessoria.
+
+A direção vigente é:
+
+- Assessoria de Growth Marketing B2B multissetorial;
+- diagnóstico comercial como conversão principal;
+- público qualificado por maturidade operacional, não por setor;
+- estratégia, aquisição, conversão, CRM, dados, automação e IA como capacidades
+  integradas;
+- Comunidade e Eventos suspensos como pilares públicos;
+- método: Diagnosticar → Priorizar → Implementar → Medir → Otimizar;
+- cases, métricas, preços e promessas publicados somente com comprovação e
+  aprovação.
+
+As especificações históricas abaixo permanecem como registro da versão 1.0, mas
+não devem orientar novas implementações quando conflitarem com o ADR-0007.
 
 ---
 
@@ -521,8 +566,6 @@ Campos mínimos definidos no documento:
 - WhatsApp;
 - CRECI.
 
-
-
 Campos complementares recomendados para tracking:
 
 - origem;
@@ -597,8 +640,6 @@ O documento especifica tags como:
 Lead_Evento_DataX
 Confirmado_Evento_DataX
 ```
-
-
 
 ---
 
@@ -2174,26 +2215,26 @@ O site somente será considerado pronto quando:
 
 As seguintes decisões deverão ser tomadas antes da implementação final:
 
-| Tema | Status |
-|---|---|
-| Identidade visual | A definir |
-| Logo final | A definir |
-| Paleta | A definir |
-| Tipografia | A definir |
-| Tom de voz | A definir |
-| Data do primeiro evento | A definir |
-| Local do evento | A definir |
-| Gateway de pagamento | A definir |
-| CRM | A definir |
-| WhatsApp API | A definir |
-| CMS | A definir |
-| Error tracking | A definir |
-| Domínio definitivo | A definir |
-| Dados empresariais | A definir |
+| Tema                          | Status    |
+| ----------------------------- | --------- |
+| Identidade visual             | A definir |
+| Logo final                    | A definir |
+| Paleta                        | A definir |
+| Tipografia                    | A definir |
+| Tom de voz                    | A definir |
+| Data do primeiro evento       | A definir |
+| Local do evento               | A definir |
+| Gateway de pagamento          | A definir |
+| CRM                           | A definir |
+| WhatsApp API                  | A definir |
+| CMS                           | A definir |
+| Error tracking                | A definir |
+| Domínio definitivo            | A definir |
+| Dados empresariais            | A definir |
 | Política de preços definitiva | A definir |
-| Copy final | A definir |
-| Cases | A definir |
-| Depoimentos | A definir |
+| Copy final                    | A definir |
+| Cases                         | A definir |
+| Depoimentos                   | A definir |
 
 ---
 

@@ -13,25 +13,33 @@ Next.js na Vercel
   ├── validação, rate limit e idempotência
   └── adapters server-side
           │
-          ├── n8n ── Bolten CRM ── WhatsApp Oficial
-          ├── gateway de pagamento (pendente)
+          ├── Supabase/PostgreSQL (leads e CRM interno)
+          ├── autenticação/autorização do painel (provedor pendente)
+          ├── gateway de pagamento (fora do lançamento atual)
           ├── analytics
           └── error tracking
 ```
 
-O navegador não acessa n8n, Bolten ou gateway com credenciais privadas. O Next.js atua como fronteira confiável: valida, normaliza, aplica controles e encaminha eventos.
+O Next.js valida, normaliza e persiste leads por adapter server-side. Pedro e sócio
+terão acesso global autenticado; comercial futuro será restrito por responsável.
+Não há integração Bolten no site. Ver [CRM interno](./08-crm-interno-e-acessos.md).
 
 ## 1.2 Princípios
 
 - **Server-first:** Server Components por padrão; JavaScript cliente somente quando há interação real.
 - **Static-first:** conteúdo institucional e editorial pré-renderizado quando possível.
-- **BFF mínimo:** a camada Next.js protege contratos e segredos, sem replicar lógica operacional do n8n/CRM.
+- **Camada de aplicação:** Next.js protege contratos, segredos e autorização do CRM interno; não construir plataforma comercial multitenant.
 - **Integrações substituíveis:** gateway, conteúdo e observabilidade atrás de interfaces.
 - **Progressive enhancement:** leitura e navegação não dependem de animação; formulários mantêm feedback robusto.
 - **Falha explícita:** nunca confirmar inscrição, lead ou pagamento antes da resposta confiável correspondente.
 - **Sem conteúdo inventado:** módulos sem dados reais são omitidos ou marcados apenas em ambiente de preview.
 
 ## 1.3 Estrutura recomendada
+
+O esquema abaixo é referência histórica v1.0, não inventário do código. Rotas de
+eventos/comunidade/pagamentos não são escopo ativo. Para o painel, prever limites
+`app/admin` e `server` de autenticação, autorização e repository de leads; separar
+layout de marketing e privado preservando URLs. Ver ADR-0007 e ADR-0008.
 
 ```text
 src/
@@ -120,4 +128,3 @@ Escolher versões estáveis e compatíveis no momento do scaffold, fixadas no lo
 ## 1.7 ADR
 
 ADR obrigatório para: troca de CMS/fonte de conteúdo, fornecedor de pagamento, banco persistente, autenticação de área restrita, mudança de host, alteração da fronteira n8n/Bolten ou adoção de nova biblioteca estrutural.
-

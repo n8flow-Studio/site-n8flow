@@ -23,8 +23,7 @@ Agentes não podem reclassificar pendência como aprovada.
 ## Antes do go-live
 
 - [ ] copy aprovada por responsável;
-- [ ] primeiro evento completo;
-- [ ] oferta da comunidade aprovada;
+- [ ] oferta de assessoria, ICP e fluxo de diagnóstico aprovados;
 - [ ] diagnóstico e fluxo comercial definidos;
 - [ ] contatos e redes oficiais;
 - [ ] políticas legais revisadas;
@@ -33,5 +32,4 @@ Agentes não podem reclassificar pendência como aprovada.
 - [ ] módulos condicionais vazios omitidos;
 - [ ] revisão final no preview.
 
-Mudanças de posicionamento, promessa, público, oferta ou CTA principal devem ser reconciliadas com PRD/UX e registradas. Alterações pequenas podem seguir por pull request.
-
+Mudanças de posicionamento, promessa, público, oferta ou CTA principal devem ser reconciliadas com PRD/UX e registradas. O posicionamento B2B multissetorial e a suspensão de Comunidade/Eventos estão registrados no ADR-0007. Alterações pequenas podem seguir por pull request.

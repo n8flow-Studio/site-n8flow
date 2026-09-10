@@ -48,8 +48,11 @@ Quando conteúdo não existir: use placeholder claramente identificado apenas em
 - Domínio: `n8flow.com.br`.
 - Logo existente; não redesenhar.
 - Cores: `#00F5A0` e `#6E44FF`.
-- Engineering Growth, dark-first.
-- CRM Bolten White Label; WhatsApp Oficial via Bolten; n8n como orquestrador.
+- Engineering Growth, light-first (ADR-0006).
+- Supabase/PostgreSQL para leads e CRM interno próprio (ADR-0008).
+- Pedro e sócio são administradores com acesso a todos os leads; comercial futuro restrito por responsável.
+- Bolten White Label é oferta SaaS para clientes, sem integração ao site ou uso como CRM interno.
+- n8n/WhatsApp não são dependências da captação; autenticação do painel ainda exige decisão específica.
 - Hospedagem Vercel.
 - Conteúdo inicial Markdown/MDX no Git atrás de repository interface.
 - Gateway pendente e obrigatoriamente abstraído por adapter.
@@ -71,3 +74,13 @@ Não altere silenciosamente CMS/fonte de conteúdo, gateway, hospedagem, integra
 ## Segurança do workspace
 
 Nunca grave segredos. Não modifique requisitos para fazer código divergente parecer conforme. Não remova testes ou controles de qualidade para concluir uma tarefa. Preserve mudanças do usuário não relacionadas.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

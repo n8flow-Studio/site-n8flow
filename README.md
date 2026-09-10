@@ -1,5 +1,17 @@
 # Pacote Antigravity — Site N8FLOW
 
+## Projeto em desenvolvimento — atualização 2026-09-07
+
+Este repositório já contém o site Next.js; as instruções de cópia abaixo são o
+registro original do pacote documental, não instruções para recriar o workspace.
+Os assets oficiais já estão em `public/brand`.
+
+Direção vigente: assessoria B2B multissetorial, light-first, captação no Supabase e
+CRM interno próprio. Bolten é oferta white-label para clientes, sem integração ao
+site. Consulte a [documentação](./docs/README.md), o
+[ADR-0008](./docs/decisions/ADR-0008-supabase-crm-interno.md) e o
+[status de implementação](./docs/status/2026-09-07-implementacao.md).
+
 **Versão do pacote:** 1.0  
 **Data:** 2026-08-18
 
