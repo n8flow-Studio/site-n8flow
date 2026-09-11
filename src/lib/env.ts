@@ -110,8 +110,8 @@ if (!parsed.success) {
   throw new Error('Configuração de ambiente inválida. Verifique .env.example')
 }
 
-// Validação extra em produção
-if (parsed.data.NODE_ENV === 'production' || parsed.data.VERCEL_ENV === 'production') {
+// Validação extra em produção na Vercel
+if (parsed.data.VERCEL_ENV === 'production') {
   const prodParsed = productionRequiredSchema.safeParse(process.env)
   if (!prodParsed.success) {
     console.error(
