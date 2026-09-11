@@ -13,16 +13,14 @@ import './globals.css'
 // ---------------------------------------------------------------------------
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  variable: '--font-display',
+  variable: '--font-space-grotesk',
   display: 'swap',
   preload: true,
 })
 
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-sans',
+  variable: '--font-inter',
   display: 'swap',
   preload: true,
 })

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { ArrowUpRight, ArrowRight } from 'lucide-react'
 import { Container } from '@/components/ui/container'
 import { cn } from '@/lib/cn'
 
@@ -38,7 +39,8 @@ export function Hero({
     <section
       aria-label="Apresentação principal"
       className={cn(
-        'relative overflow-hidden border-b border-[var(--border-default)] py-16 md:py-24 lg:py-32',
+        'hero-section relative overflow-hidden border-b border-[var(--border-subtle)]',
+        isHome && children ? 'hero-home' : 'hero-editorial',
         className,
       )}
     >
@@ -50,42 +52,44 @@ export function Hero({
         >
           <div className={cn(isHome && 'lg:col-span-7')}>
             {eyebrow && (
-              <p className="mb-8 flex items-center gap-3 font-mono text-[11px] font-semibold tracking-[0.18em] text-[var(--text-secondary)] uppercase">
+              <p className="eyebrow mb-6 flex items-center gap-3">
                 <span className="h-px w-10 bg-[var(--violet-500)]" aria-hidden="true" />
                 {eyebrow}
               </p>
             )}
 
-            <h1 className="font-display text-[clamp(2.75rem,7vw,6.4rem)] leading-[0.94] font-semibold tracking-[-0.055em] text-[var(--text-primary)]">
+            <h1 className="hero-title font-display font-semibold text-[var(--text-primary)]">
               {title}
             </h1>
 
-            <p className="mt-8 max-w-2xl border-l border-[var(--border-strong)] pl-5 text-lg leading-relaxed text-[var(--text-secondary)] sm:text-xl">
+            <p className="hero-description mt-6 max-w-xl text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg">
               {description}
             </p>
 
             {(primaryAction || secondaryAction) && (
-              <div className="mt-10 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+              <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
                 {primaryAction && (
                   <Link
                     href={primaryAction.href}
                     className={cn(
-                      'inline-flex h-12 items-center justify-center border px-7 text-sm font-semibold transition-colors',
+                      'action-link inline-flex min-h-13 items-center justify-center gap-3 rounded-sm border px-5 py-3 text-sm font-semibold transition-colors',
                       primaryAction.variant === 'secondary'
                         ? 'border-[var(--action-secondary)] bg-[var(--action-secondary)] text-white hover:bg-[var(--action-secondary-hover)]'
                         : 'border-[var(--text-primary)] bg-[var(--text-primary)] text-[var(--text-inverse)] hover:bg-[var(--violet-700)]',
                     )}
                   >
                     {primaryAction.label}
+                    <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
                   </Link>
                 )}
 
                 {secondaryAction && (
                   <Link
                     href={secondaryAction.href}
-                    className="inline-flex h-12 items-center justify-center border border-[var(--border-strong)] bg-transparent px-7 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-elevated)]"
+                    className="action-link inline-flex min-h-13 items-center justify-center gap-3 px-3 py-3 text-sm font-semibold text-[var(--text-primary)] underline decoration-[var(--border-default)] underline-offset-8 transition-colors hover:text-[var(--text-link)]"
                   >
                     {secondaryAction.label}
+                    <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
                   </Link>
                 )}
               </div>

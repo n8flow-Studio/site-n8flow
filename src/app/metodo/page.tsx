@@ -67,7 +67,7 @@ export default function MethodPage() {
               </p>
               <h2
                 id="cycle-title"
-                className="font-display mt-5 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl"
+                className="section-title mt-5"
               >
                 Método sem fórmula universal.
               </h2>
@@ -105,7 +105,7 @@ export default function MethodPage() {
               </p>
               <h2
                 id="commitment-title"
-                className="font-display mt-5 max-w-4xl text-4xl leading-tight font-semibold tracking-[-0.04em] sm:text-6xl"
+                className="section-title mt-5"
               >
                 Clareza sobre prioridade, execução e aprendizado — sem promessa de resultado
                 automático.

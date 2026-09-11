@@ -36,7 +36,7 @@ export function MobileNav() {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
       window.addEventListener('keydown', handleKeyDown)
-      requestAnimationFrame(() => dialogRef.current?.querySelector<HTMLElement>('a[href]')?.focus())
+      requestAnimationFrame(() => dialogRef.current?.querySelector<HTMLElement>('button')?.focus())
     } else {
       document.body.style.overflow = ''
     }
@@ -47,7 +47,7 @@ export function MobileNav() {
   }, [isOpen])
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       {/* Botão de Toggle */}
       <button
         ref={toggleRef}
@@ -69,8 +69,9 @@ export function MobileNav() {
           role="dialog"
           aria-modal="true"
           aria-label="Menu principal"
-          className="fixed inset-0 top-16 z-[var(--z-overlay)] flex flex-col bg-[var(--bg-canvas)] px-6 py-8"
+          className="fixed inset-0 top-16 z-[var(--z-overlay)] flex flex-col overflow-y-auto bg-[var(--bg-canvas)] px-6 py-8 md:top-20"
         >
+          <button type="button" aria-label="Fechar menu" className="mb-4 ml-auto flex h-11 w-11 items-center justify-center border border-[var(--border-default)]" onClick={() => { setIsOpen(false); toggleRef.current?.focus() }}><X size={20} aria-hidden="true" /></button>
           <nav className="flex flex-col gap-6" aria-label="Navegação mobile">
             <ul className="flex flex-col gap-3" role="list">
               {siteConfig.navigation.map((item) => (

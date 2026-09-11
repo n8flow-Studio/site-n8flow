@@ -5,6 +5,16 @@
 
 @import 'tailwindcss';
 @import '../styles/tokens.css';
+@import '../styles/marketing.css';
+
+/* Keep resets below utilities in the cascade: headings and controls must honor
+   their component's size, line-height, color and spacing. */
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+}
+
+@layer base {
 
 /* --------------------------------------------------------------------------
    Tema base — light-first (decisão explícita de 2026-08-28)
@@ -39,18 +49,6 @@ body {
   min-height: 100dvh;
 }
 
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  content: '';
-  background-image:
-    linear-gradient(rgb(9 13 18 / 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(9 13 18 / 0.035) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(to bottom, black, transparent 72%);
-}
 
 /* --------------------------------------------------------------------------
    Seleção de texto
@@ -97,6 +95,7 @@ h6 {
   font-family: var(--font-display, var(--font-sans, sans-serif));
   font-weight: 600;
   letter-spacing: -0.02em;
+  text-wrap: balance;
   line-height: 1.15;
   color: var(--text-primary);
 }
@@ -133,6 +132,7 @@ button {
 
 button {
   cursor: pointer;
+}
 }
 
 /* --------------------------------------------------------------------------

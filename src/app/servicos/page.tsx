@@ -46,7 +46,7 @@ export default async function ServicesPage() {
               </p>
               <h2
                 id="acting-title"
-                className="font-display mt-5 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl"
+                className="section-title mt-5"
               >
                 Crescimento exige sistema, prioridade e acompanhamento.
               </h2>
@@ -79,7 +79,7 @@ export default async function ServicesPage() {
             </p>
             <h2
               id="fronts-title"
-              className="font-display mt-5 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl"
+              className="section-title mt-5"
             >
               Capacidades modulares. Uma direção compartilhada.
             </h2>
@@ -127,7 +127,7 @@ export default async function ServicesPage() {
               </p>
               <h2
                 id="diagnosis-title"
-                className="font-display mt-6 max-w-4xl text-4xl leading-tight font-semibold tracking-[-0.04em] text-[var(--text-inverse)] sm:text-6xl"
+                className="section-title mt-6 text-[var(--text-inverse)]"
               >
                 O diagnóstico identifica onde concentrar o próximo ciclo de Growth.
               </h2>
