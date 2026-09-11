@@ -20,6 +20,15 @@ const optionalUrl = z.preprocess(
   (value) => (value === '' ? undefined : value),
   z.string().url().optional(),
 )
+const booleanString = z.preprocess((value) => {
+  if (value === '' || value === undefined || value === null) return 'false'
+  if (typeof value === 'string') {
+    const normalized = value.trim().toLowerCase().replace(/^["']|["']$/g, '')
+    if (normalized === 'true' || normalized === '1') return 'true'
+    if (normalized === 'false' || normalized === '0' || normalized === '') return 'false'
+  }
+  return value
+}, z.enum(['true', 'false']).default('false'))
 const envSchema = z
   .object({
     // Públicas
@@ -35,7 +44,7 @@ const envSchema = z
     SUPABASE_URL: optionalUrl,
     SUPABASE_SECRET_KEY: optionalText,
     LEAD_RATE_LIMIT_SECRET: optionalText,
-    LEAD_CAPTURE_ENABLED: z.enum(['true', 'false']).default('false'),
+    LEAD_CAPTURE_ENABLED: booleanString,
     VERCEL: optionalText,
 
     // Ambiente Vercel

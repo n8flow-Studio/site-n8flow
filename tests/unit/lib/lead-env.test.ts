@@ -23,4 +23,10 @@ describe('configuração real da captação', () => {
   it.each([{SUPABASE_URL:'http://test.supabase.co'},{SUPABASE_URL:'https://test.supabase.co/path'},{SUPABASE_SECRET_KEY:'sb_publishable_test'},{LEAD_RATE_LIMIT_SECRET:'short'}])('rejeita configuração insegura %j', async change => {
     await expect(readEnv({...valid,...change})).rejects.toThrow('Configuração')
   })
+  it('aceita LEAD_CAPTURE_ENABLED com formatos variados (string vazia, maiúsculas, aspas)', async () => {
+    expect((await readEnv({ LEAD_CAPTURE_ENABLED: '' })).LEAD_CAPTURE_ENABLED).toBe('false')
+    expect((await readEnv({ LEAD_CAPTURE_ENABLED: 'False' })).LEAD_CAPTURE_ENABLED).toBe('false')
+    expect((await readEnv({ LEAD_CAPTURE_ENABLED: '"false"' })).LEAD_CAPTURE_ENABLED).toBe('false')
+    expect((await readEnv({ LEAD_CAPTURE_ENABLED: 'false ' })).LEAD_CAPTURE_ENABLED).toBe('false')
+  })
 })
