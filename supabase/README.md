@@ -133,3 +133,4 @@ transacional do PostgreSQL. O teste SQL sequencial também não substitui esse e
 - [Funções e permissões](https://supabase.com/docs/guides/database/functions)
 - [Secret keys](https://supabase.com/docs/guides/getting-started/api-keys)
 - [Headers Vercel](https://vercel.com/docs/headers/request-headers)
+
