@@ -41,8 +41,9 @@ export function Footer() {
                 alt="N8FLOW"
                 width={1024}
                 height={783}
+                sizes="112px"
                 className="block"
-                style={{ width: '160px', height: 'auto' }}
+                style={{ width: '112px', height: 'auto' }}
               />
             </Link>
             <p className="mb-2 font-semibold text-[var(--text-inverse)]">

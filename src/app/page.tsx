@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowDownRight, ArrowRight, Check, Network } from 'lucide-react'
+import { ArrowRight, Check, Network, Crosshair, ChartNoAxesCombined, Users, Workflow, MousePointer2, Layers, Unplug, ScanLine } from 'lucide-react'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { Container } from '@/components/ui/container'
 import { Hero } from '@/components/marketing/hero'
@@ -52,6 +52,9 @@ const fitCriteria = [
   'Está disposta a trabalhar com prioridades, mensuração e aprendizado contínuo.',
 ] as const
 
+const serviceIcons = [Crosshair, ChartNoAxesCombined, MousePointer2, Users, Workflow]
+const problemIcons = [Layers, Unplug, ScanLine]
+
 export default async function HomePage() {
   const services = await contentRepository.listServices()
 
@@ -62,7 +65,7 @@ export default async function HomePage() {
         title={
           <>
             Growth não é uma campanha.{' '}
-            <span className="text-[var(--violet-700)]">É uma operação.</span>
+            <span className="hero-title-accent">É uma operação.</span>
           </>
         }
         description="A N8FLOW conecta estratégia, aquisição, conversão, dados e vendas em um sistema orientado a crescimento — sem limitar a atuação a um único setor."
@@ -72,7 +75,7 @@ export default async function HomePage() {
         <GrowthSystem />
       </Hero>
 
-      <section className="py-20 md:py-28" aria-labelledby="problem-title">
+      <section className="home-section" aria-labelledby="problem-title">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
@@ -81,59 +84,64 @@ export default async function HomePage() {
               </p>
               <h2
                 id="problem-title"
-                className="font-display mt-5 max-w-xl text-4xl leading-tight font-semibold tracking-[-0.04em] sm:text-5xl"
+                className="section-title mt-5"
               >
                 Iniciativas isoladas não formam uma operação de Growth.
               </h2>
             </div>
             <div className="lg:col-span-7 lg:pt-12">
-              {problems.map((problem) => (
+              {problems.map((problem, index) => {
+                const Icon = problemIcons[index]
+                return (
                 <article
                   key={problem.number}
                   className="grid gap-4 border-t border-[var(--border-strong)] py-7 sm:grid-cols-[72px_1fr]"
                 >
-                  <span className="font-mono text-xs text-[var(--text-muted)]">
-                    {problem.number}
-                  </span>
-                  <div className="grid gap-3 sm:grid-cols-2 sm:gap-8">
+                  <span className="service-icon"><Icon size={22} aria-hidden="true" /></span>
+                  <div className="grid gap-3">
                     <h3 className="font-display text-xl font-semibold">{problem.title}</h3>
                     <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
                       {problem.description}
                     </p>
                   </div>
                 </article>
-              ))}
+              )})}
             </div>
           </div>
         </Container>
       </section>
 
       <section
-        className="bg-[var(--text-primary)] py-20 text-[var(--text-inverse)] md:py-28"
+        className="home-section bg-[var(--text-primary)] text-[var(--text-inverse)]"
         aria-labelledby="thesis-title"
       >
         <Container>
           <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-7">
               <p className="flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] text-[var(--green-400)] uppercase">
                 <Network className="h-4 w-4" aria-hidden="true" /> Tese N8FLOW
               </p>
               <h2
                 id="thesis-title"
-                className="font-display mt-8 max-w-4xl text-4xl leading-[1.02] font-semibold tracking-[-0.045em] text-[var(--text-inverse)] sm:text-6xl lg:text-7xl"
+                className="section-title mt-6 text-[var(--text-inverse)]"
               >
                 Crescimento exige estratégia, execução e vendas operando como um único sistema.
               </h2>
-            </div>
-            <p className="border-l border-[rgb(255_255_255/0.28)] pl-5 text-base leading-relaxed text-[var(--neutral-300)] lg:col-span-4">
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-[var(--neutral-300)]">
               Tecnologia, automação e IA entram onde fortalecem o processo, preservam contexto e
               tornam a operação mensurável.
             </p>
+            </div>
+            <div className="thesis-visual lg:col-span-5" aria-hidden="true">
+              <div className="thesis-layer"><Crosshair size={28} />Estratégia</div>
+              <div className="thesis-layer"><Workflow size={28} />Execução</div>
+              <div className="thesis-layer"><Users size={28} />Vendas</div>
+            </div>
           </div>
         </Container>
       </section>
 
-      <section className="py-20 md:py-28" aria-labelledby="method-title">
+      <section className="home-section" aria-labelledby="method-title">
         <Container>
           <div className="mb-14 grid gap-6 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
@@ -142,7 +150,7 @@ export default async function HomePage() {
               </p>
               <h2
                 id="method-title"
-                className="font-display mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.04em] sm:text-5xl"
+                className="section-title mt-5"
               >
                 Um ciclo contínuo de decisão, execução e aprendizado.
               </h2>
@@ -156,21 +164,17 @@ export default async function HomePage() {
               </Link>
             </div>
           </div>
-          <ol className="border-y border-[var(--border-strong)]">
-            {method.map((item, index) => (
+          <ol className="method-track">
+            {method.map((item) => (
               <li
                 key={item.number}
-                className="grid gap-5 border-b border-[var(--border-default)] py-7 last:border-b-0 sm:grid-cols-[88px_1fr_auto] sm:items-center"
+                className="method-step"
               >
                 <span className="font-mono text-xs text-[var(--text-muted)]">{item.number}</span>
-                <div className="grid gap-2 sm:grid-cols-2 sm:items-center">
-                  <h3 className="font-display text-2xl font-semibold sm:text-3xl">{item.label}</h3>
+                <div className="mt-3 grid gap-3">
+                  <h3 className="font-display text-xl font-semibold">{item.label}</h3>
                   <p className="text-sm text-[var(--text-secondary)]">{item.description}</p>
                 </div>
-                <ArrowDownRight
-                  className={`h-6 w-6 ${index % 2 ? 'text-[var(--violet-600)]' : 'text-[var(--green-600)]'}`}
-                  aria-hidden="true"
-                />
               </li>
             ))}
           </ol>
@@ -178,7 +182,7 @@ export default async function HomePage() {
       </section>
 
       <section
-        className="border-y border-[var(--border-default)] bg-[var(--bg-subtle)] py-20 md:py-28"
+        className="home-section border-y border-[var(--border-subtle)] bg-[var(--bg-subtle)]"
         aria-labelledby="solutions-title"
       >
         <Container>
@@ -189,7 +193,7 @@ export default async function HomePage() {
               </p>
               <h2
                 id="solutions-title"
-                className="font-display mt-5 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl"
+                className="section-title mt-5"
               >
                 Capacidades combinadas conforme o momento da empresa.
               </h2>
@@ -199,16 +203,16 @@ export default async function HomePage() {
               </p>
             </div>
             <div className="lg:col-span-8">
-              {services.map((service, index) => (
+              {services.map((service, index) => {
+                const Icon = serviceIcons[index] ?? Workflow
+                return (
                 <article
                   key={service.slug}
-                  className="grid gap-5 border-t border-[var(--border-strong)] py-8 sm:grid-cols-[64px_1fr_auto] sm:items-start"
+                  className="service-row grid gap-5 border-t border-[var(--border-default)] py-7 sm:grid-cols-[44px_1fr_auto] sm:items-start"
                 >
-                  <span className="font-mono text-xs text-[var(--text-muted)]">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
+                  <span className="service-icon"><Icon size={22} aria-hidden="true" /></span>
                   <div>
-                    <h3 className="font-display text-2xl font-semibold">{service.title}</h3>
+                    <h3 className="font-display text-xl font-semibold">{service.title}</h3>
                     <p className="mt-2 max-w-xl text-sm leading-relaxed text-[var(--text-secondary)]">
                       {service.summary}
                     </p>
@@ -221,13 +225,13 @@ export default async function HomePage() {
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 </article>
-              ))}
+              )})}
             </div>
           </div>
         </Container>
       </section>
 
-      <section className="py-20 md:py-28" aria-labelledby="fit-title">
+      <section className="home-section" aria-labelledby="fit-title">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
@@ -236,7 +240,7 @@ export default async function HomePage() {
               </p>
               <h2
                 id="fit-title"
-                className="font-display mt-5 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl"
+                className="section-title mt-5"
               >
                 Para empresas preparadas para tratar Growth como operação.
               </h2>
@@ -263,12 +267,12 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      <section className="py-20 md:py-32" aria-labelledby="final-title">
+      <section className="home-section bg-[var(--violet-50)]" aria-labelledby="final-title">
         <Container>
           <div className="grid gap-10 border-t border-[var(--border-strong)] pt-10 lg:grid-cols-12 lg:items-end">
             <h2
               id="final-title"
-              className="font-display max-w-4xl text-4xl leading-[1.02] font-semibold tracking-[-0.045em] sm:text-6xl lg:col-span-9"
+              className="section-title lg:col-span-9"
             >
               Onde sua operação está perdendo oportunidades de crescimento?
             </h2>

@@ -15,9 +15,8 @@ export function Header() {
     <header
       className="sticky top-0 z-[var(--z-sticky)] border-b"
       style={{
-        background: 'rgb(245 244 239 / 0.92)',
+        background: 'var(--bg-canvas)',
         borderColor: 'var(--border-subtle)',
-        backdropFilter: 'blur(12px)',
       }}
     >
       <Container as="nav" aria-label="Navegação principal">
@@ -33,6 +32,7 @@ export function Header() {
               alt="N8FLOW"
               width={1024}
               height={783}
+              sizes="64px"
               className="block"
               style={{ width: '64px', height: 'auto' }}
               preload
@@ -40,7 +40,7 @@ export function Header() {
           </Link>
 
           {/* Navegação desktop */}
-          <ul className="hidden items-center gap-1 md:flex" role="list">
+          <ul className="hidden items-center gap-1 lg:flex" role="list">
             {siteConfig.navigation.map((item) => (
               <li key={item.href}>
                 <Link
@@ -57,7 +57,7 @@ export function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/contato"
-              className="hidden border border-[var(--text-primary)] bg-[var(--text-primary)] px-4 py-2 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] md:inline-flex"
+              className="hidden min-h-11 items-center rounded-sm border border-[var(--text-primary)] bg-[var(--text-primary)] px-4 py-2 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] lg:inline-flex"
             >
               Solicitar diagnóstico
             </Link>

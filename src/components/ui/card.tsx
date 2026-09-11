@@ -14,16 +14,13 @@ const cardVariants = cva(
           'hover:-translate-y-1 hover:shadow-[var(--shadow-md)]',
           'cursor-pointer',
         ],
-        featured: [
-          'bg-[var(--bg-surface)] border border-[rgb(0_245_160/0.4)]',
-          'shadow-[var(--glow-green)]',
-        ],
+        featured: 'bg-[var(--bg-surface)] border border-[var(--border-default)]',
       },
       padding: {
         none: 'p-0',
         sm: 'p-4 sm:p-5',
         md: 'p-6 sm:p-8',
-        lg: 'p-8 sm:p-10',
+        lg: 'p-5 sm:p-8',
       },
     },
     defaultVariants: {
