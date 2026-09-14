@@ -69,10 +69,7 @@ export default function MethodPage() {
               <p className="font-mono text-[11px] tracking-[0.2em] text-[var(--green-700)] uppercase">
                 Nosso processo
               </p>
-              <h2
-                id="cycle-title"
-                className="section-title mt-5"
-              >
+              <h2 id="cycle-title" className="section-title mt-5">
                 Cada empresa tem um ponto de partida diferente.
               </h2>
               <p className="mt-5 text-sm leading-relaxed text-[var(--text-secondary)]">
@@ -85,7 +82,7 @@ export default function MethodPage() {
                 return (
                   <li
                     key={step.title}
-                    className="group grid gap-5 border-b border-[var(--border-default)] py-8 last:border-b-0 transition-all hover:bg-[var(--bg-surface)]/50 px-4 -mx-4 rounded-lg sm:grid-cols-[56px_1fr] sm:items-start"
+                    className="group -mx-4 grid gap-5 rounded-lg border-b border-[var(--border-default)] px-4 py-8 transition-all last:border-b-0 hover:bg-[var(--bg-surface)]/50 sm:grid-cols-[56px_1fr] sm:items-start"
                   >
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--violet-700)] shadow-xs transition-transform duration-200 group-hover:scale-105 group-hover:border-[var(--violet-500)]">
                       <StepIcon className="h-5 w-5" aria-hidden="true" />
@@ -95,7 +92,7 @@ export default function MethodPage() {
                         <span className="font-mono text-[11px] font-semibold tracking-wider text-[var(--text-muted)] uppercase">
                           Etapa {index + 1}
                         </span>
-                        <h3 className="font-display text-2xl font-semibold text-[var(--text-primary)] transition-colors group-hover:text-[var(--violet-700)]">
+                        <h3 className="display-readable font-display text-2xl font-semibold text-[var(--text-primary)] transition-colors group-hover:text-[var(--violet-700)]">
                           {step.title}
                         </h3>
                       </div>
@@ -118,10 +115,7 @@ export default function MethodPage() {
               <p className="font-mono text-[11px] tracking-[0.2em] text-[var(--violet-700)] uppercase">
                 Compromisso
               </p>
-              <h2
-                id="commitment-title"
-                className="section-title mt-5"
-              >
+              <h2 id="commitment-title" className="section-title mt-5">
                 Clareza total sobre o que será feito, por quem e com qual objetivo.
               </h2>
             </div>

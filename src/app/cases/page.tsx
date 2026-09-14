@@ -42,7 +42,7 @@ export default async function CasesPage() {
               <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-[rgb(0_245_160/0.2)] bg-[rgb(0_245_160/0.08)] text-[var(--action-primary)] shadow-xs">
                 <ShieldCheck className="h-7 w-7" />
               </div>
-              <h2 className="font-display text-2xl font-bold text-[var(--text-primary)]">
+              <h2 className="display-readable font-display text-2xl font-bold text-[var(--text-primary)]">
                 Publicação de Cases em Andamento
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-[var(--text-secondary)]">

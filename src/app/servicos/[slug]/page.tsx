@@ -1,6 +1,18 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { CheckCircle2, AlertTriangle, Layers, XCircle, Workflow, Cpu, Sparkles, ShieldCheck, Database, Gauge, Zap } from 'lucide-react'
+import {
+  CheckCircle2,
+  AlertTriangle,
+  Layers,
+  XCircle,
+  Workflow,
+  Cpu,
+  Sparkles,
+  ShieldCheck,
+  Database,
+  Gauge,
+  Zap,
+} from 'lucide-react'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { Container } from '@/components/ui/container'
 import { Section } from '@/components/marketing/section'
@@ -49,12 +61,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   return (
     <>
       <Container className="pt-8">
-        <Breadcrumb
-          items={[
-            { label: 'Soluções', href: '/servicos' },
-            { label: service.title },
-          ]}
-        />
+        <Breadcrumb items={[{ label: 'Soluções', href: '/servicos' }, { label: service.title }]} />
       </Container>
 
       {/* Hero do Serviço */}
@@ -73,19 +80,22 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <Section className="border-t border-[var(--border-subtle)] bg-[var(--bg-subtle)]">
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Problemas */}
-          <div className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] border-l-4 border-l-[var(--red-400)] bg-[var(--bg-surface)] p-6 shadow-xs sm:p-8">
+          <div className="rounded-[var(--radius-lg)] border border-l-4 border-[var(--border-subtle)] border-l-[var(--red-400)] bg-[var(--bg-surface)] p-6 shadow-xs sm:p-8">
             <div className="mb-5 flex items-center gap-3">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[rgb(255_100_124/0.12)] text-[var(--status-error)]">
                 <AlertTriangle className="h-5 w-5" />
               </div>
-              <h3 className="font-display text-lg font-bold text-[var(--text-primary)]">
+              <h3 className="display-readable font-display text-lg font-bold text-[var(--text-primary)]">
                 Gargalos relacionados
               </h3>
             </div>
             <ul className="space-y-3.5 text-sm text-[var(--text-secondary)]">
               {service.problems.map((p, idx) => (
                 <li key={idx} className="flex items-start gap-3">
-                  <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-[var(--status-error)]" aria-hidden="true" />
+                  <XCircle
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[var(--status-error)]"
+                    aria-hidden="true"
+                  />
                   <span className="leading-relaxed">{p}</span>
                 </li>
               ))}
@@ -93,19 +103,22 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
 
           {/* Resultados */}
-          <div className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] border-l-4 border-l-[var(--green-500)] bg-[var(--bg-surface)] p-6 shadow-xs sm:p-8">
+          <div className="rounded-[var(--radius-lg)] border border-l-4 border-[var(--border-subtle)] border-l-[var(--green-500)] bg-[var(--bg-surface)] p-6 shadow-xs sm:p-8">
             <div className="mb-5 flex items-center gap-3">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[rgb(0_245_160/0.12)] text-[var(--action-primary)]">
                 <CheckCircle2 className="h-5 w-5" />
               </div>
-              <h3 className="font-display text-lg font-bold text-[var(--text-primary)]">
+              <h3 className="display-readable font-display text-lg font-bold text-[var(--text-primary)]">
                 Efeitos buscados
               </h3>
             </div>
             <ul className="space-y-3.5 text-sm text-[var(--text-secondary)]">
               {service.outcomes.map((o, idx) => (
                 <li key={idx} className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--action-primary)]" aria-hidden="true" />
+                  <CheckCircle2
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[var(--action-primary)]"
+                    aria-hidden="true"
+                  />
                   <span className="leading-relaxed">{o}</span>
                 </li>
               ))}
@@ -120,7 +133,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <Badge variant="brand" size="md" className="mb-3">
             Capacidades aplicáveis
           </Badge>
-          <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
+          <h2 className="display-readable font-display text-3xl font-bold text-[var(--text-primary)] sm:text-4xl">
             Recursos combinados a partir do diagnóstico.
           </h2>
         </div>
@@ -136,7 +149,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[rgb(0_245_160/0.25)] bg-[rgb(0_245_160/0.1)] text-[var(--action-primary)] transition-transform duration-200 group-hover:scale-105">
                   <CapIcon className="h-5 w-5" aria-hidden="true" />
                 </div>
-                <span className="mt-1 text-sm font-medium leading-relaxed text-[var(--text-primary)]">{cap}</span>
+                <span className="mt-1 text-sm leading-relaxed font-medium text-[var(--text-primary)]">
+                  {cap}
+                </span>
               </div>
             )
           })}
@@ -147,7 +162,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       {service.process && service.process.length > 0 && (
         <Section className="border-t border-[var(--border-subtle)] bg-[var(--bg-subtle)]">
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
+            <h2 className="display-readable font-display text-3xl font-bold text-[var(--text-primary)] sm:text-4xl">
               Etapas de implementação
             </h2>
           </div>
@@ -164,10 +179,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                     </span>
                     <span className="h-2 w-2 rounded-full bg-[var(--action-primary)] opacity-80 transition-transform group-hover:scale-125" />
                   </div>
-                  <h3 className="font-display text-lg font-bold text-[var(--text-primary)] transition-colors group-hover:text-[var(--violet-700)]">
+                  <h3 className="display-readable font-display text-lg font-bold text-[var(--text-primary)] transition-colors group-hover:text-[var(--violet-700)]">
                     {step.label}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">{step.description}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
+                    {step.description}
+                  </p>
                 </div>
               </div>
             ))}

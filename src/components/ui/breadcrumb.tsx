@@ -17,10 +17,7 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
     <nav aria-label="Trilha de navegação" className={cn('mb-6', className)}>
       <ol className="flex flex-wrap items-center gap-1.5 text-xs text-[var(--text-muted)] sm:text-sm">
         <li>
-          <Link
-            href="/"
-            className="transition-colors hover:text-[var(--text-primary)]"
-          >
+          <Link href="/" className="transition-colors hover:text-[var(--text-primary)]">
             Início
           </Link>
         </li>
@@ -30,7 +27,7 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
           return (
             <li key={index} className="flex items-center gap-1.5">
               <ChevronRight
-                className="h-3.5 w-3.5 text-[var(--text-muted)] shrink-0"
+                className="h-3.5 w-3.5 shrink-0 text-[var(--text-muted)]"
                 aria-hidden="true"
               />
               {isLast || !item.href ? (

@@ -39,11 +39,7 @@ export function Section({
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledBy}
     >
-      {container ? (
-        <Container className={containerClassName}>{children}</Container>
-      ) : (
-        children
-      )}
+      {container ? <Container className={containerClassName}>{children}</Container> : children}
     </Tag>
   )
 }

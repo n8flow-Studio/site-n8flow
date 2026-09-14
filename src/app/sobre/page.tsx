@@ -53,7 +53,7 @@ export default function AboutPage() {
           <Badge variant="brand" size="md" className="mb-3">
             Nossos Fundamentos
           </Badge>
-          <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
+          <h2 className="display-readable font-display text-3xl font-bold text-[var(--text-primary)] sm:text-4xl">
             Princípios que orientam nossa atuação
           </h2>
         </div>
@@ -67,7 +67,7 @@ export default function AboutPage() {
               <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-subtle)] transition-transform group-hover:scale-105">
                 {p.icon}
               </div>
-              <h3 className="font-display mb-2 text-xl font-bold text-[var(--text-primary)] transition-colors group-hover:text-[var(--violet-700)]">
+              <h3 className="display-readable font-display mb-2 text-xl font-bold text-[var(--text-primary)] transition-colors group-hover:text-[var(--violet-700)]">
                 {p.title}
               </h3>
               <p className="text-sm leading-relaxed text-[var(--text-secondary)]">{p.desc}</p>
@@ -84,28 +84,34 @@ export default function AboutPage() {
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[rgb(110_68_255/0.1)] text-[var(--violet-700)]">
                 <Building2 className="h-5 w-5" />
               </div>
-              <h2 className="font-display text-2xl font-bold text-[var(--text-primary)]">
+              <h2 className="display-readable font-display text-2xl font-bold text-[var(--text-primary)]">
                 Identificação Empresarial
               </h2>
             </div>
             <div className="grid gap-6 border-t border-[var(--border-subtle)] pt-6 sm:grid-cols-3">
               <div className="space-y-1">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                <span className="text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase">
                   Razão Social:
                 </span>
-                <p className="text-sm font-medium text-[var(--text-primary)]">{siteConfig.legalName}</p>
+                <p className="text-sm font-medium text-[var(--text-primary)]">
+                  {siteConfig.legalName}
+                </p>
               </div>
               <div className="space-y-1">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                <span className="text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase">
                   CNPJ:
                 </span>
-                <p className="font-mono text-sm font-medium text-[var(--text-primary)]">{siteConfig.cnpj}</p>
+                <p className="font-mono text-sm font-medium text-[var(--text-primary)]">
+                  {siteConfig.cnpj}
+                </p>
               </div>
               <div className="space-y-1">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                <span className="text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase">
                   Domínio Oficial:
                 </span>
-                <p className="font-mono text-sm font-medium text-[var(--text-primary)]">{siteConfig.domain}</p>
+                <p className="font-mono text-sm font-medium text-[var(--text-primary)]">
+                  {siteConfig.domain}
+                </p>
               </div>
             </div>
           </div>

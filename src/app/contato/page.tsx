@@ -29,7 +29,7 @@ export default function ContactPage() {
           {/* Formulário de Contato */}
           <div className="lg:col-span-7">
             <Card variant="surface" padding="lg">
-              <h2 className="font-display mb-6 text-2xl font-bold text-[var(--text-primary)]">
+              <h2 className="display-readable font-display mb-6 text-2xl font-bold text-[var(--text-primary)]">
                 Solicitar diagnóstico gratuito
               </h2>
 
@@ -40,7 +40,7 @@ export default function ContactPage() {
           {/* Dados Corporativos & Confirmações */}
           <div className="space-y-6 lg:col-span-5">
             <Card variant="surface" padding="lg">
-              <h3 className="font-display mb-4 flex items-center gap-2 text-lg font-bold text-[var(--text-primary)]">
+              <h3 className="display-readable font-display mb-4 flex items-center gap-2 text-lg font-bold text-[var(--text-primary)]">
                 <Building2 className="h-5 w-5 text-[var(--action-primary)]" />
                 Dados da Empresa
               </h3>

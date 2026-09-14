@@ -44,12 +44,7 @@ export default async function CaseDetailPage({ params }: CasePageProps) {
   return (
     <>
       <Container className="pt-8">
-        <Breadcrumb
-          items={[
-            { label: 'Cases', href: '/cases' },
-            { label: caseItem.title },
-          ]}
-        />
+        <Breadcrumb items={[{ label: 'Cases', href: '/cases' }, { label: caseItem.title }]} />
       </Container>
 
       <Hero
@@ -66,7 +61,7 @@ export default async function CaseDetailPage({ params }: CasePageProps) {
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[rgb(110_68_255/0.1)] text-[var(--violet-700)]">
                 <Target className="h-4 w-4" />
               </div>
-              <h2 className="font-display text-xl font-bold text-[var(--text-primary)]">
+              <h2 className="display-readable font-display text-xl font-bold text-[var(--text-primary)]">
                 O Desafio
               </h2>
             </div>
@@ -80,7 +75,7 @@ export default async function CaseDetailPage({ params }: CasePageProps) {
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[rgb(0_245_160/0.1)] text-[var(--action-primary)]">
                 <Cpu className="h-4 w-4" />
               </div>
-              <h2 className="font-display text-xl font-bold text-[var(--text-primary)]">
+              <h2 className="display-readable font-display text-xl font-bold text-[var(--text-primary)]">
                 A Abordagem Técnica
               </h2>
             </div>

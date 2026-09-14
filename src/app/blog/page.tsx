@@ -7,7 +7,8 @@ import { contentRepository } from '@/lib/content/repository'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Conteúdos N8FLOW',
-  description: 'Conteúdos sobre marketing digital, tecnologia, automação, CRM e Inteligência Artificial.',
+  description:
+    'Conteúdos sobre marketing digital, tecnologia, automação, CRM e Inteligência Artificial.',
   pathname: '/blog',
 })
 
@@ -27,7 +28,10 @@ export default async function BlogPage() {
             <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl border border-[rgb(110_68_255/0.2)] bg-[rgb(110_68_255/0.08)] text-[var(--violet-700)] shadow-xs">
               <BookOpen className="h-6 w-6" />
             </div>
-            <h2 id="content-title" className="font-display text-2xl font-bold text-[var(--text-primary)] sm:text-3xl">
+            <h2
+              id="content-title"
+              className="display-readable font-display text-2xl font-bold text-[var(--text-primary)] sm:text-3xl"
+            >
               {articles.length > 0 ? 'Conteúdos publicados' : 'Publicação editorial em preparação.'}
             </h2>
             {articles.length === 0 && (

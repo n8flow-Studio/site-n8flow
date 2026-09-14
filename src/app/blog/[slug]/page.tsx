@@ -66,7 +66,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
               </span>
             </div>
 
-            <h1 className="font-display text-3xl leading-tight font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl md:text-5xl">
+            <h1 className="display-readable font-display text-3xl font-bold text-[var(--text-primary)] sm:text-4xl md:text-5xl">
               {article.title}
             </h1>
 
@@ -81,7 +81,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                   return (
                     <h2
                       key={idx}
-                      className="font-display mt-8 text-2xl font-bold text-[var(--text-primary)]"
+                      className="display-readable font-display mt-8 text-2xl font-bold text-[var(--text-primary)]"
                     >
                       {paragraph.replace('### ', '')}
                     </h2>

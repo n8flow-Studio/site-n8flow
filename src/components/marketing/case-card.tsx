@@ -19,12 +19,12 @@ export function CaseCard({ caseStudy, className }: CaseCardProps) {
     <Card
       variant="interactive"
       padding="lg"
-      className={cn('group flex flex-col justify-between h-full', className)}
+      className={cn('group flex h-full flex-col justify-between', className)}
     >
       <div>
-        <div className="flex flex-wrap items-center gap-2 mb-4">
+        <div className="mb-4 flex flex-wrap items-center gap-2">
           {client && (
-            <span className="text-xs font-semibold uppercase tracking-wider text-[var(--action-primary)]">
+            <span className="text-xs font-semibold tracking-wider text-[var(--action-primary)] uppercase">
               {client}
             </span>
           )}
@@ -35,13 +35,11 @@ export function CaseCard({ caseStudy, className }: CaseCardProps) {
           )}
         </div>
 
-        <h3 className="font-display text-xl font-bold tracking-tight text-[var(--text-primary)] group-hover:text-[var(--action-primary)] transition-colors">
+        <h3 className="display-readable font-display text-xl font-bold text-[var(--text-primary)] transition-colors group-hover:text-[var(--action-primary)]">
           {title}
         </h3>
 
-        <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
-          {summary}
-        </p>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">{summary}</p>
 
         {challenge && (
           <div className="mt-4 text-xs text-[var(--text-muted)]">
@@ -57,25 +55,25 @@ export function CaseCard({ caseStudy, className }: CaseCardProps) {
                 <div className="font-display text-lg font-bold text-[var(--action-primary)]">
                   {m.value}
                 </div>
-                <div className="text-xs text-[var(--text-muted)] mt-0.5">{m.label}</div>
+                <div className="mt-0.5 text-xs text-[var(--text-muted)]">{m.label}</div>
               </div>
             ))}
           </div>
         )}
 
         {resultSummary && (
-          <p className="mt-4 text-xs italic text-[var(--text-secondary)] border-l-2 border-[var(--action-primary)] pl-3">
+          <p className="mt-4 border-l-2 border-[var(--action-primary)] pl-3 text-xs text-[var(--text-secondary)] italic">
             {resultSummary}
           </p>
         )}
       </div>
 
-      <div className="mt-6 pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between">
+      <div className="mt-6 flex items-center justify-between border-t border-[var(--border-subtle)] pt-4">
         <div className="flex flex-wrap gap-1.5">
           {services.map((srv, i) => (
             <span
               key={i}
-              className="text-[11px] text-[var(--text-muted)] bg-[var(--bg-elevated)] px-2 py-0.5 rounded"
+              className="rounded bg-[var(--bg-elevated)] px-2 py-0.5 text-[11px] text-[var(--text-muted)]"
             >
               {srv}
             </span>

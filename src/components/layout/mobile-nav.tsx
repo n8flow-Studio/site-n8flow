@@ -71,7 +71,17 @@ export function MobileNav() {
           aria-label="Menu principal"
           className="fixed inset-0 top-16 z-[var(--z-overlay)] flex flex-col overflow-y-auto bg-[var(--bg-canvas)] px-6 py-8 md:top-20"
         >
-          <button type="button" aria-label="Fechar menu" className="mb-4 ml-auto flex h-11 w-11 items-center justify-center border border-[var(--border-default)]" onClick={() => { setIsOpen(false); toggleRef.current?.focus() }}><X size={20} aria-hidden="true" /></button>
+          <button
+            type="button"
+            aria-label="Fechar menu"
+            className="mb-4 ml-auto flex h-11 w-11 items-center justify-center border border-[var(--border-default)]"
+            onClick={() => {
+              setIsOpen(false)
+              toggleRef.current?.focus()
+            }}
+          >
+            <X size={20} aria-hidden="true" />
+          </button>
           <nav className="flex flex-col gap-6" aria-label="Navegação mobile">
             <ul className="flex flex-col gap-3" role="list">
               {siteConfig.navigation.map((item) => (

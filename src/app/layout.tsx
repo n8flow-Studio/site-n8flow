@@ -1,19 +1,19 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import { AttributionCapture } from '@/components/forms/attribution-capture'
-import { Space_Grotesk, Inter } from 'next/font/google'
+import { Anton, Inter } from 'next/font/google'
 import { SkipLink } from '@/components/layout/skip-link'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import './globals.css'
 
 // ---------------------------------------------------------------------------
-// Fontes — RECOMENDADAS DS; validação visual pendente (DS §1.3, §8.7)
-// Space Grotesk: display/títulos | Inter: corpo/interface
+// Display condensado e corpo legível, auto-hospedados por next/font (ADR-0009).
 // ---------------------------------------------------------------------------
-const spaceGrotesk = Space_Grotesk({
+const display = Anton({
+  weight: '400',
   subsets: ['latin'],
-  variable: '--font-space-grotesk',
+  variable: '--font-anton',
   display: 'swap',
   preload: true,
 })
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
 // ---------------------------------------------------------------------------
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" data-theme="light" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+    <html lang="pt-BR" data-theme="light" className={`${display.variable} ${inter.variable}`}>
       <body className="bg-[var(--bg-canvas)] font-sans text-[var(--text-primary)] antialiased">
         {/* Skip link para acessibilidade — WCAG 2.2 AA (DS §6.3) */}
         <SkipLink />
