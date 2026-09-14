@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Check, Network, Crosshair, ChartNoAxesCombined, Users, Workflow, MousePointer2, Layers, Unplug, ScanLine } from 'lucide-react'
+import { ArrowRight, Check, Network, Crosshair, ChartNoAxesCombined, Users, Workflow, MousePointer2, Layers, Unplug, ScanLine, Search, Target, Cpu, BarChart3, RefreshCw } from 'lucide-react'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { Container } from '@/components/ui/container'
 import { Hero } from '@/components/marketing/hero'
@@ -77,6 +77,7 @@ const fitCriteria = [
 
 const serviceIcons = [Crosshair, ChartNoAxesCombined, MousePointer2, Users, Workflow]
 const problemIcons = [Layers, Unplug, ScanLine]
+const methodIcons = [Search, Target, Cpu, BarChart3, RefreshCw]
 
 export default async function HomePage() {
   const services = await contentRepository.listServices()
@@ -188,18 +189,23 @@ export default async function HomePage() {
             </div>
           </div>
           <ol className="method-track">
-            {method.map((item) => (
-              <li
-                key={item.number}
-                className="method-step"
-              >
-                <span className="font-mono text-xs text-[var(--text-muted)]">{item.number}</span>
-                <div className="mt-3 grid gap-3">
-                  <h3 className="font-display text-xl font-semibold">{item.label}</h3>
-                  <p className="text-sm text-[var(--text-secondary)]">{item.description}</p>
-                </div>
-              </li>
-            ))}
+            {method.map((item, index) => {
+              const StepIcon = methodIcons[index] ?? Workflow
+              return (
+                <li
+                  key={item.label}
+                  className="method-step group"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--violet-700)] shadow-xs transition-colors group-hover:border-[var(--violet-500)] group-hover:text-[var(--violet-500)]">
+                    <StepIcon className="h-4 w-4" aria-hidden="true" />
+                  </div>
+                  <div className="mt-4 grid gap-2">
+                    <h3 className="font-display text-xl font-semibold text-[var(--text-primary)]">{item.label}</h3>
+                    <p className="text-sm leading-relaxed text-[var(--text-secondary)]">{item.description}</p>
+                  </div>
+                </li>
+              )
+            })}
           </ol>
         </Container>
       </section>
@@ -230,11 +236,11 @@ export default async function HomePage() {
                 return (
                 <article
                   key={service.slug}
-                  className="service-row grid gap-5 border-t border-[var(--border-default)] py-7 sm:grid-cols-[44px_1fr_auto] sm:items-start"
+                  className="service-row group grid gap-5 border-t border-[var(--border-default)] py-7 transition-colors hover:bg-[var(--bg-surface)]/60 sm:grid-cols-[44px_1fr_auto] sm:items-start"
                 >
-                  <span className="service-icon"><Icon size={22} aria-hidden="true" /></span>
+                  <span className="service-icon transition-transform duration-200 group-hover:scale-105"><Icon size={22} aria-hidden="true" /></span>
                   <div>
-                    <h3 className="font-display text-xl font-semibold">{service.title}</h3>
+                    <h3 className="font-display text-xl font-semibold transition-colors group-hover:text-[var(--violet-700)]">{service.title}</h3>
                     <p className="mt-2 max-w-xl text-sm leading-relaxed text-[var(--text-secondary)]">
                       {service.summary}
                     </p>
@@ -242,9 +248,9 @@ export default async function HomePage() {
                   <Link
                     href={`/servicos/${service.slug}`}
                     aria-label={`Conhecer ${service.title}`}
-                    className="inline-flex h-11 w-11 items-center justify-center border border-[var(--border-strong)] transition-colors hover:bg-[var(--text-primary)] hover:text-[var(--text-inverse)]"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-[var(--border-strong)] transition-all group-hover:bg-[var(--text-primary)] group-hover:text-[var(--text-inverse)]"
                   >
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                   </Link>
                 </article>
               )})}
@@ -275,12 +281,14 @@ export default async function HomePage() {
               {fitCriteria.map((criterion) => (
                 <li
                   key={criterion}
-                  className="flex gap-4 border-b border-[var(--border-default)] py-6 last:border-b-0"
+                  className="flex items-start gap-4 border-b border-[var(--border-default)] py-6 last:border-b-0 transition-colors hover:bg-[var(--bg-subtle)]/40"
                 >
-                  <Check
-                    className="mt-0.5 h-5 w-5 shrink-0 text-[var(--green-700)]"
-                    aria-hidden="true"
-                  />
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[rgb(0_245_160/0.15)] text-[var(--green-700)]">
+                    <Check
+                      className="h-3.5 w-3.5"
+                      aria-hidden="true"
+                    />
+                  </div>
                   <span className="leading-relaxed text-[var(--text-secondary)]">{criterion}</span>
                 </li>
               ))}

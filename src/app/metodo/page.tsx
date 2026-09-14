@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Search, Target, Cpu, BarChart3, RefreshCw } from 'lucide-react'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { Container } from '@/components/ui/container'
 import { Hero } from '@/components/marketing/hero'
@@ -45,6 +45,8 @@ const steps = [
   },
 ] as const
 
+const stepIcons = [Search, Target, Cpu, BarChart3, RefreshCw]
+
 export default function MethodPage() {
   return (
     <>
@@ -78,20 +80,32 @@ export default function MethodPage() {
               </p>
             </div>
             <ol className="border-y border-[var(--border-strong)] lg:col-span-8">
-              {steps.map((step) => (
-                <li
-                  key={step.number}
-                  className="grid gap-4 border-b border-[var(--border-default)] py-8 last:border-b-0 sm:grid-cols-[72px_1fr]"
-                >
-                  <span className="font-mono text-xs text-[var(--violet-700)]">{step.number}</span>
-                  <div className="grid gap-3 md:grid-cols-2 md:gap-8">
-                    <h3 className="font-display text-2xl font-semibold">{step.title}</h3>
-                    <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
-                      {step.description}
-                    </p>
-                  </div>
-                </li>
-              ))}
+              {steps.map((step, index) => {
+                const StepIcon = stepIcons[index] ?? Cpu
+                return (
+                  <li
+                    key={step.title}
+                    className="group grid gap-5 border-b border-[var(--border-default)] py-8 last:border-b-0 transition-all hover:bg-[var(--bg-surface)]/50 px-4 -mx-4 rounded-lg sm:grid-cols-[56px_1fr] sm:items-start"
+                  >
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--violet-700)] shadow-xs transition-transform duration-200 group-hover:scale-105 group-hover:border-[var(--violet-500)]">
+                      <StepIcon className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <div className="grid gap-3 md:grid-cols-2 md:gap-8">
+                      <div>
+                        <span className="font-mono text-[11px] font-semibold tracking-wider text-[var(--text-muted)] uppercase">
+                          Etapa {index + 1}
+                        </span>
+                        <h3 className="font-display text-2xl font-semibold text-[var(--text-primary)] transition-colors group-hover:text-[var(--violet-700)]">
+                          {step.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+                        {step.description}
+                      </p>
+                    </div>
+                  </li>
+                )
+              })}
             </ol>
           </div>
         </Container>

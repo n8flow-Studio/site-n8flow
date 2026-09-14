@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowRight, Check, Globe, Laptop, MessageSquare, Workflow, Cpu } from 'lucide-react'
 import Link from 'next/link'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { Container } from '@/components/ui/container'
@@ -19,6 +19,8 @@ const operatingPrinciples = [
   'Marketing, vendas e tecnologia trabalhando integrados, não separados.',
   'Automação e Inteligência Artificial entram quando fazem sentido para o seu processo.',
 ] as const
+
+const serviceIcons = [Globe, Laptop, MessageSquare, Workflow, Cpu]
 
 export default async function ServicesPage() {
   const services = await contentRepository.listServices()
@@ -55,12 +57,14 @@ export default async function ServicesPage() {
               {operatingPrinciples.map((principle) => (
                 <li
                   key={principle}
-                  className="flex gap-4 border-b border-[var(--border-default)] py-6 last:border-b-0"
+                  className="flex items-start gap-4 border-b border-[var(--border-default)] py-6 last:border-b-0 transition-colors hover:bg-[var(--bg-surface)]/40 px-3 rounded-sm"
                 >
-                  <Check
-                    className="mt-0.5 h-5 w-5 shrink-0 text-[var(--green-700)]"
-                    aria-hidden="true"
-                  />
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[rgb(0_245_160/0.15)] text-[var(--green-700)]">
+                    <Check
+                      className="h-3.5 w-3.5"
+                      aria-hidden="true"
+                    />
+                  </div>
                   <span className="text-base leading-relaxed text-[var(--text-secondary)]">
                     {principle}
                   </span>
@@ -89,27 +93,32 @@ export default async function ServicesPage() {
           </div>
 
           <div className="border-y border-[var(--border-strong)]">
-            {services.map((service, index) => (
-              <article
-                key={service.slug}
-                className="grid gap-6 border-b border-[var(--border-default)] py-9 last:border-b-0 lg:grid-cols-[80px_1fr_1fr_auto] lg:items-start"
-              >
-                <span className="font-mono text-xs text-[var(--text-muted)]">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="font-display text-2xl font-semibold">{service.title}</h3>
-                <p className="max-w-xl text-sm leading-relaxed text-[var(--text-secondary)]">
-                  {service.summary}
-                </p>
-                <Link
-                  href={`/servicos/${service.slug}`}
-                  className="inline-flex h-11 w-11 items-center justify-center border border-[var(--border-strong)] transition-colors hover:bg-[var(--text-primary)] hover:text-[var(--text-inverse)]"
-                  aria-label={`Conhecer ${service.title}`}
+            {services.map((service, index) => {
+              const Icon = serviceIcons[index] ?? Workflow
+              return (
+                <article
+                  key={service.slug}
+                  className="group relative grid gap-6 border-b border-[var(--border-default)] py-8 last:border-b-0 transition-all hover:bg-[var(--bg-surface)]/60 px-4 -mx-4 rounded-lg lg:grid-cols-[56px_1fr_1fr_auto] lg:items-center"
                 >
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
-              </article>
-            ))}
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--violet-700)] shadow-xs transition-transform duration-200 group-hover:scale-105 group-hover:border-[var(--violet-500)]">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <h3 className="font-display text-2xl font-semibold transition-colors group-hover:text-[var(--violet-700)]">
+                    {service.title}
+                  </h3>
+                  <p className="max-w-xl text-sm leading-relaxed text-[var(--text-secondary)]">
+                    {service.summary}
+                  </p>
+                  <Link
+                    href={`/servicos/${service.slug}`}
+                    className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-[var(--border-strong)] transition-all group-hover:bg-[var(--text-primary)] group-hover:text-[var(--text-inverse)]"
+                    aria-label={`Conhecer ${service.title}`}
+                  >
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                  </Link>
+                </article>
+              )
+            })}
           </div>
         </Container>
       </section>

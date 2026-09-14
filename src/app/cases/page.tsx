@@ -38,33 +38,33 @@ export default async function CasesPage() {
         ) : (
           /* Empty state honesto conforme governança do Design System */
           <div className="mx-auto max-w-2xl py-12 text-center">
-            <Card variant="outline" padding="lg" className="border-dashed">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--bg-elevated)] text-[var(--action-primary)]">
-                <ShieldCheck className="h-6 w-6" />
+            <div className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-8 shadow-xs sm:p-12">
+              <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-[rgb(0_245_160/0.2)] bg-[rgb(0_245_160/0.08)] text-[var(--action-primary)] shadow-xs">
+                <ShieldCheck className="h-7 w-7" />
               </div>
               <h2 className="font-display text-2xl font-bold text-[var(--text-primary)]">
                 Publicação de Cases em Andamento
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+              <p className="mt-4 text-sm leading-relaxed text-[var(--text-secondary)]">
                 A N8FLOW não utiliza depoimentos forjados ou métricas fictícias. Estamos
                 consolidando e auditando os dados das primeiras operações assistidas para publicação
                 oficial.
               </p>
-              <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link
                   href="/servicos"
-                  className="inline-flex h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--action-primary)] px-6 text-sm font-semibold text-[var(--text-inverse)] hover:bg-[var(--action-primary-hover)]"
+                  className="inline-flex h-11 items-center justify-center rounded-sm bg-[var(--text-primary)] px-6 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)]"
                 >
                   Conhecer nossas soluções
                 </Link>
                 <Link
                   href="/metodo"
-                  className="inline-flex h-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--border-default)] px-6 text-sm font-semibold text-[var(--text-primary)] hover:bg-[var(--bg-elevated)]"
+                  className="inline-flex h-11 items-center justify-center rounded-sm border border-[var(--border-strong)] px-6 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-subtle)]"
                 >
                   Conhecer nosso método
                 </Link>
               </div>
-            </Card>
+            </div>
           </div>
         )}
       </Section>

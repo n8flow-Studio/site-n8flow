@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
-import { Cpu, BarChart2, Zap, RefreshCw } from 'lucide-react'
+import { Cpu, BarChart2, Zap, RefreshCw, Building2 } from 'lucide-react'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { Section } from '@/components/marketing/section'
 import { Hero } from '@/components/marketing/hero'
-import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { CtaSection } from '@/components/marketing/cta-section'
 import { siteConfig } from '@/config/site'
@@ -61,15 +60,18 @@ export default function AboutPage() {
 
         <div className="grid gap-6 sm:grid-cols-2">
           {principles.map((p, idx) => (
-            <Card key={idx} variant="surface" padding="lg">
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-[var(--radius-md)] border border-[var(--border-subtle)] bg-[var(--bg-elevated)]">
+            <div
+              key={idx}
+              className="group rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xs transition-all duration-200 hover:border-[var(--border-strong)] hover:shadow-xs sm:p-8"
+            >
+              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-subtle)] transition-transform group-hover:scale-105">
                 {p.icon}
               </div>
-              <h3 className="font-display mb-2 text-xl font-bold text-[var(--text-primary)]">
+              <h3 className="font-display mb-2 text-xl font-bold text-[var(--text-primary)] transition-colors group-hover:text-[var(--violet-700)]">
                 {p.title}
               </h3>
               <p className="text-sm leading-relaxed text-[var(--text-secondary)]">{p.desc}</p>
-            </Card>
+            </div>
           ))}
         </div>
       </Section>
@@ -77,24 +79,36 @@ export default function AboutPage() {
       {/* Dados Corporativos Oficiais */}
       <Section>
         <div className="mx-auto max-w-3xl">
-          <Card variant="featured" padding="lg">
-            <h2 className="font-display mb-4 text-2xl font-bold text-[var(--text-primary)]">
-              Identificação Empresarial
-            </h2>
-            <div className="space-y-2 text-sm text-[var(--text-secondary)]">
-              <p>
-                <strong className="text-[var(--text-primary)]">Razão Social:</strong>{' '}
-                {siteConfig.legalName}
-              </p>
-              <p>
-                <strong className="text-[var(--text-primary)]">CNPJ:</strong> {siteConfig.cnpj}
-              </p>
-              <p>
-                <strong className="text-[var(--text-primary)]">Domínio Oficial:</strong>{' '}
-                {siteConfig.domain}
-              </p>
+          <div className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xs sm:p-8">
+            <div className="mb-6 flex items-center gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[rgb(110_68_255/0.1)] text-[var(--violet-700)]">
+                <Building2 className="h-5 w-5" />
+              </div>
+              <h2 className="font-display text-2xl font-bold text-[var(--text-primary)]">
+                Identificação Empresarial
+              </h2>
             </div>
-          </Card>
+            <div className="grid gap-6 border-t border-[var(--border-subtle)] pt-6 sm:grid-cols-3">
+              <div className="space-y-1">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                  Razão Social:
+                </span>
+                <p className="text-sm font-medium text-[var(--text-primary)]">{siteConfig.legalName}</p>
+              </div>
+              <div className="space-y-1">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                  CNPJ:
+                </span>
+                <p className="font-mono text-sm font-medium text-[var(--text-primary)]">{siteConfig.cnpj}</p>
+              </div>
+              <div className="space-y-1">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                  Domínio Oficial:
+                </span>
+                <p className="font-mono text-sm font-medium text-[var(--text-primary)]">{siteConfig.domain}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 

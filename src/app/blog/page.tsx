@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { BookOpen } from 'lucide-react'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { Container } from '@/components/ui/container'
 import { Hero } from '@/components/marketing/hero'
@@ -22,8 +23,11 @@ export default async function BlogPage() {
       />
       <section className="py-20 md:py-28" aria-labelledby="content-title">
         <Container>
-          <div className="border-y border-[var(--border-strong)] py-10">
-            <h2 id="content-title" className="font-display text-3xl font-semibold">
+          <div className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-8 shadow-xs sm:p-12">
+            <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl border border-[rgb(110_68_255/0.2)] bg-[rgb(110_68_255/0.08)] text-[var(--violet-700)] shadow-xs">
+              <BookOpen className="h-6 w-6" />
+            </div>
+            <h2 id="content-title" className="font-display text-2xl font-bold text-[var(--text-primary)] sm:text-3xl">
               {articles.length > 0 ? 'Conteúdos publicados' : 'Publicação editorial em preparação.'}
             </h2>
             {articles.length === 0 && (

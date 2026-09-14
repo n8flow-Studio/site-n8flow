@@ -52,8 +52,7 @@ export function Hero({
         >
           <div className={cn(isHome && 'lg:col-span-7')}>
             {eyebrow && (
-              <p className="eyebrow mb-6 flex items-center gap-3">
-                <span className="h-px w-10 bg-[var(--violet-500)]" aria-hidden="true" />
+              <p className="eyebrow mb-6 font-mono text-[11px] font-semibold tracking-[0.2em] text-[var(--violet-700)] uppercase">
                 {eyebrow}
               </p>
             )}

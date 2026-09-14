@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { Target, Cpu, TrendingUp } from 'lucide-react'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { Container } from '@/components/ui/container'
 import { Section } from '@/components/marketing/section'
 import { Hero } from '@/components/marketing/hero'
-import { Card } from '@/components/ui/card'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import { CtaSection } from '@/components/marketing/cta-section'
 import { contentRepository } from '@/lib/content/repository'
@@ -61,33 +61,49 @@ export default async function CaseDetailPage({ params }: CasePageProps) {
 
       <Section className="border-t border-[var(--border-subtle)] bg-[var(--bg-subtle)]">
         <div className="mx-auto max-w-3xl space-y-8">
-          <Card variant="surface" padding="lg">
-            <h2 className="font-display text-xl font-bold text-[var(--text-primary)] mb-3">
-              O Desafio
-            </h2>
+          <div className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xs sm:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[rgb(110_68_255/0.1)] text-[var(--violet-700)]">
+                <Target className="h-4 w-4" />
+              </div>
+              <h2 className="font-display text-xl font-bold text-[var(--text-primary)]">
+                O Desafio
+              </h2>
+            </div>
             <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
               {caseItem.challenge}
             </p>
-          </Card>
+          </div>
 
-          <Card variant="surface" padding="lg">
-            <h2 className="font-display text-xl font-bold text-[var(--text-primary)] mb-3">
-              A Abordagem Técnica
-            </h2>
+          <div className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xs sm:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[rgb(0_245_160/0.1)] text-[var(--action-primary)]">
+                <Cpu className="h-4 w-4" />
+              </div>
+              <h2 className="font-display text-xl font-bold text-[var(--text-primary)]">
+                A Abordagem Técnica
+              </h2>
+            </div>
             <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
               {caseItem.approach}
             </p>
-          </Card>
+          </div>
 
           {caseItem.metrics && caseItem.metrics.length > 0 && (
             <div className="grid grid-cols-2 gap-4">
               {caseItem.metrics.map((m, idx) => (
-                <Card key={idx} variant="featured" padding="md">
-                  <div className="font-display text-2xl font-bold text-[var(--action-primary)]">
-                    {m.value}
+                <div
+                  key={idx}
+                  className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xs"
+                >
+                  <div className="mb-2 flex items-center justify-between">
+                    <span className="font-display text-3xl font-bold text-[var(--action-primary)]">
+                      {m.value}
+                    </span>
+                    <TrendingUp className="h-4 w-4 text-[var(--action-primary)] opacity-80" />
                   </div>
-                  <div className="text-xs text-[var(--text-muted)] mt-1">{m.label}</div>
-                </Card>
+                  <div className="text-xs font-medium text-[var(--text-muted)]">{m.label}</div>
+                </div>
               ))}
             </div>
           )}
