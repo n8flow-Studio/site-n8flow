@@ -8,9 +8,9 @@ import { siteConfig } from '@/config/site'
 import { DiagnosisForm } from '@/components/forms/diagnosis-form'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Contato Institucional e Comercial | N8FLOW',
+  title: 'Diagnóstico Gratuito | Fale com a N8FLOW',
   description:
-    'Entre em contato com a N8FLOW para assuntos institucionais, parcerias comerciais ou diagnóstico de projetos.',
+    'Solicite um diagnóstico gratuito e descubra o que o seu negócio precisa para crescer no digital.',
   pathname: '/contato',
 })
 
@@ -18,9 +18,9 @@ export default function ContactPage() {
   return (
     <>
       <Hero
-        eyebrow="Diagnóstico comercial"
-        title="Vamos entender o contexto da sua operação."
-        description="Compartilhe informações iniciais sobre a empresa e o desafio atual. Escopo, formato e condições comerciais só são definidos depois dessa avaliação."
+        eyebrow="Diagnóstico gratuito"
+        title="Conte sobre o seu negócio. A gente cuida do resto."
+        description="Preencha o formulário e nos conte sobre a sua empresa e o principal desafio que enfrenta agora. Em seguida, fazemos um diagnóstico gratuito e apresentamos o que faz sentido implementar."
         variant="editorial"
       />
 
@@ -30,7 +30,7 @@ export default function ContactPage() {
           <div className="lg:col-span-7">
             <Card variant="surface" padding="lg">
               <h2 className="font-display mb-6 text-2xl font-bold text-[var(--text-primary)]">
-                Solicitar diagnóstico
+                Solicitar diagnóstico gratuito
               </h2>
 
               <DiagnosisForm />
@@ -64,7 +64,7 @@ export default function ContactPage() {
             <Card variant="featured" padding="lg">
               <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-[var(--action-primary)]">
                 <ShieldCheck className="h-4 w-4" />
-                <span>Privacidade & Tratamento</span>
+                <span>Privacidade &amp; Tratamento</span>
               </div>
               <p className="text-xs leading-relaxed text-[var(--text-secondary)]">
                 Usamos as informações fornecidas para avaliar e responder à sua solicitação. Não

@@ -7,17 +7,17 @@ import { Hero } from '@/components/marketing/hero'
 import { contentRepository } from '@/lib/content/repository'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Assessoria de Growth Marketing B2B | N8FLOW',
+  title: 'Soluções de Marketing e Tecnologia para seu Negócio | N8FLOW',
   description:
-    'Estratégia e execução coordenadas para conectar aquisição, conversão, relacionamento, dados e vendas.',
+    'Do posicionamento no Google à automação de processos: soluções sob medida para o que o seu negócio precisa agora.',
   pathname: '/servicos',
 })
 
 const operatingPrinciples = [
-  'O diagnóstico define a prioridade, não a ferramenta disponível.',
-  'Cada frente precisa de objetivo, responsável e indicador coerente.',
-  'Marketing e vendas compartilham contexto e aprendizado.',
-  'Automação e IA apoiam processos delimitados e supervisionados.',
+  'O diagnóstico inicial define o que vai ser implementado, não um pacote pré-definido.',
+  'Cada solução tem objetivo claro, prazo e indicador de resultado.',
+  'Marketing, vendas e tecnologia trabalhando integrados, não separados.',
+  'Automação e Inteligência Artificial entram quando fazem sentido para o seu processo.',
 ] as const
 
 export default async function ServicesPage() {
@@ -26,11 +26,11 @@ export default async function ServicesPage() {
   return (
     <>
       <Hero
-        eyebrow="Assessoria de Growth Marketing B2B"
-        title="Transforme iniciativas de marketing em uma operação de Growth."
-        description="Estratégia e execução coordenadas para conectar aquisição, conversão, relacionamento, dados e vendas conforme o momento da sua empresa."
-        primaryAction={{ label: 'Solicitar diagnóstico', href: '/contato' }}
-        secondaryAction={{ label: 'Conhecer o método', href: '/metodo' }}
+        eyebrow="O que fazemos"
+        title="Soluções sob medida para o que o seu negócio precisa."
+        description="No diagnóstico inicial, entendemos sua situação e definimos juntos quais soluções fazem sentido agora — sem pacotes genéricos."
+        primaryAction={{ label: 'Diagnóstico gratuito', href: '/contato' }}
+        secondaryAction={{ label: 'Ver como trabalhamos', href: '/metodo' }}
         variant="b2b"
       />
 
@@ -48,7 +48,7 @@ export default async function ServicesPage() {
                 id="acting-title"
                 className="section-title mt-5"
               >
-                Crescimento exige sistema, prioridade e acompanhamento.
+                Trabalhamos conforme o que você precisa, não com pacotes prontos.
               </h2>
             </div>
             <ul className="border-y border-[var(--border-strong)] lg:col-span-8" role="list">
@@ -75,17 +75,16 @@ export default async function ServicesPage() {
         <Container>
           <div className="mb-14 max-w-3xl">
             <p className="font-mono text-[11px] tracking-[0.2em] text-[var(--violet-700)] uppercase">
-              Frentes de atuação
+              O que entregamos
             </p>
             <h2
               id="fronts-title"
               className="section-title mt-5"
             >
-              Capacidades modulares. Uma direção compartilhada.
+              Do Google ao sistema: tudo que o seu negócio pode precisar.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-[var(--text-secondary)]">
-              As frentes são combinadas a partir do diagnóstico. A N8FLOW não presume que toda
-              empresa precisa do mesmo canal, ferramenta ou escopo.
+              Cada solução é escolhida no diagnóstico. Você não paga por o que não precisa.
             </p>
           </div>
 
@@ -129,14 +128,14 @@ export default async function ServicesPage() {
                 id="diagnosis-title"
                 className="section-title mt-6 text-[var(--text-inverse)]"
               >
-                O diagnóstico identifica onde concentrar o próximo ciclo de Growth.
+                Quer saber o que o seu negócio precisa agora?
               </h2>
             </div>
             <Link
               href="/contato"
               className="flex min-h-14 items-center justify-between border border-[var(--text-inverse)] px-5 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] lg:col-span-3"
             >
-              Solicitar diagnóstico <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              Diagnóstico gratuito <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
         </Container>

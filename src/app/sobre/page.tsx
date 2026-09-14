@@ -9,9 +9,9 @@ import { CtaSection } from '@/components/marketing/cta-section'
 import { siteConfig } from '@/config/site'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Sobre a N8FLOW | Assessoria de Growth Marketing B2B',
+  title: 'Sobre a N8FLOW | Tecnologia e Marketing para o seu Negócio',
   description:
-    'Conheça a abordagem da N8FLOW para conectar estratégia, aquisição, conversão, dados e vendas em empresas de diferentes setores.',
+    'Conheça a N8FLOW: combinamos tecnologia, marketing digital e Inteligência Artificial para estruturar a presença e a operação comercial do seu negócio.',
   pathname: '/sobre',
 })
 
@@ -20,22 +20,22 @@ export default function AboutPage() {
     {
       icon: <Cpu className="h-6 w-6 text-[var(--action-primary)]" />,
       title: 'Integração antes da ferramenta',
-      desc: 'Mais softwares não resolvem uma operação desalinhada. Desenhamos a arquitetura de ponta a ponta antes de escolher as tecnologias.',
+      desc: 'Mais softwares não resolvem um processo desorganizado. Desenhamos a solução completa antes de escolher as ferramentas.',
     },
     {
       icon: <BarChart2 className="h-6 w-6 text-[var(--violet-400)]" />,
       title: 'Dados para orientar decisões',
-      desc: 'Buscamos indicadores que ajudem a compreender a jornada, avaliar hipóteses e orientar prioridades.',
+      desc: 'Usamos indicadores reais para entender o que funciona e decidir onde investir o próximo esforço.',
     },
     {
       icon: <Zap className="h-6 w-6 text-[var(--action-primary)]" />,
       title: 'Automação com contexto',
-      desc: 'Aplicamos automação em rotinas delimitadas, com regras de negócio, supervisão e tratamento de falhas.',
+      desc: 'Automatizamos o que faz sentido automatizar — com regras de negócio claras e supervisão contínua.',
     },
     {
       icon: <RefreshCw className="h-6 w-6 text-[var(--violet-400)]" />,
       title: 'Evolução contínua',
-      desc: 'Growth é tratado como um ciclo de diagnóstico, implementação, mensuração e aprendizado.',
+      desc: 'Diagnóstico, implementação, resultado e ajuste — em ciclo. Não existe "pronto", só melhoria contínua.',
     },
   ]
 
@@ -43,8 +43,8 @@ export default function AboutPage() {
     <>
       <Hero
         eyebrow="Institucional"
-        title="Assessoria de Growth para empresas que precisam conectar estratégia e execução."
-        description="A N8FLOW atua com negócios de diferentes setores, combinando capacidades conforme o contexto, a maturidade e o desafio comercial de cada operação."
+        title="Fazemos o digital trabalhar a favor do seu negócio."
+        description="A N8FLOW combina tecnologia, marketing digital e Inteligência Artificial para estruturar a presença, a captação e os processos de atendimento de empresas de diferentes segmentos."
         variant="editorial"
       />
 
@@ -99,10 +99,10 @@ export default function AboutPage() {
       </Section>
 
       <CtaSection
-        title="Quer entender onde concentrar o próximo ciclo de Growth?"
-        description="Compartilhe o contexto da sua operação para avaliarmos a aderência da assessoria."
+        title="Quer saber o que a N8FLOW pode fazer pelo seu negócio?"
+        description="Agende um diagnóstico gratuito e descubra o ponto de partida ideal para a sua empresa."
         primaryAction={{
-          label: 'Solicitar diagnóstico',
+          label: 'Diagnóstico gratuito',
           href: '/contato',
         }}
       />

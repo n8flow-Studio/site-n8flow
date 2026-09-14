@@ -6,7 +6,7 @@ import { contentRepository } from '@/lib/content/repository'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Conteúdos N8FLOW',
-  description: 'Conteúdos sobre Growth, tecnologia, dados e automação.',
+  description: 'Conteúdos sobre marketing digital, tecnologia, automação, CRM e Inteligência Artificial.',
   pathname: '/blog',
 })
 
@@ -16,8 +16,8 @@ export default async function BlogPage() {
     <>
       <Hero
         eyebrow="Conteúdo"
-        title="Conhecimento aplicado à operação."
-        description="Conteúdos sobre Growth, tecnologia, dados, automação, CRM e processos comerciais serão publicados com autoria e referências verificáveis."
+        title="Conhecimento aplicado ao seu negócio."
+        description="Conteúdos sobre presença digital, captação de clientes, automação, CRM e Inteligência Artificial serão publicados com autoria e referências verificáveis."
         variant="editorial"
       />
       <section className="py-20 md:py-28" aria-labelledby="content-title">

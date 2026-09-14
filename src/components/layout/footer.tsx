@@ -47,11 +47,11 @@ export function Footer() {
               />
             </Link>
             <p className="mb-2 font-semibold text-[var(--text-inverse)]">
-              Assessoria de Growth Marketing B2B
+              Tecnologia e marketing para o seu negócio
             </p>
             <p className="max-w-xs text-sm leading-relaxed text-[var(--neutral-300)]">
-              Conectamos estratégia, aquisição, conversão, relacionamento e dados para estruturar
-              operações de Growth orientadas a crescimento.
+              Presença no Google, captação de clientes, automação de processos e Inteligência
+              Artificial — sob medida para o que seu negócio precisa.
             </p>
 
             {/* Redes sociais — PENDENTE (não publicar sem canais confirmados) */}

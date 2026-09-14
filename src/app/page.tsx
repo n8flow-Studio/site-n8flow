@@ -4,52 +4,75 @@ import { ArrowRight, Check, Network, Crosshair, ChartNoAxesCombined, Users, Work
 import { buildMetadata } from '@/lib/seo/metadata'
 import { Container } from '@/components/ui/container'
 import { Hero } from '@/components/marketing/hero'
-import { GrowthSystem } from '@/components/marketing/growth-system'
+import { DigitalSystem } from '@/components/marketing/growth-system'
 import { contentRepository } from '@/lib/content/repository'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'N8FLOW — Assessoria de Growth Marketing B2B',
+  title: 'N8FLOW — Tecnologia e Marketing para o Seu Negócio',
   description:
-    'Assessoria de Growth Marketing para conectar estratégia, aquisição, conversão, dados e vendas em uma operação orientada a crescimento.',
+    'Posicionamento no Google, captação de clientes qualificados, automação de processos e soluções com Inteligência Artificial. Tudo integrado, do jeito que o seu negócio precisa.',
   pathname: '/',
 })
 
 const problems = [
   {
     number: '01',
-    title: 'Marketing sem prioridade compartilhada',
-    description: 'Ações e canais avançam sem uma agenda comum ligada aos objetivos comerciais.',
+    title: 'Invisível no Google',
+    description:
+      'Seus concorrentes aparecem nas buscas, mas o seu negócio não. Sem presença digital, os clientes encontram outra empresa antes de chegar até você.',
   },
   {
     number: '02',
-    title: 'Demanda sem continuidade',
-    description: 'Leads chegam, mas encontram jornadas, mensagens e acompanhamentos fragmentados.',
+    title: 'Leads chegam, mas não viram clientes',
+    description:
+      'Contatos dispersos em WhatsApp, e-mails sem acompanhamento e processo manual travam as vendas antes mesmo de começar.',
   },
   {
     number: '03',
-    title: 'Dados sem contexto de decisão',
+    title: 'Tempo perdido em tarefas repetitivas',
     description:
-      'Indicadores existem, mas não explicam onde priorizar esforço, investimento e aprendizado.',
+      'Atendimento, agendamento e processos internos consomem tempo que poderia estar gerando mais vendas.',
   },
 ] as const
 
 const method = [
-  { number: '01', label: 'Diagnosticar', description: 'Contexto, objetivos, operação e gargalos.' },
+  {
+    number: '01',
+    label: 'Diagnosticar',
+    description:
+      'Entendemos onde você está: presença digital, captação, processo de atendimento e o que está travando o crescimento.',
+  },
   {
     number: '02',
     label: 'Priorizar',
-    description: 'Hipóteses e iniciativas pelo impacto esperado.',
+    description:
+      'Identificamos o que resolve mais rápido e com mais impacto — para não desperdiçar tempo nem dinheiro.',
   },
-  { number: '03', label: 'Implementar', description: 'Execução coordenada das frentes aprovadas.' },
-  { number: '04', label: 'Medir', description: 'Indicadores conectados ao objetivo comercial.' },
-  { number: '05', label: 'Otimizar', description: 'Aprendizado incorporado ao próximo ciclo.' },
+  {
+    number: '03',
+    label: 'Implementar',
+    description:
+      'Executamos o que foi acordado: site, Google, automação, CRM, IA — com responsáveis e critérios claros.',
+  },
+  {
+    number: '04',
+    label: 'Medir',
+    description:
+      'Acompanhamos os resultados para garantir que o que foi implementado está funcionando.',
+  },
+  {
+    number: '05',
+    label: 'Otimizar',
+    description:
+      'Aprendemos com os dados e evoluímos continuamente — porque o negócio também evolui.',
+  },
 ] as const
 
 const fitCriteria = [
-  'Possui uma oferta comercial definida e capacidade de atendimento.',
-  'Precisa gerar demanda ou melhorar a conversão de oportunidades.',
-  'Quer aproximar marketing, dados e processo comercial.',
-  'Está disposta a trabalhar com prioridades, mensuração e aprendizado contínuo.',
+  'Quer aparecer melhor no Google e atrair clientes qualificados.',
+  'Precisa de um site, landing page ou integração com WhatsApp e CRM.',
+  'Quer automatizar atendimento, agendamento ou processos internos.',
+  'Busca desenvolver sistemas personalizados ou soluções com Inteligência Artificial.',
 ] as const
 
 const serviceIcons = [Crosshair, ChartNoAxesCombined, MousePointer2, Users, Workflow]
@@ -61,18 +84,18 @@ export default async function HomePage() {
   return (
     <>
       <Hero
-        eyebrow="Assessoria de Growth Marketing B2B"
+        eyebrow="Tecnologia e marketing para o seu negócio"
         title={
           <>
-            Growth não é uma campanha.{' '}
-            <span className="hero-title-accent">É uma operação.</span>
+            Apareça no lugar certo.{' '}
+            <span className="hero-title-accent">Capture os clientes certos.</span>
           </>
         }
-        description="A N8FLOW conecta estratégia, aquisição, conversão, dados e vendas em um sistema orientado a crescimento — sem limitar a atuação a um único setor."
-        primaryAction={{ label: 'Solicitar diagnóstico', href: '/contato' }}
-        secondaryAction={{ label: 'Conhecer nossa atuação', href: '/servicos' }}
+        description="A N8FLOW identifica o que o seu negócio precisa agora — seja uma presença sólida no Google, um site que converte, processos automatizados ou um sistema para acompanhar seus clientes."
+        primaryAction={{ label: 'Diagnóstico gratuito', href: '/contato' }}
+        secondaryAction={{ label: 'Ver o que fazemos', href: '/servicos' }}
       >
-        <GrowthSystem />
+        <DigitalSystem />
       </Hero>
 
       <section className="home-section" aria-labelledby="problem-title">
@@ -86,7 +109,7 @@ export default async function HomePage() {
                 id="problem-title"
                 className="section-title mt-5"
               >
-                Iniciativas isoladas não formam uma operação de Growth.
+                Sem estrutura digital, o negócio perde clientes todos os dias.
               </h2>
             </div>
             <div className="lg:col-span-7 lg:pt-12">
@@ -119,23 +142,23 @@ export default async function HomePage() {
           <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-7">
               <p className="flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] text-[var(--green-400)] uppercase">
-                <Network className="h-4 w-4" aria-hidden="true" /> Tese N8FLOW
+                <Network className="h-4 w-4" aria-hidden="true" /> O que acreditamos
               </p>
               <h2
                 id="thesis-title"
                 className="section-title mt-6 text-[var(--text-inverse)]"
               >
-                Crescimento exige estratégia, execução e vendas operando como um único sistema.
+                Seu negócio no lugar certo, com o processo certo para atender e fidelizar clientes.
               </h2>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-[var(--neutral-300)]">
-              Tecnologia, automação e IA entram onde fortalecem o processo, preservam contexto e
-              tornam a operação mensurável.
+              Diagnóstico, presença digital, captação, automação e inteligência artificial —
+              aplicados ao que a sua empresa precisa agora, sem desperdício.
             </p>
             </div>
             <div className="thesis-visual lg:col-span-5" aria-hidden="true">
-              <div className="thesis-layer"><Crosshair size={28} />Estratégia</div>
-              <div className="thesis-layer"><Workflow size={28} />Execução</div>
-              <div className="thesis-layer"><Users size={28} />Vendas</div>
+              <div className="thesis-layer"><Crosshair size={28} />Presença Digital</div>
+              <div className="thesis-layer"><Workflow size={28} />Captação</div>
+              <div className="thesis-layer"><Users size={28} />Atendimento</div>
             </div>
           </div>
         </Container>
@@ -146,13 +169,13 @@ export default async function HomePage() {
           <div className="mb-14 grid gap-6 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
               <p className="font-mono text-[11px] tracking-[0.2em] text-[var(--violet-700)] uppercase">
-                Método
+                Como trabalhamos
               </p>
               <h2
                 id="method-title"
                 className="section-title mt-5"
               >
-                Um ciclo contínuo de decisão, execução e aprendizado.
+                Da primeira conversa à solução implementada.
               </h2>
             </div>
             <div className="lg:col-span-4">
@@ -160,7 +183,7 @@ export default async function HomePage() {
                 href="/metodo"
                 className="inline-flex items-center gap-2 border-b border-[var(--text-primary)] pb-1 text-sm font-semibold"
               >
-                Conhecer o método <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                Ver como trabalhamos <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -189,17 +212,16 @@ export default async function HomePage() {
           <div className="grid gap-14 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-[11px] tracking-[0.2em] text-[var(--green-700)] uppercase">
-                Frentes de atuação
+                O que fazemos
               </p>
               <h2
                 id="solutions-title"
                 className="section-title mt-5"
               >
-                Capacidades combinadas conforme o momento da empresa.
+                Soluções para cada necessidade do seu negócio.
               </h2>
               <p className="mt-5 text-sm leading-relaxed text-[var(--text-secondary)]">
-                O diagnóstico define prioridades. Nenhuma ferramenta ou canal é tratado como
-                resposta universal.
+                No diagnóstico inicial, identificamos o que você precisa — e entregamos exatamente isso.
               </p>
             </div>
             <div className="lg:col-span-8">
@@ -236,17 +258,17 @@ export default async function HomePage() {
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <p className="font-mono text-[11px] tracking-[0.2em] text-[var(--violet-700)] uppercase">
-                Aderência
+                Para quem fazemos
               </p>
               <h2
                 id="fit-title"
                 className="section-title mt-5"
               >
-                Para empresas preparadas para tratar Growth como operação.
+                Para empresas que querem crescer com estrutura, não com tentativas.
               </h2>
               <p className="mt-5 text-sm leading-relaxed text-[var(--text-secondary)]">
-                A N8FLOW não limita a atuação por setor. O ponto de partida é a maturidade do
-                negócio e o desafio comercial.
+                Trabalhamos com negócios de diferentes segmentos. O ponto de partida é sempre o mesmo:
+                entender o que você precisa agora.
               </p>
             </div>
             <ul className="border-y border-[var(--border-strong)] lg:col-span-7" role="list">
@@ -274,14 +296,14 @@ export default async function HomePage() {
               id="final-title"
               className="section-title lg:col-span-9"
             >
-              Onde sua operação está perdendo oportunidades de crescimento?
+              Pronto para descobrir o que o seu negócio precisa agora?
             </h2>
             <div className="lg:col-span-3">
               <Link
                 href="/contato"
                 className="flex min-h-14 items-center justify-between border border-[var(--text-primary)] bg-[var(--text-primary)] px-5 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)]"
               >
-                Solicitar diagnóstico <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                Diagnóstico gratuito <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
           </div>

@@ -96,9 +96,9 @@ export default async function CaseDetailPage({ params }: CasePageProps) {
 
       <CtaSection
         title="Quer estruturar sua operação com os mesmos resultados?"
-        description="Fale com nosso time de engenharia de Growth e descubra o plano ideal."
+        description="Fale com nosso time e descubra o que faz sentido implementar no seu negócio."
         primaryAction={{
-          label: 'Solicitar diagnóstico',
+          label: 'Diagnóstico gratuito',
           href: '/contato',
         }}
       />

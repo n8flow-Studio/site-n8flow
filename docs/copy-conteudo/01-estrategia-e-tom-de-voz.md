@@ -1,34 +1,37 @@
 # 1. Estratégia e tom de voz
 
-## Tese
+## Tese — revisado 2026-09-14
 
-A N8FLOW é uma Assessoria de Growth Marketing B2B multissetorial. Não vende ferramentas isoladas; conecta estratégia, processos, aquisição, conversão, dados, automação, IA, CRM e vendas.
+A N8FLOW é uma empresa de tecnologia e marketing digital B2B multissetorial. Não vende ferramentas isoladas; identifica o que o negócio do cliente precisa agora e implementa as soluções corretas: presença no Google, site, landing page, tráfego pago, CRM, WhatsApp, automação de processos e Inteligência Artificial.
 
 Mensagem-mãe — proposta atualizada:
 
-> Assessoria de Growth Marketing para transformar marketing e vendas em uma operação conectada, mensurável e orientada a crescimento.
+> Tecnologia e marketing para fazer seu negócio crescer — do posicionamento no Google ao processo de atendimento.
 
-Proposta de valor sustentada pelo projeto:
+Proposta de valor:
 
-> Conectamos estratégia, aquisição, conversão, relacionamento e dados para estruturar a operação de Growth da sua empresa.
+> No diagnóstico inicial, identificamos o que o seu negócio precisa agora. Depois implementamos, acompanhamos e otimizamos continuamente.
 
 ## Voz
 
-Estratégica, técnica, direta, provocativa e didática.
+Direta, concreta, didática e próxima. Fala com o dono de negócio, não com o especialista de marketing.
 
 - Falar de problema e resultado antes da tecnologia.
-- Usar verbos concretos: integrar, estruturar, acompanhar, medir, automatizar e otimizar.
-- Ser seguro sem arrogância e técnico sem excluir.
-- Preferir voz ativa, frases curtas e o pronome “você”.
-- Explicar siglas quando relevantes.
+- Usar verbos concretos: aparecer, captar, automatizar, integrar, acompanhar, medir.
+- Ser seguro sem arrogância. Técnico quando necessário, simples sempre que possível.
+- Preferir voz ativa, frases curtas e o pronome "você" / "seu negócio".
+- Explicar siglas e termos técnicos sempre que relevante.
 
-Preferir: operação conectada, jornada, processo comercial, aquisição, relacionamento, conversão, automação inteligente e dados acionáveis.
+Preferir: presença digital, captação, atendimento, processo comercial, automação de processos, Inteligência Artificial, diagnóstico, resultado, acompanhamento.
 
-Evitar: solução 360°, revolucionário, disruptivo, fórmula infalível, crescimento garantido, resultados exponenciais e superioridades não comprovadas.
+Evitar: **Growth** (termo não usar na copy pública), solução 360°, revolucionário, disruptivo, fórmula infalível, crescimento garantido, resultados exponenciais, superioridades não comprovadas, jargões de marketing inacessíveis.
+
+> [!IMPORTANT]
+> O termo **"Growth"** foi removido de toda a copy pública (textos, labels, CTAs, metadata) conforme decisão de 2026-09-14. Pode ser usado apenas em comentários técnicos no código e documentação interna.
 
 ## Hierarquia
 
-Problema → impacto → tese N8FLOW → método → capacidade aplicável → prova real → diagnóstico.
+Problema concreto → impacto no negócio → o que a N8FLOW faz → como funciona o processo → o que será implementado → diagnóstico gratuito.
 
 ## Limites recomendados
 

@@ -81,8 +81,8 @@ export function buildMetadata({
  * Posicionamento aprovado no ADR-0007.
  */
 export const homeMetadata = buildMetadata({
-  title: 'N8FLOW — Assessoria de Growth Marketing B2B',
+  title: 'N8FLOW — Tecnologia e marketing para fazer seu negócio crescer',
   description:
-    'Assessoria de Growth Marketing para conectar estratégia, aquisição, conversão, dados e vendas em uma operação orientada a crescimento.',
+    'Posicionamento no Google, captação de clientes qualificados, automação de processos e soluções com Inteligência Artificial. Tudo integrado, do jeito que o seu negócio precisa.',
   pathname: '/',
 })

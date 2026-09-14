@@ -52,11 +52,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       {/* Hero do Serviço */}
       <Hero
-        eyebrow="Frente de atuação"
+        eyebrow="Solução"
         title={service.title}
         description={service.summary}
         primaryAction={{
-          label: 'Solicitar diagnóstico',
+          label: 'Diagnóstico gratuito',
           href: '/contato',
         }}
         variant="b2b"
@@ -160,10 +160,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       {/* CTA Final */}
       <CtaSection
-        title="Qual frente merece prioridade na sua operação?"
-        description="O diagnóstico ajuda a compreender o contexto antes de definir escopo, canais ou ferramentas."
+        title="Pronto para descobrir o que o seu negócio precisa agora?"
+        description="No diagnóstico gratuito, entendemos o contexto antes de definir escopo, canais ou ferramentas."
         primaryAction={{
-          label: 'Solicitar diagnóstico',
+          label: 'Diagnóstico gratuito',
           href: '/contato',
         }}
       />

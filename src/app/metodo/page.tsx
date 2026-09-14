@@ -6,9 +6,9 @@ import { Container } from '@/components/ui/container'
 import { Hero } from '@/components/marketing/hero'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Método de Growth | N8FLOW',
+  title: 'Como Trabalhamos | N8FLOW',
   description:
-    'Conheça o ciclo de diagnóstico, priorização, implementação, mensuração e otimização da assessoria N8FLOW.',
+    'Conheça o processo da N8FLOW: do diagnóstico inicial à implementação e acompanhamento dos resultados.',
   pathname: '/metodo',
 })
 
@@ -17,29 +17,31 @@ const steps = [
     number: '01',
     title: 'Diagnosticar',
     description:
-      'Compreender contexto, oferta, objetivos, canais, jornada, dados e capacidade operacional.',
+      'Entendemos onde você está: presença digital, captação, processo de atendimento e o que está travando o crescimento.',
   },
   {
     number: '02',
     title: 'Priorizar',
     description:
-      'Organizar hipóteses e iniciativas pelo impacto esperado, esforço e dependências reais.',
+      'Identificamos o que resolve mais rápido e com mais impacto — para não desperdiçar tempo nem dinheiro.',
   },
   {
     number: '03',
     title: 'Implementar',
     description:
-      'Executar as frentes aprovadas com escopo, responsáveis e critérios de conclusão explícitos.',
+      'Executamos o que foi acordado: site, Google, automação, CRM, IA — com responsáveis e critérios claros.',
   },
   {
     number: '04',
     title: 'Medir',
-    description: 'Acompanhar indicadores compatíveis com o objetivo e distinguir sinal de ruído.',
+    description:
+      'Acompanhamos os resultados para garantir que o que foi implementado está funcionando.',
   },
   {
     number: '05',
     title: 'Otimizar',
-    description: 'Transformar dados e observações em decisões para o ciclo seguinte.',
+    description:
+      'Aprendemos com os dados e evoluímos continuamente — porque o negócio também evolui.',
   },
 ] as const
 
@@ -47,11 +49,11 @@ export default function MethodPage() {
   return (
     <>
       <Hero
-        eyebrow="Método N8FLOW"
-        title="Growth como um ciclo contínuo de decisão e execução."
-        description="A assessoria combina direção estratégica, implementação coordenada e aprendizado para evoluir a operação conforme o contexto da empresa."
-        primaryAction={{ label: 'Solicitar diagnóstico', href: '/contato' }}
-        secondaryAction={{ label: 'Conhecer as soluções', href: '/servicos' }}
+        eyebrow="Como trabalhamos"
+        title="Do diagnóstico à solução: um processo claro, do começo ao fim."
+        description="A assessoria começa entendendo o que você precisa. Só depois definimos o que implementar — e acompanhamos cada resultado."
+        primaryAction={{ label: 'Diagnóstico gratuito', href: '/contato' }}
+        secondaryAction={{ label: 'Ver nossas soluções', href: '/servicos' }}
         variant="editorial"
       />
 
@@ -63,17 +65,16 @@ export default function MethodPage() {
           <div className="grid gap-14 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-[11px] tracking-[0.2em] text-[var(--green-700)] uppercase">
-                Ciclo operacional
+                Nosso processo
               </p>
               <h2
                 id="cycle-title"
                 className="section-title mt-5"
               >
-                Método sem fórmula universal.
+                Cada empresa tem um ponto de partida diferente.
               </h2>
               <p className="mt-5 text-sm leading-relaxed text-[var(--text-secondary)]">
-                As etapas orientam o trabalho, mas o escopo e a combinação de capacidades dependem
-                do diagnóstico.
+                O diagnóstico define o caminho. Não existe solução padrão aqui.
               </p>
             </div>
             <ol className="border-y border-[var(--border-strong)] lg:col-span-8">
@@ -107,15 +108,14 @@ export default function MethodPage() {
                 id="commitment-title"
                 className="section-title mt-5"
               >
-                Clareza sobre prioridade, execução e aprendizado — sem promessa de resultado
-                automático.
+                Clareza total sobre o que será feito, por quem e com qual objetivo.
               </h2>
             </div>
             <Link
               href="/contato"
               className="flex min-h-14 items-center justify-between border border-[var(--text-primary)] bg-[var(--text-primary)] px-5 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] lg:col-span-3"
             >
-              Solicitar diagnóstico <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              Diagnóstico gratuito <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
         </Container>
