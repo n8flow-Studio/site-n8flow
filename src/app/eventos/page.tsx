@@ -9,7 +9,8 @@ import { contentRepository } from '@/lib/content/repository'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Eventos N8FLOW',
-  description: 'Eventos sobre Growth Marketing e tecnologia aplicada. Datas e disponibilidade são publicadas somente após confirmação.',
+  description:
+    'Eventos sobre tecnologia, marketing digital e automação. Datas e disponibilidade são publicadas somente após confirmação.',
   pathname: '/eventos',
   noIndex: true,
 })
@@ -20,7 +21,7 @@ export default async function EventsPage() {
     <>
       <Hero
         eyebrow="Eventos N8FLOW"
-        title="Educação para conectar Growth, tecnologia e vendas."
+        title="Educação e tecnologia aplicada ao seu negócio."
         description="Os encontros presenciais são a porta de entrada educacional da N8FLOW. Datas e disponibilidade são publicadas somente após confirmação."
         variant="editorial"
       />

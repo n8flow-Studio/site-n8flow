@@ -25,7 +25,7 @@ export function ServiceCard({
     <Card
       variant="interactive"
       padding="md"
-      className={cn('group flex flex-col justify-between h-full', className)}
+      className={cn('group flex h-full flex-col justify-between', className)}
     >
       <div>
         {icon && (
@@ -34,19 +34,17 @@ export function ServiceCard({
           </div>
         )}
 
-        <h3 className="font-display text-xl font-bold tracking-tight text-[var(--text-primary)] transition-colors group-hover:text-[var(--action-primary)]">
+        <h3 className="display-readable font-display text-xl font-bold text-[var(--text-primary)] transition-colors group-hover:text-[var(--action-primary)]">
           {title}
         </h3>
 
-        <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
-          {description}
-        </p>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">{description}</p>
 
         {outcomes && outcomes.length > 0 && (
           <ul className="mt-4 space-y-1.5 border-t border-[var(--border-subtle)] pt-4 text-xs text-[var(--text-muted)]">
             {outcomes.map((outcome, idx) => (
               <li key={idx} className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-[var(--action-primary)] shrink-0" />
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--action-primary)]" />
                 <span>{outcome}</span>
               </li>
             ))}
@@ -54,12 +52,12 @@ export function ServiceCard({
         )}
       </div>
 
-      <div className="mt-6 pt-4 border-t border-[var(--border-subtle)]">
+      <div className="mt-6 border-t border-[var(--border-subtle)] pt-4">
         <Link
           href={`/servicos/${slug}`}
           className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--action-primary)] transition-all group-hover:translate-x-1"
         >
-          <span>Conhecer solução</span>
+          <span>Ver solução</span>
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
       </div>

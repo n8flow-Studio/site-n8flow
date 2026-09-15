@@ -35,15 +35,15 @@ export function PricingCard({
     <Card
       variant={featured ? 'featured' : 'surface'}
       padding="lg"
-      className={cn('flex flex-col justify-between max-w-lg mx-auto relative', className)}
+      className={cn('relative mx-auto flex max-w-lg flex-col justify-between', className)}
     >
       <div>
-        <div className="flex items-center justify-between gap-4 mb-4">
+        <div className="mb-4 flex items-center justify-between gap-4">
           <Badge variant="brand" size="md">
             {name}
           </Badge>
           {featured && (
-            <span className="text-xs font-semibold text-[var(--action-primary)] uppercase tracking-wider">
+            <span className="text-xs font-semibold tracking-wider text-[var(--action-primary)] uppercase">
               Acesso contínuo
             </span>
           )}
@@ -57,12 +57,10 @@ export function PricingCard({
           <span className="text-sm text-[var(--text-muted)]">{period}</span>
         </div>
 
-        <p className="mt-4 text-sm leading-relaxed text-[var(--text-secondary)]">
-          {description}
-        </p>
+        <p className="mt-4 text-sm leading-relaxed text-[var(--text-secondary)]">{description}</p>
 
         <div className="mt-8 border-t border-[var(--border-subtle)] pt-6">
-          <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-4">
+          <p className="mb-4 text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase">
             O que está incluído:
           </p>
           <ul className="space-y-3 text-sm text-[var(--text-secondary)]" role="list">
@@ -78,17 +76,15 @@ export function PricingCard({
         </div>
       </div>
 
-      <div className="mt-10 pt-4 border-t border-[var(--border-subtle)]">
+      <div className="mt-10 border-t border-[var(--border-subtle)] pt-4">
         <Link
           href={cta.href}
-          className="flex h-12 w-full items-center justify-center rounded-[var(--radius-md)] bg-[var(--action-primary)] px-8 font-semibold text-[var(--text-inverse)] shadow-[var(--shadow-md)] transition-all hover:bg-[var(--action-primary-hover)] hover:scale-[1.01]"
+          className="flex h-12 w-full items-center justify-center rounded-[var(--radius-md)] bg-[var(--action-primary)] px-8 font-semibold text-[var(--text-inverse)] shadow-[var(--shadow-md)] transition-all hover:scale-[1.01] hover:bg-[var(--action-primary-hover)]"
         >
           {cta.label}
         </Link>
         {disclaimer && (
-          <p className="mt-3 text-center text-xs text-[var(--text-muted)]">
-            {disclaimer}
-          </p>
+          <p className="mt-3 text-center text-xs text-[var(--text-muted)]">{disclaimer}</p>
         )}
       </div>
     </Card>

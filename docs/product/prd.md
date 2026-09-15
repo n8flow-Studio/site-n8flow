@@ -12,6 +12,15 @@
 
 ---
 
+## Atualização de conversão aprovada — 2026-09-14
+
+Conforme [ADR-0010](../decisions/ADR-0010-formulario-global-de-leads.md), a
+conversão comercial ocorre em formulário modal global, sem carregar uma página de
+contato. A rota `/contato` deixa de integrar o produto público. Todos os CTAs de
+conversão reutilizam o mesmo formulário e o mesmo endpoint persistente; CTAs de
+navegação editorial permanecem como links. Esta atualização prevalece sobre as
+menções históricas à página `/contato` neste documento.
+
 ## Atualização operacional aprovada — 2026-09-07
 
 Conforme [ADR-0008](../decisions/ADR-0008-supabase-crm-interno.md), a captação

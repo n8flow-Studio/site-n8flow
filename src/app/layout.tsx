@@ -1,19 +1,20 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import { AttributionCapture } from '@/components/forms/attribution-capture'
-import { Space_Grotesk, Inter } from 'next/font/google'
+import { LeadFormProvider } from '@/components/forms/lead-form-dialog'
+import { Anton, Inter } from 'next/font/google'
 import { SkipLink } from '@/components/layout/skip-link'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import './globals.css'
 
 // ---------------------------------------------------------------------------
-// Fontes — RECOMENDADAS DS; validação visual pendente (DS §1.3, §8.7)
-// Space Grotesk: display/títulos | Inter: corpo/interface
+// Display condensado e corpo legível, auto-hospedados por next/font (ADR-0009).
 // ---------------------------------------------------------------------------
-const spaceGrotesk = Space_Grotesk({
+const display = Anton({
+  weight: '400',
   subsets: ['latin'],
-  variable: '--font-space-grotesk',
+  variable: '--font-anton',
   display: 'swap',
   preload: true,
 })
@@ -31,10 +32,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     template: '%s | N8FLOW',
-    default: 'N8FLOW — Assessoria de Growth Marketing B2B',
+    default: 'N8FLOW — Tecnologia e marketing para fazer seu negócio crescer',
   },
   description:
-    'Assessoria de Growth Marketing para conectar estratégia, aquisição, conversão, dados e vendas em uma operação orientada a crescimento.',
+    'Posicionamento no Google, captação de clientes qualificados, automação de processos e soluções com Inteligência Artificial. Tudo integrado, do jeito que o seu negócio precisa.',
   metadataBase: new URL('https://n8flow.com.br'),
   alternates: {
     canonical: 'https://n8flow.com.br',
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
         url: '/brand/og-default.png',
         width: 1200,
         height: 630,
-        alt: 'N8FLOW — Assessoria de Growth Marketing B2B',
+        alt: 'N8FLOW — Tecnologia e marketing para fazer seu negócio crescer',
       },
     ],
   },
@@ -74,18 +75,20 @@ export const metadata: Metadata = {
 // ---------------------------------------------------------------------------
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" data-theme="light" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+    <html lang="pt-BR" data-theme="light" className={`${display.variable} ${inter.variable}`}>
       <body className="bg-[var(--bg-canvas)] font-sans text-[var(--text-primary)] antialiased">
-        {/* Skip link para acessibilidade — WCAG 2.2 AA (DS §6.3) */}
-        <SkipLink />
-        <Suspense fallback={null}>
-          <AttributionCapture />
-        </Suspense>
-        <Header />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <LeadFormProvider>
+          {/* Skip link para acessibilidade — WCAG 2.2 AA (DS §6.3) */}
+          <SkipLink />
+          <Suspense fallback={null}>
+            <AttributionCapture />
+          </Suspense>
+          <Header />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </LeadFormProvider>
       </body>
     </html>
   )

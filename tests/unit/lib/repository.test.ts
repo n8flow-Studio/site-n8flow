@@ -6,7 +6,7 @@ describe('ContentRepository', () => {
     const services = await contentRepository.listServices()
     expect(services).toHaveLength(5)
     expect(services.map((s) => s.slug)).toEqual([
-      'estrategia-e-gestao-de-growth',
+      'presenca-digital-e-posicionamento',
       'aquisicao-e-midia',
       'conversao-e-experiencia',
       'crm-e-relacionamento',
@@ -17,7 +17,7 @@ describe('ContentRepository', () => {
   it('recupera uma frente específica por slug com capacidades e processo', async () => {
     const service = await contentRepository.getService('dados-automacao-e-ia')
     expect(service).not.toBeNull()
-    expect(service?.title).toBe('Dados, Automação e IA')
+    expect(service?.title).toBe('Automação de Processos e Inteligência Artificial')
     expect(service?.capabilities.length).toBeGreaterThan(0)
     expect(service?.process).toHaveLength(3)
   })

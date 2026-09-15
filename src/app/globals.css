@@ -11,128 +11,126 @@
    their component's size, line-height, color and spacing. */
 @theme inline {
   --font-sans: var(--font-inter);
-  --font-display: var(--font-space-grotesk);
+  --font-display: var(--font-anton);
 }
 
 @layer base {
-
-/* --------------------------------------------------------------------------
+  /* --------------------------------------------------------------------------
    Tema base — light-first (decisão explícita de 2026-08-28)
    -------------------------------------------------------------------------- */
-:root {
-  color-scheme: light;
-}
-
-html {
-  scroll-behavior: smooth;
-  text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  :root {
+    color-scheme: light;
   }
-}
 
-/* --------------------------------------------------------------------------
+  html {
+    scroll-behavior: smooth;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* --------------------------------------------------------------------------
    Base
    -------------------------------------------------------------------------- */
-body {
-  background-color: var(--bg-canvas);
-  color: var(--text-primary);
-  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  min-height: 100dvh;
-}
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100dvh;
+  }
 
-
-/* --------------------------------------------------------------------------
+  /* --------------------------------------------------------------------------
    Seleção de texto
    -------------------------------------------------------------------------- */
-::selection {
-  background-color: var(--selection-bg);
-  color: var(--text-primary);
-}
+  ::selection {
+    background-color: var(--selection-bg);
+    color: var(--text-primary);
+  }
 
-/* --------------------------------------------------------------------------
+  /* --------------------------------------------------------------------------
    Foco visível — WCAG 2.2 AA (CONFIRMADO)
    Nunca remover o outline; personalizar com focus-visible.
    -------------------------------------------------------------------------- */
-:focus-visible {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: var(--focus-ring-offset, 2px);
-  border-radius: var(--radius-sm);
-}
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: var(--focus-ring-offset, 2px);
+    border-radius: var(--radius-sm);
+  }
 
-/* --------------------------------------------------------------------------
+  /* --------------------------------------------------------------------------
    âncoras (skip link e inline)
    -------------------------------------------------------------------------- */
-a:not([class]) {
-  color: inherit;
-  text-decoration: none;
-}
+  a:not([class]) {
+    color: inherit;
+    text-decoration: none;
+  }
 
-/* --------------------------------------------------------------------------
+  /* --------------------------------------------------------------------------
    Scroll margin para links de âncora com header sticky
    -------------------------------------------------------------------------- */
-[id] {
-  scroll-margin-top: 80px; /* altura máxima do header desktop */
-}
+  [id] {
+    scroll-margin-top: 80px; /* altura máxima do header desktop */
+  }
 
-/* --------------------------------------------------------------------------
+  /* --------------------------------------------------------------------------
    Headings — hierarquia visual usando fontes do DS
    -------------------------------------------------------------------------- */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-display, var(--font-sans, sans-serif));
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-  line-height: 1.15;
-  color: var(--text-primary);
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display, var(--font-sans, sans-serif));
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    line-height: 1.15;
+    color: var(--text-primary);
+  }
 
-/* --------------------------------------------------------------------------
+  /* --------------------------------------------------------------------------
    Texto corrido
    -------------------------------------------------------------------------- */
-p,
-li {
-  max-width: 72ch; /* ~720px para leitura confortável (DS §3.2) */
-}
+  p,
+  li {
+    max-width: 72ch; /* ~720px para leitura confortável (DS §3.2) */
+  }
 
-/* --------------------------------------------------------------------------
+  /* --------------------------------------------------------------------------
    Imagens e mídia
    -------------------------------------------------------------------------- */
-img,
-video,
-svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
+  img,
+  video,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
 
-/* --------------------------------------------------------------------------
+  /* --------------------------------------------------------------------------
    Formulários — base acessível
    -------------------------------------------------------------------------- */
-input,
-textarea,
-select,
-button {
-  font: inherit;
-  color: inherit;
-}
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+    color: inherit;
+  }
 
-button {
-  cursor: pointer;
-}
+  button {
+    cursor: pointer;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -145,5 +143,31 @@ button {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Modal global de captação — a animação não bloqueia conteúdo nem foco. */
+.lead-dialog[open] {
+  animation: lead-dialog-backdrop var(--duration-slow) var(--ease-enter) both;
+}
+
+.lead-dialog[open] .lead-dialog-panel {
+  animation: lead-dialog-panel var(--duration-slow) var(--ease-enter) both;
+}
+
+.lead-dialog::backdrop {
+  animation: lead-dialog-backdrop var(--duration-slow) var(--ease-enter) both;
+}
+
+@keyframes lead-dialog-backdrop {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes lead-dialog-panel {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
   }
 }

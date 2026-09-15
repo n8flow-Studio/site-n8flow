@@ -10,6 +10,7 @@ import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import { contentRepository } from '@/lib/content/repository'
+import { LeadFormTrigger } from '@/components/forms/lead-form-dialog'
 
 interface EventPageProps {
   params: Promise<{ slug: string }>
@@ -49,12 +50,7 @@ export default async function EventDetailPage({ params }: EventPageProps) {
   return (
     <>
       <Container className="pt-8">
-        <Breadcrumb
-          items={[
-            { label: 'Eventos', href: '/eventos' },
-            { label: event.title },
-          ]}
-        />
+        <Breadcrumb items={[{ label: 'Eventos', href: '/eventos' }, { label: event.title }]} />
       </Container>
 
       {/* Hero do Evento */}
@@ -63,7 +59,11 @@ export default async function EventDetailPage({ params }: EventPageProps) {
         title={event.title}
         description={event.summary}
         primaryAction={{
-          label: isSoldOut ? 'Vagas Esgotadas' : isClosed ? 'Evento Encerrado' : 'Garantir minha vaga presencial',
+          label: isSoldOut
+            ? 'Vagas Esgotadas'
+            : isClosed
+              ? 'Evento Encerrado'
+              : 'Garantir minha vaga presencial',
           href: '#inscricao',
         }}
         variant="landing"
@@ -73,7 +73,7 @@ export default async function EventDetailPage({ params }: EventPageProps) {
       <Section className="border-t border-[var(--border-subtle)] bg-[var(--bg-subtle)]">
         <div className="grid gap-12 lg:grid-cols-12">
           {/* Conteúdo Programático */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="space-y-8 lg:col-span-7">
             <div>
               <Badge variant="brand" size="md" className="mb-3">
                 Metodologia Prática
@@ -83,34 +83,37 @@ export default async function EventDetailPage({ params }: EventPageProps) {
               </h2>
             </div>
 
-            <div className="space-y-6 text-sm text-[var(--text-secondary)] leading-relaxed">
+            <div className="space-y-6 text-sm leading-relaxed text-[var(--text-secondary)]">
               <Card variant="surface" padding="md">
-                <h3 className="font-display text-lg font-bold text-[var(--text-primary)] mb-2 flex items-center gap-2">
+                <h3 className="font-display mb-2 flex items-center gap-2 text-lg font-bold text-[var(--text-primary)]">
                   <CheckCircle2 className="h-5 w-5 text-[var(--action-primary)]" />
                   1. Arquitetura da Máquina de Vendas
                 </h3>
                 <p>
-                  Como integrar seus anúncios no Meta/Google, landing page, automação no n8n e CRM em uma esteira única sem perda de dados.
+                  Como integrar seus anúncios no Meta/Google, landing page, automação no n8n e CRM
+                  em uma esteira única sem perda de dados.
                 </p>
               </Card>
 
               <Card variant="surface" padding="md">
-                <h3 className="font-display text-lg font-bold text-[var(--text-primary)] mb-2 flex items-center gap-2">
+                <h3 className="font-display mb-2 flex items-center gap-2 text-lg font-bold text-[var(--text-primary)]">
                   <CheckCircle2 className="h-5 w-5 text-[var(--action-primary)]" />
                   2. Atendimento Imediato com Agentes de IA
                 </h3>
                 <p>
-                  Demonstração em tempo real de triagem inteligente e qualificação de clientes no WhatsApp Oficial antes do encaminhamento ao corretor.
+                  Demonstração em tempo real de triagem inteligente e qualificação de clientes no
+                  WhatsApp Oficial antes do encaminhamento ao corretor.
                 </p>
               </Card>
 
               <Card variant="surface" padding="md">
-                <h3 className="font-display text-lg font-bold text-[var(--text-primary)] mb-2 flex items-center gap-2">
+                <h3 className="font-display mb-2 flex items-center gap-2 text-lg font-bold text-[var(--text-primary)]">
                   <CheckCircle2 className="h-5 w-5 text-[var(--action-primary)]" />
                   3. Gestão e Acompanhamento no CRM
                 </h3>
                 <p>
-                  Funis comerciais de alta conversão, réguas automáticas de acompanhamento pós-visita e prevenção de perda de negócios.
+                  Funis comerciais de alta conversão, réguas automáticas de acompanhamento
+                  pós-visita e prevenção de perda de negócios.
                 </p>
               </Card>
             </div>
@@ -119,7 +122,7 @@ export default async function EventDetailPage({ params }: EventPageProps) {
           {/* Card de Inscrição / Checkout */}
           <div id="inscricao" className="lg:col-span-5">
             <Card variant="featured" padding="lg" className="sticky top-28 bg-[var(--bg-surface)]">
-              <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-4 mb-6">
+              <div className="mb-6 flex items-center justify-between border-b border-[var(--border-subtle)] pb-4">
                 <Badge variant={isSoldOut ? 'error' : isClosed ? 'neutral' : 'success'} dot>
                   {isSoldOut ? 'Esgotado' : isClosed ? 'Encerrado' : 'Vagas Abertas'}
                 </Badge>
@@ -128,10 +131,10 @@ export default async function EventDetailPage({ params }: EventPageProps) {
 
               {event.price && (
                 <div className="mb-6">
-                  <span className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider">
+                  <span className="text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase">
                     Investimento
                   </span>
-                  <div className="flex items-baseline gap-2 mt-1">
+                  <div className="mt-1 flex items-baseline gap-2">
                     <span className="text-sm text-[var(--text-secondary)]">R$</span>
                     <span className="font-display text-5xl font-bold text-[var(--action-primary)]">
                       {event.price}
@@ -144,30 +147,27 @@ export default async function EventDetailPage({ params }: EventPageProps) {
               {/* Informações confirmadas de local e formato */}
               <div className="space-y-3 border-y border-[var(--border-subtle)] py-4 text-xs text-[var(--text-secondary)]">
                 <div className="flex items-start gap-2.5">
-                  <MapPin className="h-4 w-4 text-[var(--action-primary)] shrink-0 mt-0.5" />
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--action-primary)]" />
                   <div>
                     <strong className="text-[var(--text-primary)]">{event.venue}</strong>
                     <p className="text-[var(--text-muted)]">{event.address}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <Users className="h-4 w-4 text-[var(--action-primary)] shrink-0" />
+                  <Users className="h-4 w-4 shrink-0 text-[var(--action-primary)]" />
                   <span>Turma restrita a {event.capacity} participantes</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <Calendar className="h-4 w-4 text-[var(--action-primary)] shrink-0" />
+                  <Calendar className="h-4 w-4 shrink-0 text-[var(--action-primary)]" />
                   <span>{event.startsAt}</span>
                 </div>
               </div>
 
               <div className="mt-6">
-                <Link
-                  href="/contato"
-                  className="flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--action-primary)] font-semibold text-[var(--text-inverse)] shadow-[var(--shadow-md)] transition-all hover:bg-[var(--action-primary-hover)] hover:scale-[1.01]"
-                >
+                <LeadFormTrigger className="flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--action-primary)] font-semibold text-[var(--text-inverse)] shadow-[var(--shadow-md)] transition-all hover:scale-[1.01] hover:bg-[var(--action-primary-hover)]">
                   <Ticket className="h-4 w-4" />
                   <span>Inscrever-se agora</span>
-                </Link>
+                </LeadFormTrigger>
                 <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-[var(--text-muted)]">
                   <ShieldCheck className="h-4 w-4 text-[var(--status-success)]" />
                   <span>Confirmação imediata e suporte direto</span>

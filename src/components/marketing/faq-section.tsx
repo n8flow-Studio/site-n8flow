@@ -21,7 +21,7 @@ export function FaqSection({
       <Container>
         <div className="mx-auto max-w-3xl">
           <div className="mb-10 text-center">
-            <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
+            <h2 className="display-readable font-display text-3xl font-bold text-[var(--text-primary)] sm:text-4xl">
               {title}
             </h2>
             {description && (

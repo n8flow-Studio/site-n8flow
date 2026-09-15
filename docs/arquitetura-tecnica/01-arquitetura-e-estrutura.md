@@ -1,5 +1,10 @@
 # 1. Arquitetura e estrutura
 
+**Atualização 2026-09-14:** ADR-0010 remove a página `/contato`. O layout global
+inclui uma ilha cliente responsável pelo `dialog` de captação e seus disparadores;
+o formulário é carregado sob demanda e continua submetendo exclusivamente ao Route
+Handler server-side `/api/leads/diagnostico`.
+
 ## 1.1 Visão lógica
 
 ```text
@@ -54,11 +59,10 @@ src/
 │   │   ├── cases/[slug]/page.tsx
 │   │   ├── blog/[slug]/page.tsx
 │   │   ├── sobre/page.tsx
-│   │   └── contato/page.tsx
+│   │   └── formulário global de leads (sem rota pública)
 │   ├── api/
 │   │   ├── leads/evento/route.ts
 │   │   ├── leads/diagnostico/route.ts
-│   │   ├── contato/route.ts
 │   │   └── webhooks/pagamentos/route.ts
 │   ├── layout.tsx
 │   ├── error.tsx

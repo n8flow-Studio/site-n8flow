@@ -36,7 +36,12 @@ export function Accordion({
   }
 
   return (
-    <div className={cn('divide-y divide-[var(--border-subtle)] border-y border-[var(--border-subtle)]', className)}>
+    <div
+      className={cn(
+        'divide-y divide-[var(--border-subtle)] border-y border-[var(--border-subtle)]',
+        className,
+      )}
+    >
       {items.map((item) => {
         const isExpanded = expandedIds.includes(item.id)
         const headerId = `accordion-header-${item.id}`

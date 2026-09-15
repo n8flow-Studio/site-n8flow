@@ -182,6 +182,15 @@
    Variáveis são definidas no layout.tsx via next/font.
    -------------------------------------------------------------------------- */
 :root {
+  /* Marketing editorial — ADR-0009. Não muda o tema dos formulários/painel. */
+  --marketing-ink: #100e18;
+  --marketing-panel: #1b1729;
+  --marketing-paper: #f5f2ec;
+  --marketing-lilac: #e8e0fc;
+  --marketing-outline: #393244;
+  --marketing-type-hero: clamp(2.75rem, 5.3vw, 4.75rem);
+  --marketing-type-section: clamp(2rem, 3.5vw, 3.25rem);
+  --marketing-section-space: clamp(3.5rem, 7vw, 6.5rem);
   /* Escala responsiva em px (ver DS §1.3) — usada como referência; Tailwind aplica via classes */
   --type-hero: clamp(2.5rem, 4.7vw, 4.5rem);
   --type-page: clamp(2.25rem, 4.2vw, 3.75rem);

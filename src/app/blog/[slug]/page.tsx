@@ -66,7 +66,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
               </span>
             </div>
 
-            <h1 className="font-display text-3xl leading-tight font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl md:text-5xl">
+            <h1 className="display-readable font-display text-3xl font-bold text-[var(--text-primary)] sm:text-4xl md:text-5xl">
               {article.title}
             </h1>
 
@@ -81,7 +81,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                   return (
                     <h2
                       key={idx}
-                      className="font-display mt-8 text-2xl font-bold text-[var(--text-primary)]"
+                      className="display-readable font-display mt-8 text-2xl font-bold text-[var(--text-primary)]"
                     >
                       {paragraph.replace('### ', '')}
                     </h2>
@@ -127,13 +127,13 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
       {/* CTA Final */}
       <CtaSection
         title="Gostou do conteúdo? Dê o próximo passo."
-        description="Conheça nossa atuação ou solicite um diagnóstico da sua operação."
+        description="Conheça nossas soluções e continue explorando os conteúdos da N8FLOW."
         primaryAction={{
-          label: 'Solicitar diagnóstico',
-          href: '/contato',
+          label: 'Conhecer nossas soluções',
+          href: '/servicos',
         }}
         secondaryAction={{
-          label: 'Voltar ao Blog',
+          label: 'Ver outros conteúdos',
           href: '/blog',
         }}
       />

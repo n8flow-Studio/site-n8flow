@@ -1,17 +1,16 @@
 import type { Metadata } from 'next'
-import { Cpu, BarChart2, Zap, RefreshCw } from 'lucide-react'
+import { Cpu, BarChart2, Zap, RefreshCw, Building2 } from 'lucide-react'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { Section } from '@/components/marketing/section'
 import { Hero } from '@/components/marketing/hero'
-import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { CtaSection } from '@/components/marketing/cta-section'
 import { siteConfig } from '@/config/site'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Sobre a N8FLOW | Assessoria de Growth Marketing B2B',
+  title: 'Sobre a N8FLOW | Tecnologia e Marketing para o seu Negócio',
   description:
-    'Conheça a abordagem da N8FLOW para conectar estratégia, aquisição, conversão, dados e vendas em empresas de diferentes setores.',
+    'Conheça a N8FLOW: combinamos tecnologia, marketing digital e Inteligência Artificial para estruturar a presença e a operação comercial do seu negócio.',
   pathname: '/sobre',
 })
 
@@ -20,22 +19,22 @@ export default function AboutPage() {
     {
       icon: <Cpu className="h-6 w-6 text-[var(--action-primary)]" />,
       title: 'Integração antes da ferramenta',
-      desc: 'Mais softwares não resolvem uma operação desalinhada. Desenhamos a arquitetura de ponta a ponta antes de escolher as tecnologias.',
+      desc: 'Mais softwares não resolvem um processo desorganizado. Desenhamos a solução completa antes de escolher as ferramentas.',
     },
     {
       icon: <BarChart2 className="h-6 w-6 text-[var(--violet-400)]" />,
       title: 'Dados para orientar decisões',
-      desc: 'Buscamos indicadores que ajudem a compreender a jornada, avaliar hipóteses e orientar prioridades.',
+      desc: 'Usamos indicadores reais para entender o que funciona e decidir onde investir o próximo esforço.',
     },
     {
       icon: <Zap className="h-6 w-6 text-[var(--action-primary)]" />,
       title: 'Automação com contexto',
-      desc: 'Aplicamos automação em rotinas delimitadas, com regras de negócio, supervisão e tratamento de falhas.',
+      desc: 'Automatizamos o que faz sentido automatizar — com regras de negócio claras e supervisão contínua.',
     },
     {
       icon: <RefreshCw className="h-6 w-6 text-[var(--violet-400)]" />,
       title: 'Evolução contínua',
-      desc: 'Growth é tratado como um ciclo de diagnóstico, implementação, mensuração e aprendizado.',
+      desc: 'Diagnóstico, implementação, resultado e ajuste — em ciclo. Não existe "pronto", só melhoria contínua.',
     },
   ]
 
@@ -43,8 +42,8 @@ export default function AboutPage() {
     <>
       <Hero
         eyebrow="Institucional"
-        title="Assessoria de Growth para empresas que precisam conectar estratégia e execução."
-        description="A N8FLOW atua com negócios de diferentes setores, combinando capacidades conforme o contexto, a maturidade e o desafio comercial de cada operação."
+        title="Fazemos o digital trabalhar a favor do seu negócio."
+        description="A N8FLOW combina tecnologia, marketing digital e Inteligência Artificial para estruturar a presença, a captação e os processos de atendimento de empresas de diferentes segmentos."
         variant="editorial"
       />
 
@@ -54,22 +53,25 @@ export default function AboutPage() {
           <Badge variant="brand" size="md" className="mb-3">
             Nossos Fundamentos
           </Badge>
-          <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
+          <h2 className="display-readable font-display text-3xl font-bold text-[var(--text-primary)] sm:text-4xl">
             Princípios que orientam nossa atuação
           </h2>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2">
           {principles.map((p, idx) => (
-            <Card key={idx} variant="surface" padding="lg">
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-[var(--radius-md)] border border-[var(--border-subtle)] bg-[var(--bg-elevated)]">
+            <div
+              key={idx}
+              className="group rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xs transition-all duration-200 hover:border-[var(--border-strong)] hover:shadow-xs sm:p-8"
+            >
+              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-subtle)] transition-transform group-hover:scale-105">
                 {p.icon}
               </div>
-              <h3 className="font-display mb-2 text-xl font-bold text-[var(--text-primary)]">
+              <h3 className="display-readable font-display mb-2 text-xl font-bold text-[var(--text-primary)] transition-colors group-hover:text-[var(--violet-700)]">
                 {p.title}
               </h3>
               <p className="text-sm leading-relaxed text-[var(--text-secondary)]">{p.desc}</p>
-            </Card>
+            </div>
           ))}
         </div>
       </Section>
@@ -77,33 +79,51 @@ export default function AboutPage() {
       {/* Dados Corporativos Oficiais */}
       <Section>
         <div className="mx-auto max-w-3xl">
-          <Card variant="featured" padding="lg">
-            <h2 className="font-display mb-4 text-2xl font-bold text-[var(--text-primary)]">
-              Identificação Empresarial
-            </h2>
-            <div className="space-y-2 text-sm text-[var(--text-secondary)]">
-              <p>
-                <strong className="text-[var(--text-primary)]">Razão Social:</strong>{' '}
-                {siteConfig.legalName}
-              </p>
-              <p>
-                <strong className="text-[var(--text-primary)]">CNPJ:</strong> {siteConfig.cnpj}
-              </p>
-              <p>
-                <strong className="text-[var(--text-primary)]">Domínio Oficial:</strong>{' '}
-                {siteConfig.domain}
-              </p>
+          <div className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-6 shadow-xs sm:p-8">
+            <div className="mb-6 flex items-center gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[rgb(110_68_255/0.1)] text-[var(--violet-700)]">
+                <Building2 className="h-5 w-5" />
+              </div>
+              <h2 className="display-readable font-display text-2xl font-bold text-[var(--text-primary)]">
+                Identificação Empresarial
+              </h2>
             </div>
-          </Card>
+            <div className="grid gap-6 border-t border-[var(--border-subtle)] pt-6 sm:grid-cols-3">
+              <div className="space-y-1">
+                <span className="text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase">
+                  Razão Social:
+                </span>
+                <p className="text-sm font-medium text-[var(--text-primary)]">
+                  {siteConfig.legalName}
+                </p>
+              </div>
+              <div className="space-y-1">
+                <span className="text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase">
+                  CNPJ:
+                </span>
+                <p className="font-mono text-sm font-medium text-[var(--text-primary)]">
+                  {siteConfig.cnpj}
+                </p>
+              </div>
+              <div className="space-y-1">
+                <span className="text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase">
+                  Domínio Oficial:
+                </span>
+                <p className="font-mono text-sm font-medium text-[var(--text-primary)]">
+                  {siteConfig.domain}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 
       <CtaSection
-        title="Quer entender onde concentrar o próximo ciclo de Growth?"
-        description="Compartilhe o contexto da sua operação para avaliarmos a aderência da assessoria."
+        title="Quer saber o que a N8FLOW pode fazer pelo seu negócio?"
+        description="Converse com a N8FLOW e descubra o ponto de partida ideal para a sua empresa."
         primaryAction={{
-          label: 'Solicitar diagnóstico',
-          href: '/contato',
+          label: 'Falar com a N8FLOW',
+          intent: 'lead-form',
         }}
       />
     </>

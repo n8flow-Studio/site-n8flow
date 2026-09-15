@@ -18,10 +18,10 @@ export const siteConfig = {
   url: 'https://n8flow.com.br',
   domain: 'n8flow.com.br',
 
-  // Posicionamento confirmado (ADR-0007, Copy §1)
-  tagline: 'Assessoria de Growth Marketing B2B',
+  // Posicionamento confirmado (ADR-0007, Copy §1) — revisado 2026-09-14
+  tagline: 'Tecnologia e marketing para fazer seu negócio crescer',
   description:
-    'Assessoria de Growth Marketing para conectar estratégia, aquisição, conversão, dados e vendas em uma operação orientada a crescimento.',
+    'Estruturamos a presença digital, a captação e os processos comerciais do seu negócio — do Google às vendas.',
 
   // Dados PENDENTES — não preencher sem fonte confirmada
   // email: undefined,
@@ -30,6 +30,7 @@ export const siteConfig = {
 
   // Navegação principal (ADR-0007)
   navigation: [
+    { label: 'Home', href: '/' },
     { label: 'Soluções', href: '/servicos' },
     { label: 'Método', href: '/metodo' },
     { label: 'Cases', href: '/cases' },

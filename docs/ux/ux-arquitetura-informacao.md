@@ -7,6 +7,16 @@
 Documento de especificação para orientar arquitetura de informação, jornadas, UX, navegação, hierarquia de conteúdo, CTAs e comportamento responsivo do site institucional da N8FLOW.
 Base estratégica: PRD do Site Institucional N8FLOW + conceito de negócio fornecido. Decisões posteriores do projeto foram incorporadas quando já definidas pelo usuário.
 
+## Atualização de conversão — 2026-09-14
+
+A conversão comercial usa um formulário modal global conforme ADR-0010. A rota
+`/contato` foi removida do sitemap e os CTAs de conversão abrem o mesmo formulário
+sem tirar o visitante da página atual. O modal deve manter foco contido, fechar com
+`Escape` e botão explícito, devolver o foco ao CTA, bloquear a rolagem do documento,
+rolar internamente em telas baixas e respeitar `prefers-reduced-motion`. Em mobile,
+ocupa quase toda a largura e mantém controles com pelo menos 44 px. Menções históricas
+à página de contato abaixo não prevalecem sobre esta atualização.
+
 ## Atualização operacional — 2026-09-07
 
 O [ADR-0008](../decisions/ADR-0008-supabase-crm-interno.md) substitui as menções

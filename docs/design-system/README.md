@@ -2,6 +2,8 @@
 
 > Fonte de verdade visual e de interface para o site `n8flow.com.br`.
 
+> Atualização visual 2026-09-14: [ADR-0009](../decisions/ADR-0009-design-editorial-contrastado.md) e [adaptação C2G](./09-referencia-c2g.md) substituem a predominância light-first e a tipografia abaixo. Os demais requisitos continuam válidos. Copy preservada.
+
 **Status:** proposta para implementação e validação  
 **Stack-alvo:** Next.js + TypeScript + Tailwind CSS  
 **Direção:** Engineering Growth · light-first

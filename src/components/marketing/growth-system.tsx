@@ -1,21 +1,27 @@
 import { Crosshair, MousePointer2, Users, Workflow, ArrowUpRight } from 'lucide-react'
+import { BrandSlats } from './brand-slats'
 
 const nodes = [
-  { label: 'Estratégia', icon: Crosshair },
-  { label: 'Aquisição', icon: ArrowUpRight },
-  { label: 'Conversão', icon: MousePointer2 },
-  { label: 'Relacionamento', icon: Users },
+  { label: 'Presença Digital', icon: Crosshair },
+  { label: 'Captação', icon: ArrowUpRight },
+  { label: 'Site e Landing Page', icon: MousePointer2 },
+  { label: 'Atendimento', icon: Users },
 ]
 
 /** Conceptual illustration, not a dashboard or commercial result. */
-export function GrowthSystem() {
+export function DigitalSystem() {
   return (
     <figure className="growth-figure">
       <figcaption className="growth-caption">
-        <span>Arquitetura de Growth</span>
+        <span>Como estruturamos sua operação</span>
         <span className="font-mono">N8 / 01</span>
       </figcaption>
-      <div className="growth-canvas" role="img" aria-label="Estratégia, aquisição, conversão e relacionamento conectados em uma operação de Growth, orientada por dados e aprendizado.">
+      <div
+        className="growth-canvas"
+        role="img"
+        aria-label="Presença digital, captação, site e landing page, e atendimento conectados em uma operação integrada."
+      >
+        <BrandSlats className="growth-slats" />
         <svg className="growth-wiring" viewBox="0 0 480 420" fill="none" aria-hidden="true">
           <circle cx="240" cy="210" r="150" stroke="currentColor" />
           <circle cx="240" cy="210" r="114" stroke="currentColor" strokeDasharray="3 7" />
@@ -25,19 +31,28 @@ export function GrowthSystem() {
         </svg>
         <div className="growth-core" aria-hidden="true">
           <Workflow size={28} strokeWidth={1.5} />
-          <span>Operação</span><strong>Growth</strong>
+          <span>Sistema</span>
+          <strong>Integrado</strong>
           <div className="growth-core-line" />
         </div>
         {nodes.map(({ label, icon: Icon }, index) => (
           <div className={`growth-node growth-node-${index + 1}`} key={label} aria-hidden="true">
-            <Icon size={20} strokeWidth={1.75} /><span>{label}</span><small>0{index + 1}</small>
+            <Icon size={20} strokeWidth={1.75} />
+            <span>{label}</span>
+            <small>0{index + 1}</small>
           </div>
         ))}
       </div>
       <div className="growth-caption growth-caption-bottom" aria-hidden="true">
-        <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-[var(--green-700)]" />Dados e aprendizado</span>
-        <span>Um sistema conectado</span>
+        <span className="flex items-center gap-2">
+          <span className="h-1.5 w-1.5 rounded-full bg-[var(--green-700)]" />
+          Diagnóstico e evolução
+        </span>
+        <span>Cada peça no lugar certo</span>
       </div>
     </figure>
   )
 }
+
+/** @deprecated Use DigitalSystem instead */
+export const GrowthSystem = DigitalSystem

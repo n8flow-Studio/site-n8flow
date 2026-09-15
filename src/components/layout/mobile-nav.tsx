@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { siteConfig } from '@/config/site'
+import { LeadFormTrigger } from '@/components/forms/lead-form-dialog'
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
@@ -71,7 +72,17 @@ export function MobileNav() {
           aria-label="Menu principal"
           className="fixed inset-0 top-16 z-[var(--z-overlay)] flex flex-col overflow-y-auto bg-[var(--bg-canvas)] px-6 py-8 md:top-20"
         >
-          <button type="button" aria-label="Fechar menu" className="mb-4 ml-auto flex h-11 w-11 items-center justify-center border border-[var(--border-default)]" onClick={() => { setIsOpen(false); toggleRef.current?.focus() }}><X size={20} aria-hidden="true" /></button>
+          <button
+            type="button"
+            aria-label="Fechar menu"
+            className="mb-4 ml-auto flex h-11 w-11 items-center justify-center border border-[var(--border-default)]"
+            onClick={() => {
+              setIsOpen(false)
+              toggleRef.current?.focus()
+            }}
+          >
+            <X size={20} aria-hidden="true" />
+          </button>
           <nav className="flex flex-col gap-6" aria-label="Navegação mobile">
             <ul className="flex flex-col gap-3" role="list">
               {siteConfig.navigation.map((item) => (
@@ -88,19 +99,18 @@ export function MobileNav() {
             </ul>
 
             <div className="mt-4 flex flex-col gap-3 border-t border-[var(--border-subtle)] pt-6">
-              <Link
-                href="/contato"
+              <LeadFormTrigger
                 onClick={() => setIsOpen(false)}
                 className="flex h-12 w-full items-center justify-center border border-[var(--text-primary)] bg-[var(--text-primary)] px-6 font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)]"
               >
-                Solicitar diagnóstico
-              </Link>
+                Falar com a N8FLOW
+              </LeadFormTrigger>
               <Link
                 href="/servicos"
                 onClick={() => setIsOpen(false)}
                 className="flex h-12 w-full items-center justify-center rounded-[var(--radius-md)] border border-[var(--border-default)] px-6 font-semibold text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-elevated)]"
               >
-                Conhecer nossa atuação
+                Ver soluções
               </Link>
             </div>
           </nav>

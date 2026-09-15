@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Search, Target, Cpu, BarChart3, RefreshCw } from 'lucide-react'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { Container } from '@/components/ui/container'
 import { Hero } from '@/components/marketing/hero'
+import { LeadFormTrigger } from '@/components/forms/lead-form-dialog'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Método de Growth | N8FLOW',
+  title: 'Como Trabalhamos | N8FLOW',
   description:
-    'Conheça o ciclo de diagnóstico, priorização, implementação, mensuração e otimização da assessoria N8FLOW.',
+    'Conheça o processo da N8FLOW: do diagnóstico inicial à implementação e acompanhamento dos resultados.',
   pathname: '/metodo',
 })
 
@@ -17,41 +18,45 @@ const steps = [
     number: '01',
     title: 'Diagnosticar',
     description:
-      'Compreender contexto, oferta, objetivos, canais, jornada, dados e capacidade operacional.',
+      'Entendemos onde você está: presença digital, captação, processo de atendimento e o que está travando o crescimento.',
   },
   {
     number: '02',
     title: 'Priorizar',
     description:
-      'Organizar hipóteses e iniciativas pelo impacto esperado, esforço e dependências reais.',
+      'Identificamos o que resolve mais rápido e com mais impacto — para não desperdiçar tempo nem dinheiro.',
   },
   {
     number: '03',
     title: 'Implementar',
     description:
-      'Executar as frentes aprovadas com escopo, responsáveis e critérios de conclusão explícitos.',
+      'Executamos o que foi acordado: site, Google, automação, CRM, IA — com responsáveis e critérios claros.',
   },
   {
     number: '04',
     title: 'Medir',
-    description: 'Acompanhar indicadores compatíveis com o objetivo e distinguir sinal de ruído.',
+    description:
+      'Acompanhamos os resultados para garantir que o que foi implementado está funcionando.',
   },
   {
     number: '05',
     title: 'Otimizar',
-    description: 'Transformar dados e observações em decisões para o ciclo seguinte.',
+    description:
+      'Aprendemos com os dados e evoluímos continuamente — porque o negócio também evolui.',
   },
 ] as const
+
+const stepIcons = [Search, Target, Cpu, BarChart3, RefreshCw]
 
 export default function MethodPage() {
   return (
     <>
       <Hero
-        eyebrow="Método N8FLOW"
-        title="Growth como um ciclo contínuo de decisão e execução."
-        description="A assessoria combina direção estratégica, implementação coordenada e aprendizado para evoluir a operação conforme o contexto da empresa."
-        primaryAction={{ label: 'Solicitar diagnóstico', href: '/contato' }}
-        secondaryAction={{ label: 'Conhecer as soluções', href: '/servicos' }}
+        eyebrow="Como trabalhamos"
+        title="Do diagnóstico à solução: um processo claro, do começo ao fim."
+        description="A assessoria começa entendendo o que você precisa. Só depois definimos o que implementar — e acompanhamos cada resultado."
+        primaryAction={{ label: 'Aplicar este método ao meu negócio', intent: 'lead-form' }}
+        secondaryAction={{ label: 'Ver nossas soluções', href: '/servicos' }}
         variant="editorial"
       />
 
@@ -63,34 +68,42 @@ export default function MethodPage() {
           <div className="grid gap-14 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <p className="font-mono text-[11px] tracking-[0.2em] text-[var(--green-700)] uppercase">
-                Ciclo operacional
+                Nosso processo
               </p>
-              <h2
-                id="cycle-title"
-                className="section-title mt-5"
-              >
-                Método sem fórmula universal.
+              <h2 id="cycle-title" className="section-title mt-5">
+                Cada empresa tem um ponto de partida diferente.
               </h2>
               <p className="mt-5 text-sm leading-relaxed text-[var(--text-secondary)]">
-                As etapas orientam o trabalho, mas o escopo e a combinação de capacidades dependem
-                do diagnóstico.
+                O diagnóstico define o caminho. Não existe solução padrão aqui.
               </p>
             </div>
             <ol className="border-y border-[var(--border-strong)] lg:col-span-8">
-              {steps.map((step) => (
-                <li
-                  key={step.number}
-                  className="grid gap-4 border-b border-[var(--border-default)] py-8 last:border-b-0 sm:grid-cols-[72px_1fr]"
-                >
-                  <span className="font-mono text-xs text-[var(--violet-700)]">{step.number}</span>
-                  <div className="grid gap-3 md:grid-cols-2 md:gap-8">
-                    <h3 className="font-display text-2xl font-semibold">{step.title}</h3>
-                    <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
-                      {step.description}
-                    </p>
-                  </div>
-                </li>
-              ))}
+              {steps.map((step, index) => {
+                const StepIcon = stepIcons[index] ?? Cpu
+                return (
+                  <li
+                    key={step.title}
+                    className="group -mx-4 grid gap-5 rounded-lg border-b border-[var(--border-default)] px-4 py-8 transition-all last:border-b-0 hover:bg-[var(--bg-surface)]/50 sm:grid-cols-[56px_1fr] sm:items-start"
+                  >
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--violet-700)] shadow-xs transition-transform duration-200 group-hover:scale-105 group-hover:border-[var(--violet-500)]">
+                      <StepIcon className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <div className="grid gap-3 md:grid-cols-2 md:gap-8">
+                      <div>
+                        <span className="font-mono text-[11px] font-semibold tracking-wider text-[var(--text-muted)] uppercase">
+                          Etapa {index + 1}
+                        </span>
+                        <h3 className="display-readable font-display text-2xl font-semibold text-[var(--text-primary)] transition-colors group-hover:text-[var(--violet-700)]">
+                          {step.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+                        {step.description}
+                      </p>
+                    </div>
+                  </li>
+                )
+              })}
             </ol>
           </div>
         </Container>
@@ -103,20 +116,13 @@ export default function MethodPage() {
               <p className="font-mono text-[11px] tracking-[0.2em] text-[var(--violet-700)] uppercase">
                 Compromisso
               </p>
-              <h2
-                id="commitment-title"
-                className="section-title mt-5"
-              >
-                Clareza sobre prioridade, execução e aprendizado — sem promessa de resultado
-                automático.
+              <h2 id="commitment-title" className="section-title mt-5">
+                Clareza total sobre o que será feito, por quem e com qual objetivo.
               </h2>
             </div>
-            <Link
-              href="/contato"
-              className="flex min-h-14 items-center justify-between border border-[var(--text-primary)] bg-[var(--text-primary)] px-5 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] lg:col-span-3"
-            >
-              Solicitar diagnóstico <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            <LeadFormTrigger className="flex min-h-14 items-center justify-between border border-[var(--text-primary)] bg-[var(--text-primary)] px-5 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] lg:col-span-3">
+              Conversar sobre minha operação <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </LeadFormTrigger>
           </div>
         </Container>
       </section>

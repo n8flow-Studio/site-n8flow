@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Container } from '@/components/ui/container'
 import { siteConfig } from '@/config/site'
+import { LeadFormTrigger } from '@/components/forms/lead-form-dialog'
 
 /**
  * Footer — navegação, posicionamento e dados legais.
@@ -47,11 +48,11 @@ export function Footer() {
               />
             </Link>
             <p className="mb-2 font-semibold text-[var(--text-inverse)]">
-              Assessoria de Growth Marketing B2B
+              Tecnologia e marketing para o seu negócio
             </p>
             <p className="max-w-xs text-sm leading-relaxed text-[var(--neutral-300)]">
-              Conectamos estratégia, aquisição, conversão, relacionamento e dados para estruturar
-              operações de Growth orientadas a crescimento.
+              Presença no Google, captação de clientes, automação de processos e Inteligência
+              Artificial — sob medida para o que seu negócio precisa.
             </p>
 
             {/* Redes sociais — PENDENTE (não publicar sem canais confirmados) */}
@@ -91,7 +92,6 @@ export function Footer() {
                 { label: 'Cases', href: '/cases' },
                 { label: 'Conteúdos', href: '/blog' },
                 { label: 'Sobre', href: '/sobre' },
-                { label: 'Contato', href: '/contato' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -104,6 +104,9 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+            <LeadFormTrigger className="mt-2 text-sm text-[var(--neutral-300)] transition-colors hover:text-[var(--text-primary)]">
+              Falar com a N8FLOW
+            </LeadFormTrigger>
           </div>
         </div>
 

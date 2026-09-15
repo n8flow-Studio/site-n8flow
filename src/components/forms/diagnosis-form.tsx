@@ -307,7 +307,7 @@ export function DiagnosisForm() {
           Objetivo do contato
         </label>
         <select id="interest" name="interest" className={fieldClassName} defaultValue="diagnostico">
-          <option value="diagnostico">Solicitar diagnóstico comercial</option>
+          <option value="diagnostico">Avaliar minha operação</option>
           <option value="parcerias">Parcerias</option>
           <option value="institucional">Assunto institucional</option>
         </select>
@@ -355,11 +355,11 @@ export function DiagnosisForm() {
         size="lg"
         className="w-full"
         loading={status === 'submitting'}
-        loadingText="Enviando solicitação..."
+        loadingText="Enviando para análise..."
         disabled={!hydrated}
       >
         <Send className="h-4 w-4" aria-hidden="true" />
-        Enviar solicitação
+        Enviar para análise
       </Button>
       {changedSubmission && (
         <Button
