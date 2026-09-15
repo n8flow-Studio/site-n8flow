@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Container } from '@/components/ui/container'
 import { siteConfig } from '@/config/site'
 import { MobileNav } from '@/components/layout/mobile-nav'
+import { LeadFormTrigger } from '@/components/forms/lead-form-dialog'
 
 /**
  * Header — navegação principal.
@@ -55,12 +56,9 @@ export function Header() {
 
           {/* CTA header & Mobile Nav */}
           <div className="flex items-center gap-3">
-            <Link
-              href="/contato"
-              className="hidden min-h-11 items-center rounded-sm border border-[var(--text-primary)] bg-[var(--text-primary)] px-4 py-2 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] lg:inline-flex"
-            >
-              Solicitar diagnóstico
-            </Link>
+            <LeadFormTrigger className="hidden min-h-11 items-center rounded-sm border border-[var(--text-primary)] bg-[var(--text-primary)] px-4 py-2 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] lg:inline-flex">
+              Falar com a N8FLOW
+            </LeadFormTrigger>
 
             {/* Menu mobile */}
             <MobileNav />

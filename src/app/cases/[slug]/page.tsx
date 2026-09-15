@@ -106,11 +106,11 @@ export default async function CaseDetailPage({ params }: CasePageProps) {
       </Section>
 
       <CtaSection
-        title="Quer estruturar sua operação com os mesmos resultados?"
+        title="Quer avaliar como estruturar sua operação?"
         description="Fale com nosso time e descubra o que faz sentido implementar no seu negócio."
         primaryAction={{
-          label: 'Diagnóstico gratuito',
-          href: '/contato',
+          label: 'Avaliar minha operação',
+          intent: 'lead-form',
         }}
       />
     </>

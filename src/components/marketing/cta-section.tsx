@@ -3,13 +3,15 @@ import Link from 'next/link'
 import { Container } from '@/components/ui/container'
 import { ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/cn'
+import { LeadFormTrigger } from '@/components/forms/lead-form-dialog'
 
 export interface CtaSectionProps {
   title: string
   description: string
   primaryAction: {
     label: string
-    href: string
+    href?: string
+    intent?: 'navigate' | 'lead-form'
   }
   secondaryAction?: {
     label: string
@@ -53,13 +55,20 @@ export function CtaSection({
               variant !== 'split' && 'justify-center',
             )}
           >
-            <Link
-              href={primaryAction.href}
-              className="action-link inline-flex min-h-13 items-center justify-center gap-3 rounded-sm bg-[var(--text-primary)] px-6 py-3 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)]"
-            >
-              {primaryAction.label}
-              <ArrowUpRight size={18} aria-hidden="true" />
-            </Link>
+            {primaryAction.intent === 'lead-form' ? (
+              <LeadFormTrigger className="action-link inline-flex min-h-13 items-center justify-center gap-3 rounded-sm bg-[var(--text-primary)] px-6 py-3 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)]">
+                {primaryAction.label}
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </LeadFormTrigger>
+            ) : (
+              <Link
+                href={primaryAction.href ?? '/'}
+                className="action-link inline-flex min-h-13 items-center justify-center gap-3 rounded-sm bg-[var(--text-primary)] px-6 py-3 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)]"
+              >
+                {primaryAction.label}
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </Link>
+            )}
             {secondaryAction && (
               <Link
                 href={secondaryAction.href}

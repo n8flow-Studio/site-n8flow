@@ -6,11 +6,14 @@ Seções de marketing recebem conteúdo por props/CMS, não embutem copy empresa
 
 ## 5.2 Hero
 
-Campos: `eyebrow?`, `title`, `description`, `primaryAction`, `secondaryAction?`, `proof?`, `visual?`. Variantes `home`, `landing`, `editorial`, `b2b`. Mobile: texto primeiro, CTA primário visível sem rolagem excessiva. Não usar vídeo autoplay obrigatório.
+Campos: `eyebrow?`, `title`, `description`, `primaryAction`, `secondaryAction?`, `proof?`, `visual?`. Ações distinguem `intent: navigate | lead-form`; conversão usa `lead-form` e não simula navegação para uma rota inexistente. Variantes `home`, `landing`, `editorial`, `b2b`. Mobile: texto primeiro, CTA primário visível sem rolagem excessiva. Não usar vídeo autoplay obrigatório.
 
 ## 5.3 CTA Section
 
-Título curto, apoio e uma ação primária; secundária opcional. Variantes `band`, `card`, `split`. Não repetir dois botões com mesma ênfase. O CTA global vigente é diagnóstico comercial; ações alternativas só aparecem quando correspondem a conteúdo público aprovado.
+Título curto, apoio e uma ação primária; secundária opcional. Variantes `band`, `card`, `split`. Não repetir dois botões com mesma ênfase. A conversão global vigente é a conversa inicial para diagnóstico comercial, apresentada como **Falar com a N8FLOW** ou por um próximo passo contextual. “Diagnóstico gratuito” deve explicar a oferta, sem funcionar como rótulo genérico repetido. Ações alternativas só aparecem quando correspondem a conteúdo público aprovado.
+
+O CTA de conversão abre o formulário global descrito no módulo de formulários. CTAs
+editoriais continuam como links e não devem abrir o modal.
 
 ## 5.4 ServiceCard
 

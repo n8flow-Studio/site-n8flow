@@ -11,7 +11,6 @@ no [módulo 8](./08-crm-interno-e-acessos.md).
 | ------ | -------------------------- | -------------------------------- | ---------------------- |
 | POST   | `/api/leads/evento`        | captura de interessado/inscrição | controles antiabuso    |
 | POST   | `/api/leads/diagnostico`   | lead B2B                         | controles antiabuso    |
-| POST   | `/api/contato`             | contato geral                    | controles antiabuso    |
 | POST   | `/api/webhooks/pagamentos` | callback do gateway              | assinatura obrigatória |
 
 Criar apenas endpoints usados. Route Handlers devem retornar envelope estável, `requestId` e mensagens seguras.
@@ -66,7 +65,7 @@ Autenticar chamadas com segredo em header e, preferencialmente, HMAC + timestamp
 
 ## 3.4 Payloads funcionais
 
-Evento: nome, e-mail, WhatsApp, CRECI, `eventId` e atribuição. Diagnóstico: campos aprovados pela operação comercial; não congelar sugestões como obrigatórias antes da decisão. Contato: nome, e-mail/WhatsApp conforme formulário final, assunto e mensagem.
+Evento: nome, e-mail, WhatsApp, CRECI, `eventId` e atribuição. Diagnóstico: campos aprovados pela operação comercial; não congelar sugestões como obrigatórias antes da decisão. O formulário global comercial usa o contrato de diagnóstico; não existe endpoint separado de contato.
 
 PII nunca entra em URL, query string de analytics ou log de aplicação. Normalização de telefone deve preservar país e ser validada no servidor.
 

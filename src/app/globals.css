@@ -91,10 +91,10 @@
   h5,
   h6 {
     font-family: var(--font-display, var(--font-sans, sans-serif));
-  font-weight: 600;
-  letter-spacing: -0.02em;
+    font-weight: 600;
+    letter-spacing: -0.02em;
     text-wrap: balance;
-  line-height: 1.15;
+    line-height: 1.15;
     color: var(--text-primary);
   }
 
@@ -143,5 +143,31 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Modal global de captação — a animação não bloqueia conteúdo nem foco. */
+.lead-dialog[open] {
+  animation: lead-dialog-backdrop var(--duration-slow) var(--ease-enter) both;
+}
+
+.lead-dialog[open] .lead-dialog-panel {
+  animation: lead-dialog-panel var(--duration-slow) var(--ease-enter) both;
+}
+
+.lead-dialog::backdrop {
+  animation: lead-dialog-backdrop var(--duration-slow) var(--ease-enter) both;
+}
+
+@keyframes lead-dialog-backdrop {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes lead-dialog-panel {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
   }
 }

@@ -50,7 +50,7 @@ export const diagnosisSchema = z
           utmCampaign: z.string().trim().max(160).nullable().default(null),
           utmTerm: z.string().trim().max(160).nullable().default(null),
           utmContent: z.string().trim().max(160).nullable().default(null),
-          landingPage: z.string().trim().max(500).default('/contato'),
+          landingPage: z.string().trim().max(500).default('/'),
         })
         .strict()
         .default({
@@ -59,7 +59,7 @@ export const diagnosisSchema = z
           utmCampaign: null,
           utmTerm: null,
           utmContent: null,
-          landingPage: '/contato',
+          landingPage: '/',
         }),
     ),
   })

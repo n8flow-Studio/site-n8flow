@@ -5,6 +5,7 @@ import { buildMetadata } from '@/lib/seo/metadata'
 import { Container } from '@/components/ui/container'
 import { Hero } from '@/components/marketing/hero'
 import { contentRepository } from '@/lib/content/repository'
+import { LeadFormTrigger } from '@/components/forms/lead-form-dialog'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Soluções de Marketing e Tecnologia para seu Negócio | N8FLOW',
@@ -31,7 +32,7 @@ export default async function ServicesPage() {
         eyebrow="O que fazemos"
         title="Soluções sob medida para o que o seu negócio precisa."
         description="No diagnóstico inicial, entendemos sua situação e definimos juntos quais soluções fazem sentido agora — sem pacotes genéricos."
-        primaryAction={{ label: 'Diagnóstico gratuito', href: '/contato' }}
+        primaryAction={{ label: 'Encontrar a solução certa', intent: 'lead-form' }}
         secondaryAction={{ label: 'Ver como trabalhamos', href: '/metodo' }}
         variant="b2b"
       />
@@ -103,7 +104,7 @@ export default async function ServicesPage() {
                   <Link
                     href={`/servicos/${service.slug}`}
                     className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-[var(--border-strong)] transition-all group-hover:bg-[var(--text-primary)] group-hover:text-[var(--text-inverse)]"
-                    aria-label={`Conhecer ${service.title}`}
+                    aria-label={`Ver ${service.title}`}
                   >
                     <ArrowRight
                       className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
@@ -131,12 +132,9 @@ export default async function ServicesPage() {
                 Quer saber o que o seu negócio precisa agora?
               </h2>
             </div>
-            <Link
-              href="/contato"
-              className="flex min-h-14 items-center justify-between border border-[var(--text-inverse)] px-5 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] lg:col-span-3"
-            >
-              Diagnóstico gratuito <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            <LeadFormTrigger className="flex min-h-14 items-center justify-between border border-[var(--text-inverse)] px-5 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] lg:col-span-3">
+              Conversar sobre meu negócio <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </LeadFormTrigger>
           </div>
         </Container>
       </section>

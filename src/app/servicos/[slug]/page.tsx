@@ -70,8 +70,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         title={service.title}
         description={service.summary}
         primaryAction={{
-          label: 'Diagnóstico gratuito',
-          href: '/contato',
+          label: 'Avaliar esta solução',
+          intent: 'lead-form',
         }}
         variant="b2b"
       />
@@ -209,8 +209,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         title="Pronto para descobrir o que o seu negócio precisa agora?"
         description="No diagnóstico gratuito, entendemos o contexto antes de definir escopo, canais ou ferramentas."
         primaryAction={{
-          label: 'Diagnóstico gratuito',
-          href: '/contato',
+          label: 'Conversar sobre esta solução',
+          intent: 'lead-form',
         }}
       />
     </>

@@ -55,13 +55,13 @@ export default async function CasesPage() {
                   href="/servicos"
                   className="inline-flex h-11 items-center justify-center rounded-sm bg-[var(--text-primary)] px-6 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)]"
                 >
-                  Conhecer nossas soluções
+                  Ver soluções
                 </Link>
                 <Link
                   href="/metodo"
                   className="inline-flex h-11 items-center justify-center rounded-sm border border-[var(--border-strong)] px-6 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-subtle)]"
                 >
-                  Conhecer nosso método
+                  Ver método
                 </Link>
               </div>
             </div>
@@ -70,11 +70,11 @@ export default async function CasesPage() {
       </Section>
 
       <CtaSection
-        title="Quer ser o próximo case de sucesso da N8FLOW?"
-        description="Agende uma sessão diagnóstica com nossos consultores para avaliar o potencial de automação e escala da sua empresa."
+        title="Quer estruturar melhor sua operação?"
+        description="Vamos avaliar o que faz sentido para o seu negócio."
         primaryAction={{
-          label: 'Solicitar diagnóstico',
-          href: '/contato',
+          label: 'Conversar sobre minha operação',
+          intent: 'lead-form',
         }}
       />
     </>

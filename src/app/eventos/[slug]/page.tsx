@@ -10,6 +10,7 @@ import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 import { contentRepository } from '@/lib/content/repository'
+import { LeadFormTrigger } from '@/components/forms/lead-form-dialog'
 
 interface EventPageProps {
   params: Promise<{ slug: string }>
@@ -84,7 +85,7 @@ export default async function EventDetailPage({ params }: EventPageProps) {
 
             <div className="space-y-6 text-sm leading-relaxed text-[var(--text-secondary)]">
               <Card variant="surface" padding="md">
-                <h3 className="mb-2 flex items-center gap-2 font-display text-lg font-bold text-[var(--text-primary)]">
+                <h3 className="font-display mb-2 flex items-center gap-2 text-lg font-bold text-[var(--text-primary)]">
                   <CheckCircle2 className="h-5 w-5 text-[var(--action-primary)]" />
                   1. Arquitetura da Máquina de Vendas
                 </h3>
@@ -95,7 +96,7 @@ export default async function EventDetailPage({ params }: EventPageProps) {
               </Card>
 
               <Card variant="surface" padding="md">
-                <h3 className="mb-2 flex items-center gap-2 font-display text-lg font-bold text-[var(--text-primary)]">
+                <h3 className="font-display mb-2 flex items-center gap-2 text-lg font-bold text-[var(--text-primary)]">
                   <CheckCircle2 className="h-5 w-5 text-[var(--action-primary)]" />
                   2. Atendimento Imediato com Agentes de IA
                 </h3>
@@ -106,7 +107,7 @@ export default async function EventDetailPage({ params }: EventPageProps) {
               </Card>
 
               <Card variant="surface" padding="md">
-                <h3 className="mb-2 flex items-center gap-2 font-display text-lg font-bold text-[var(--text-primary)]">
+                <h3 className="font-display mb-2 flex items-center gap-2 text-lg font-bold text-[var(--text-primary)]">
                   <CheckCircle2 className="h-5 w-5 text-[var(--action-primary)]" />
                   3. Gestão e Acompanhamento no CRM
                 </h3>
@@ -163,13 +164,10 @@ export default async function EventDetailPage({ params }: EventPageProps) {
               </div>
 
               <div className="mt-6">
-                <Link
-                  href="/contato"
-                  className="flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--action-primary)] font-semibold text-[var(--text-inverse)] shadow-[var(--shadow-md)] transition-all hover:scale-[1.01] hover:bg-[var(--action-primary-hover)]"
-                >
+                <LeadFormTrigger className="flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--action-primary)] font-semibold text-[var(--text-inverse)] shadow-[var(--shadow-md)] transition-all hover:scale-[1.01] hover:bg-[var(--action-primary-hover)]">
                   <Ticket className="h-4 w-4" />
                   <span>Inscrever-se agora</span>
-                </Link>
+                </LeadFormTrigger>
                 <div className="mt-4 flex items-center justify-center gap-1.5 text-xs text-[var(--text-muted)]">
                   <ShieldCheck className="h-4 w-4 text-[var(--status-success)]" />
                   <span>Confirmação imediata e suporte direto</span>

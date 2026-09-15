@@ -30,6 +30,7 @@ export const siteConfig = {
 
   // Navegação principal (ADR-0007)
   navigation: [
+    { label: 'Home', href: '/' },
     { label: 'Soluções', href: '/servicos' },
     { label: 'Método', href: '/metodo' },
     { label: 'Cases', href: '/cases' },

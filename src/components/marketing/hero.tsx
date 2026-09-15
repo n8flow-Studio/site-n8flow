@@ -3,10 +3,12 @@ import Link from 'next/link'
 import { ArrowUpRight, ArrowRight } from 'lucide-react'
 import { Container } from '@/components/ui/container'
 import { cn } from '@/lib/cn'
+import { LeadFormTrigger } from '@/components/forms/lead-form-dialog'
 
 export interface HeroAction {
   label: string
-  href: string
+  href?: string
+  intent?: 'navigate' | 'lead-form'
   variant?: 'primary' | 'secondary' | 'outline'
 }
 
@@ -62,24 +64,37 @@ export function Hero({
 
             {(primaryAction || secondaryAction) && (
               <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
-                {primaryAction && (
-                  <Link
-                    href={primaryAction.href}
-                    className={cn(
-                      'action-link inline-flex min-h-13 items-center justify-center gap-3 rounded-sm border px-5 py-3 text-sm font-semibold transition-colors',
-                      primaryAction.variant === 'secondary'
-                        ? 'border-[var(--action-secondary)] bg-[var(--action-secondary)] text-white hover:bg-[var(--action-secondary-hover)]'
-                        : 'border-[var(--green-400)] bg-[var(--green-400)] text-[var(--neutral-950)] hover:bg-[var(--green-200)]',
-                    )}
-                  >
-                    {primaryAction.label}
-                    <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  </Link>
-                )}
+                {primaryAction &&
+                  (primaryAction.intent === 'lead-form' ? (
+                    <LeadFormTrigger
+                      className={cn(
+                        'action-link inline-flex min-h-13 items-center justify-center gap-3 rounded-sm border px-5 py-3 text-sm font-semibold transition-colors',
+                        primaryAction.variant === 'secondary'
+                          ? 'border-[var(--action-secondary)] bg-[var(--action-secondary)] text-white hover:bg-[var(--action-secondary-hover)]'
+                          : 'border-[var(--green-400)] bg-[var(--green-400)] text-[var(--neutral-950)] hover:bg-[var(--green-200)]',
+                      )}
+                    >
+                      {primaryAction.label}
+                      <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    </LeadFormTrigger>
+                  ) : (
+                    <Link
+                      href={primaryAction.href ?? '/'}
+                      className={cn(
+                        'action-link inline-flex min-h-13 items-center justify-center gap-3 rounded-sm border px-5 py-3 text-sm font-semibold transition-colors',
+                        primaryAction.variant === 'secondary'
+                          ? 'border-[var(--action-secondary)] bg-[var(--action-secondary)] text-white hover:bg-[var(--action-secondary-hover)]'
+                          : 'border-[var(--green-400)] bg-[var(--green-400)] text-[var(--neutral-950)] hover:bg-[var(--green-200)]',
+                      )}
+                    >
+                      {primaryAction.label}
+                      <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    </Link>
+                  ))}
 
                 {secondaryAction && (
                   <Link
-                    href={secondaryAction.href}
+                    href={secondaryAction.href ?? '/'}
                     className="action-link inline-flex min-h-13 items-center justify-center gap-3 px-3 py-3 text-sm font-semibold text-[var(--text-primary)] underline decoration-[var(--border-default)] underline-offset-8 transition-colors hover:text-[var(--text-link)]"
                   >
                     {secondaryAction.label}

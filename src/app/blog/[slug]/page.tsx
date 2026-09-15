@@ -127,13 +127,13 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
       {/* CTA Final */}
       <CtaSection
         title="Gostou do conteúdo? Dê o próximo passo."
-        description="Conheça nossa atuação ou solicite um diagnóstico da sua operação."
+        description="Conheça nossas soluções e continue explorando os conteúdos da N8FLOW."
         primaryAction={{
-          label: 'Solicitar diagnóstico',
-          href: '/contato',
+          label: 'Conhecer nossas soluções',
+          href: '/servicos',
         }}
         secondaryAction={{
-          label: 'Voltar ao Blog',
+          label: 'Ver outros conteúdos',
           href: '/blog',
         }}
       />

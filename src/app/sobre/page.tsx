@@ -120,10 +120,10 @@ export default function AboutPage() {
 
       <CtaSection
         title="Quer saber o que a N8FLOW pode fazer pelo seu negócio?"
-        description="Agende um diagnóstico gratuito e descubra o ponto de partida ideal para a sua empresa."
+        description="Converse com a N8FLOW e descubra o ponto de partida ideal para a sua empresa."
         primaryAction={{
-          label: 'Diagnóstico gratuito',
-          href: '/contato',
+          label: 'Falar com a N8FLOW',
+          intent: 'lead-form',
         }}
       />
     </>

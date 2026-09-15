@@ -4,6 +4,7 @@ import { ArrowRight, Search, Target, Cpu, BarChart3, RefreshCw } from 'lucide-re
 import { buildMetadata } from '@/lib/seo/metadata'
 import { Container } from '@/components/ui/container'
 import { Hero } from '@/components/marketing/hero'
+import { LeadFormTrigger } from '@/components/forms/lead-form-dialog'
 
 export const metadata: Metadata = buildMetadata({
   title: 'Como Trabalhamos | N8FLOW',
@@ -54,7 +55,7 @@ export default function MethodPage() {
         eyebrow="Como trabalhamos"
         title="Do diagnóstico à solução: um processo claro, do começo ao fim."
         description="A assessoria começa entendendo o que você precisa. Só depois definimos o que implementar — e acompanhamos cada resultado."
-        primaryAction={{ label: 'Diagnóstico gratuito', href: '/contato' }}
+        primaryAction={{ label: 'Aplicar este método ao meu negócio', intent: 'lead-form' }}
         secondaryAction={{ label: 'Ver nossas soluções', href: '/servicos' }}
         variant="editorial"
       />
@@ -119,12 +120,9 @@ export default function MethodPage() {
                 Clareza total sobre o que será feito, por quem e com qual objetivo.
               </h2>
             </div>
-            <Link
-              href="/contato"
-              className="flex min-h-14 items-center justify-between border border-[var(--text-primary)] bg-[var(--text-primary)] px-5 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] lg:col-span-3"
-            >
-              Diagnóstico gratuito <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            <LeadFormTrigger className="flex min-h-14 items-center justify-between border border-[var(--text-primary)] bg-[var(--text-primary)] px-5 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--violet-700)] lg:col-span-3">
+              Conversar sobre minha operação <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </LeadFormTrigger>
           </div>
         </Container>
       </section>

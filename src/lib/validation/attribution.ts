@@ -17,14 +17,13 @@ export function normalizeAttribution(value: unknown) {
       ? text.trim()
       : null
   }
-  const path =
-    typeof input.landingPage === 'string' ? input.landingPage.split(/[?#]/)[0] : '/contato'
+  const path = typeof input.landingPage === 'string' ? input.landingPage.split(/[?#]/)[0] : '/'
   // Only known marketing paths; never preserve arbitrary query strings or user IDs.
   const landingPage =
     /^\/(?:contato|servicos(?:\/[a-z0-9-]+)?|metodo|sobre|blog|cases)?$/.test(path) &&
     path.length <= 200
       ? path
-      : '/contato'
+      : '/'
   return {
     utmSource: campaign('utmSource'),
     utmMedium: campaign('utmMedium'),

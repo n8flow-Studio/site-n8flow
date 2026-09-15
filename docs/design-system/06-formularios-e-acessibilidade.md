@@ -1,5 +1,18 @@
 # 6. Formulários e acessibilidade
 
+## 6.0 Formulário global de captação
+
+O formulário de diagnóstico é apresentado em `dialog` modal global, carregado sob
+demanda. A composição usa sobreposição off-white translúcida e painel escuro editorial,
+com verde e roxo apenas como assinaturas. Desktop pode separar contexto e campos em
+duas colunas; mobile usa uma coluna e rolagem interna. O fundo não recebe interação
+enquanto o modal estiver aberto.
+
+Requisitos: `aria-labelledby`, `aria-describedby`, botão de fechar com nome acessível,
+fechamento por `Escape`, foco inicial dentro do diálogo, retorno ao disparador, foco
+visível, bloqueio de rolagem e animação curta anulada por `prefers-reduced-motion`.
+Erros, sucesso, idempotência e dados preenchidos seguem as regras deste módulo.
+
 ## 6.1 Padrão de formulário
 
 Ordem: contexto → campos essenciais → campos condicionais → consentimento → ação → feedback. Uma coluna no mobile; duas somente para campos naturalmente relacionados no desktop. Marcar opcionais explicitamente; não depender de asterisco sem legenda.
@@ -46,4 +59,3 @@ Não coletar campos sem finalidade definida. Consentimento não deve ser pré-ma
 ## 6.6 Testes mínimos
 
 Teclado, NVDA ou VoiceOver em fluxos críticos, axe automatizado, contraste, zoom 200%, reflow 320 px, redução de movimento e estados de erro. Automação não substitui teste manual.
-

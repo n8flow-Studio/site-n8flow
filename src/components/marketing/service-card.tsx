@@ -57,7 +57,7 @@ export function ServiceCard({
           href={`/servicos/${slug}`}
           className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--action-primary)] transition-all group-hover:translate-x-1"
         >
-          <span>Conhecer solução</span>
+          <span>Ver solução</span>
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
       </div>
