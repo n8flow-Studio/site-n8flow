@@ -15,7 +15,7 @@ describe('Founders', () => {
   it('reserves space without broken images or fictional biographies', () => {
     const html = renderToStaticMarkup(<Founders />)
     expect(html.match(/<img /g)).toHaveLength(1)
-    expect(html).toContain('pedro-nascimento.png')
+    expect(html).toContain('pedro-nascimento.webp')
     expect(html).toContain('alt="Pedro Nascimento, CTO e co-fundador da N8FLOW"')
     expect(html).toContain('loading="lazy"')
     expect(html.match(/class="founder-photo-reserved" aria-hidden="true"/g)).toHaveLength(1)

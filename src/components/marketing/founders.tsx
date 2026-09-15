@@ -16,7 +16,7 @@ const founders: Founder[] = [
     name: 'PEDRO NASCIMENTO',
     role: 'CTO | CO-FUNDADOR',
     photo: {
-      src: '/brand/team/pedro-nascimento.png',
+      src: '/brand/team/pedro-nascimento.webp',
       alt: 'Pedro Nascimento, CTO e co-fundador da N8FLOW',
     },
   },
