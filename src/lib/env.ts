@@ -68,12 +68,12 @@ const envSchema = z
     }
     if (value.SUPABASE_URL) {
       const url = new URL(value.SUPABASE_URL)
-      const isProduction = value.NODE_ENV === 'production' || value.VERCEL_ENV === 'production'
+      const isVercelProd = value.VERCEL_ENV === 'production'
       const isLocalhost = url.hostname === '127.0.0.1' || url.hostname === 'localhost'
 
       if (
-        (isProduction && url.protocol !== 'https:') ||
-        (!isProduction && url.protocol !== 'https:' && (!isLocalhost || url.protocol !== 'http:')) ||
+        (isVercelProd && url.protocol !== 'https:') ||
+        (!isLocalhost && url.protocol !== 'https:') ||
         url.pathname !== '/' ||
         url.search ||
         url.hash ||
