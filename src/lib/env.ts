@@ -68,8 +68,12 @@ const envSchema = z
     }
     if (value.SUPABASE_URL) {
       const url = new URL(value.SUPABASE_URL)
+      const isVercelProd = value.VERCEL_ENV === 'production'
+      const isLocalhost = url.hostname === '127.0.0.1' || url.hostname === 'localhost'
+
       if (
-        url.protocol !== 'https:' ||
+        (isVercelProd && url.protocol !== 'https:') ||
+        (!isLocalhost && url.protocol !== 'https:') ||
         url.pathname !== '/' ||
         url.search ||
         url.hash ||
@@ -79,16 +83,23 @@ const envSchema = z
         ctx.addIssue({
           code: 'custom',
           path: ['SUPABASE_URL'],
-          message: 'Informe a origem HTTPS do projeto, sem caminho ou credenciais.',
+          message: 'Informe a origem HTTPS do projeto (ou HTTP para localhost/127.0.0.1 em desenvolvimento), sem caminho ou credenciais.',
         })
       }
     }
-    if (value.SUPABASE_SECRET_KEY && !value.SUPABASE_SECRET_KEY.startsWith('sb_secret_')) {
-      ctx.addIssue({
-        code: 'custom',
-        path: ['SUPABASE_SECRET_KEY'],
-        message: 'Use uma secret key Supabase, não uma chave pública.',
-      })
+    if (value.SUPABASE_SECRET_KEY) {
+      const isProduction = value.NODE_ENV === 'production' || value.VERCEL_ENV === 'production'
+      const isValidKey =
+        value.SUPABASE_SECRET_KEY.startsWith('sb_secret_') ||
+        (!isProduction && value.SUPABASE_SECRET_KEY.startsWith('eyJ'))
+
+      if (!isValidKey) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['SUPABASE_SECRET_KEY'],
+          message: 'Use uma secret key Supabase, não uma chave pública.',
+        })
+      }
     }
     if (value.LEAD_RATE_LIMIT_SECRET && value.LEAD_RATE_LIMIT_SECRET.length < 32) {
       ctx.addIssue({
