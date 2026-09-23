@@ -1,11 +1,7 @@
 import type { Metadata } from 'next'
-import { Suspense } from 'react'
-import { AttributionCapture } from '@/components/forms/attribution-capture'
 import { LeadFormProvider } from '@/components/forms/lead-form-dialog'
 import { Anton, Inter } from 'next/font/google'
-import { SkipLink } from '@/components/layout/skip-link'
-import { Header } from '@/components/layout/header'
-import { Footer } from '@/components/layout/footer'
+import { SiteChrome } from '@/components/layout/site-chrome'
 import './globals.css'
 
 // ---------------------------------------------------------------------------
@@ -78,16 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" data-theme="light" className={`${display.variable} ${inter.variable}`}>
       <body className="bg-[var(--bg-canvas)] font-sans text-[var(--text-primary)] antialiased">
         <LeadFormProvider>
-          {/* Skip link para acessibilidade — WCAG 2.2 AA (DS §6.3) */}
-          <SkipLink />
-          <Suspense fallback={null}>
-            <AttributionCapture />
-          </Suspense>
-          <Header />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
+          <SiteChrome>{children}</SiteChrome>
         </LeadFormProvider>
       </body>
     </html>

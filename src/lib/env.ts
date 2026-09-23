@@ -36,6 +36,7 @@ const envSchema = z
     NEXT_PUBLIC_GTM_ID: z.string().optional(),
     NEXT_PUBLIC_GA_ID: z.string().optional(),
     NEXT_PUBLIC_META_PIXEL_ID: z.string().optional(),
+    NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().optional(),
 
     // Server-only — integrações
     N8N_WEBHOOK_URL: optionalUrl,
